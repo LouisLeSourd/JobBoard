@@ -12,4 +12,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  job(): void {
+    console.log('job');
+  }
+
+  offer(): void {
+    console.log('offer');
+  }
+
 }
