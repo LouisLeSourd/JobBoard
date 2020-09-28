@@ -36,6 +36,8 @@ CREATE TABLE IF NOT EXISTS Companie (
 CREATE TABLE IF NOT EXISTS Advertisement (
 	adv_id smallint(5) unsigned NOT NULL AUTO_INCREMENT,
     adv_title varchar(255),
+    adv_secteur varchar(255) DEFAULT NULL,
+    adv_duree_contrat int(255) DEFAULT NULL,
     adv_description text DEFAULT NULL,
     cpn_id smallint(5) unsigned,
     cpn_name varchar(100),
