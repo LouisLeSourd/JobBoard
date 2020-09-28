@@ -11,7 +11,6 @@ SET time_zone = "+00:00";
 --
 use JobBoard;
 -- --------------------------------------------------------
-DROP TABLE IF EXISTS Informations;
 DROP TABLE IF EXISTS Advertisement;
 DROP TABLE IF EXISTS Companie;
 DROP TABLE IF EXISTS User;
@@ -28,14 +27,12 @@ CREATE TABLE IF NOT EXISTS Companie (
 	cpn_email varbinary(100) DEFAULT NULL,
     cpn_description text DEFAULT NULL,
     PRIMARY KEY (cpn_id),
-    UNIQUE KEY ind_uni_cpn_id (cpn_id),
     UNIQUE KEY ind_uni_cpn_name (cpn_name),
     UNIQUE KEY ind_uni_cpn_email (cpn_email)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS Advertisement (
 	adv_id smallint(5) unsigned NOT NULL AUTO_INCREMENT,
-    adv_title varchar(255),
     adv_description text DEFAULT NULL,
     cpn_id smallint(5) unsigned,
     cpn_name varchar(100),
@@ -53,24 +50,10 @@ CREATE TABLE IF NOT EXISTS User (
   user_city varchar(60) DEFAULT NULL,
   user_country varchar(60) DEFAULT NULL,
   user_email varbinary(100) DEFAULT NULL,
-  user_description text DEFAULT NULL,
   role varchar(60) DEFAULT 'visiteur',
   user_birth date DEFAULT NULL,
   PRIMARY KEY (user_id),
-  UNIQUE KEY ind_uni_user_id (user_id),
   UNIQUE KEY ind_uni_user_email (user_email)
 ) ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS Informations (
-	text_email text DEFAULT NULL,
-	cpn_id smallint(5) unsigned,
-    user_id smallint(5) unsigned,
-    user_email varbinary(100),
-    cpn_email varbinary(100),
-    adv_id smallint(5) unsigned,
-    CONSTRAINT fk_user_id_info FOREIGN KEY (user_id) REFERENCES User(user_id),
-    CONSTRAINT fk_user_email_info FOREIGN KEY (user_email) REFERENCES User(user_email),
-    CONSTRAINT fk_adv_id_info FOREIGN KEY (adv_id) REFERENCES Advertisement(adv_id),
-    CONSTRAINT fk_cpn_email_info FOREIGN KEY (cpn_email) REFERENCES Companie(cpn_email),
-    CONSTRAINT fk_cpn_id_info FOREIGN KEY (cpn_id) REFERENCES Companie(cpn_id)
-) ENGINE=InnoDB;
+
