@@ -8,6 +8,3 @@
 
 // Supprimer une branche
     git branch -d [nom de la branche]
-
-// Fusion de branche
-    git merge [nom de la branche]
