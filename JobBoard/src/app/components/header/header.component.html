@@ -1,0 +1,33 @@
+<header class="body">
+  <div class="flex-direction-row space-around margin-side60 flex-align-center">
+    <a class="flex-align-center padding-side20 align-self-center"
+       (click)="goToHomePage()">
+      <img class="icons40px" src="assets/icons/logo.png" alt>
+      <span class="light-deep-green margin-left20 font30 font-cursive">JobBoard</span>
+    </a>
+    <div class="flex flex-align-center">
+      <a (click)="offer()" [class.active-page]="displayBorderBottom(page.OFFER)"
+         class="flex-align-center padding-side20 hover-green">
+        <span>Offres</span>
+      </a>
+      <a (click)="job()" [class.active-page]="displayBorderBottom(page.JOB)"
+         class="flex-align-center padding-side20 hover-green">
+        <span>Métiers</span>
+      </a>
+      <button mat-button [matMenuTriggerFor]="account" class="flex-align-center padding-side20 margin-left40 align-self-center">
+        <mat-menu #account="matMenu" xPosition="before">
+          <button mat-menu-item>
+            <mat-icon svgIcon="connexion" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+            <span class="padding-side20">Connexion</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon svgIcon="inscription" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+            <span class="padding-side20">Inscription</span><br>
+          </button>
+        </mat-menu>
+        <img class="icons25px vertical-align" src="assets/icons/users.png" alt>
+        <span class="light-deep-green vertical-align margin-side10">Mon compte</span>
+      </button>
+    </div>
+  </div>
+</header>

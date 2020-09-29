@@ -1,0 +1,121 @@
+/* You can add global styles to this file, and also import other style files */
+
+.icons25px {
+  height: 25px;
+  width: 25px;
+}
+
+.icons40px {
+  height: 40px;
+  width: 40px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: none, serif !important;
+  font-size: 16px !important;
+}
+
+.height100 {
+  height: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.flex-direction-row {
+  flex-direction: row;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.margin-right10 {
+  margin-right: 10px;
+}
+
+.margin-right20 {
+  margin-right: 20px;
+}
+
+.margin-left10 {
+  margin-left: 10px;
+}
+
+.margin-left20 {
+  margin-left: 20px;
+}
+
+.margin-left40 {
+  margin-left: 40px !important;
+}
+
+.margin-side10 {
+  margin: 0 10px 0 10px;
+}
+
+.padding-side20 {
+  padding: 0 20px 0 20px;
+}
+
+.margin-side60 {
+  margin: 0 60px 0 60px;
+}
+
+.align-item-center {
+  align-items: center;
+}
+
+.light-green {
+  color: #4dc942;
+}
+
+.light-deep-green {
+  color: #00a34d;
+}
+
+.margin10 {
+  margin: 10px;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.vertical-align {
+  vertical-align: middle;
+}
+
+.font30 {
+  font-size: 30px;
+}
+
+.font-cursive {
+  font-family: cursive;
+}
+
+.hover-green:hover {
+  color: #00a34d;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.active-page {
+  border-bottom: 4px solid #00a34d;
+  color: #00a34d;
+}
+
+.flex-align-center {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
