@@ -8,17 +8,29 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { MainContentComponent } from './components/main-content/main-content.component';
+import { HomeComponent } from './components/home/home.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {HttpClientModule} from '@angular/common/http';
+import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
+import { MainComponent } from './components/main.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { OffersComponent } from './components/offers/offers.component';
+import { CompanyComponent } from './components/company/company.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    MainComponent,
     HeaderComponent,
     FooterComponent,
-    MainContentComponent
+    HomeComponent,
+    PageNotFoundComponent,
+    LoginComponent,
+    SignInComponent,
+    OffersComponent,
+    CompanyComponent
   ],
   imports: [
     BrowserModule,

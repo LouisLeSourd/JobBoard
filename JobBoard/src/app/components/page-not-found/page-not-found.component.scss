@@ -1,0 +1,23 @@
+:host {
+
+  #page-not-found-page {
+    position: absolute;
+    font-size: 200px;
+    font-weight: bold;
+    color: red;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .error {
+      position: absolute;
+      font-size: 200px;
+      font-weight: bold;
+      color: red;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+}
