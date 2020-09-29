@@ -1,4 +1,4 @@
-INSERT INTO Companie (cpn_id, cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
+INSERT INTO Company (cpn_id, cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
 	cpn_turnover, cpn_email, cpn_description, cpn_social_media) 
 VALUES
 (0, 'Enabler of energy & digital revolutions', 'Assystem', 'Ingénierie mondiale', 1966, 'Dominique Louis', '9-11 Allée de l Arche, 92400 Courbevoie',6000,
@@ -35,3 +35,7 @@ Vous assurez les missions suivantes :
 INSERT INTO User (user_id,user_name, user_surname, user_adress, user_posta_code, user_city, user_country, user_graduation, user_pwssd, user_email, user_description, role, user_birth)
 	VALUES
     (0, 'Le Sourd', 'Louis', '8 contours du chatelet', 35310, 'Bréal sous Monfort', 'France', 'DUT info', 'louis', 'louis.le-sourd@epitech.eu', 'Description de moi', 'Utilisateur', DATE '1999-08-18');
+    
+    INSERT INTO User (user_id,user_name, user_surname, user_adress, user_posta_code, user_city, user_country, user_graduation, user_pwssd, user_email, user_description, role, user_birth)
+	VALUES
+    (1, 'Robin', 'Benoit', 'en coloc', 35000, 'Rennes', 'France', 'BTS info', 'louis', 'benoit.robin@epitech.eu', 'Description de moi', 'Admin', DATE '2000-08-18');
