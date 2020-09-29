@@ -31,3 +31,7 @@ Vous assurez les missions suivantes :
       Assister aux différentes réunions de conception tout corps d’état',
       0, 'Enabler of energy & digital revolutions', 'Assystem', 'Ingénierie mondiale'
 	);
+    
+INSERT INTO User (user_id,user_name, user_surname, user_adress, user_posta_code, user_city, user_country, user_graduation, user_pwssd, user_email, user_description, role, user_birth)
+	VALUES
+    (0, 'Le Sourd', 'Louis', '8 contours du chatelet', 35310, 'Bréal sous Monfort', 'France', 'DUT info', 'louis', 'louis.le-sourd@epitech.eu', 'Description de moi', 'Utilisateur', DATE '1999-08-18');

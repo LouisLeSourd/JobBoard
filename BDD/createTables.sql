@@ -79,12 +79,12 @@ CREATE TABLE IF NOT EXISTS User (
 	user_name varchar(100) NOT NULL, -- user name
 	user_surname varchar(60) NOT NULL, -- user surname
 	user_adress varchar(200) DEFAULT NULL, -- user adress
-	user_posta_code varchar(6) DEFAULT NULL, -- user postal code
+	user_posta_code int(5) DEFAULT NULL, -- user postal code
 	user_city varchar(60) DEFAULT NULL, -- user city
 	user_country varchar(60) DEFAULT NULL, -- user country
 	user_graduation varchar(60) DEFAULT NULL, -- user diplomas
 	user_pwssd varchar(60) DEFAULT NULL, -- user password
-	user_email varbinary(100) DEFAULT NULL, -- user email
+	user_email varchar(100) DEFAULT NULL, -- user email
 	user_description text DEFAULT NULL, -- description of the user
 	role varchar(60) DEFAULT 'visiteur', -- user type (visitor, normal user, admin, companie repre)
 	user_birth date DEFAULT NULL, -- date of user birth
