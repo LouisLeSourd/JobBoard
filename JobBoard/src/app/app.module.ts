@@ -18,6 +18,8 @@ import { LoginComponent } from './components/login/login.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { OffersComponent } from './components/offers/offers.component';
 import { CompanyComponent } from './components/company/company.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormField, MatFormFieldModule, MatLabel} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { CompanyComponent } from './components/company/company.component';
     MatDialogModule,
     MatMenuModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
