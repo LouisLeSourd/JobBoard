@@ -25,7 +25,7 @@ Ils accompagnent les plus grands projets de l’ingénierie mondiale dans les do
 'Twitter:https://twitter.com/Assystem LinkedIn:https://www.linkedin.com/company/assystem/');
 
 INSERT INTO Advertisement (adv_id, adv_title, adv_city, adv_country, adv_sector,
-	adv_fonction, adv_publication_date, adv_contract_type, adv_beginning_contract, adv_required_exp, adv_language, adv_contract_duration, adv_description,
+	adv_function, adv_publication_date, adv_contract_type, adv_beginning_contract, adv_required_exp, adv_language, adv_contract_duration, adv_description,
     cpn_id, cpn_field, cpn_name, cpn_size)
     VALUES
     (0, 'Ingénieur Développement UX/UI - H/F', 'Saint-Priest', 'France', 
@@ -46,7 +46,7 @@ Vous assurez les missions suivantes :
 	);
     
 INSERT INTO Advertisement (adv_id, adv_title, adv_city, adv_country, adv_sector,
-	adv_fonction, adv_publication_date, adv_contract_type, adv_beginning_contract, adv_required_exp, adv_language, adv_contract_duration, adv_description,
+	adv_function, adv_publication_date, adv_contract_type, adv_beginning_contract, adv_required_exp, adv_language, adv_contract_duration, adv_description,
     cpn_id, cpn_field, cpn_name, cpn_size)
     VALUES
     (1, 'Ingénieur Développement UX/UI - H/F', 'Paris', 'France', 
