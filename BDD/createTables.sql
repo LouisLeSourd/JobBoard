@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS Advertisement (
 	adv_city varchar(60) DEFAULT NULL, -- Company city (for the ad)
     adv_country varchar(60) DEFAULT NULL, -- Company country (for the ad)
     adv_sector varchar(255) DEFAULT NULL, -- ad activity sector
-    adv_fonction varchar(255) DEFAULT NULL, -- employement promoted by the ad
+    adv_function varchar(255) DEFAULT NULL, -- employement promoted by the ad
     adv_publication_date date, -- date of publication
     adv_contract_type varchar(255), -- type of contact
     adv_beginning_contract date DEFAULT NULL, -- beginning of the employement
