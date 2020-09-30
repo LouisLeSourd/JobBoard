@@ -33,3 +33,7 @@ select adv_title, cpn_name, adv_contract_type, adv_city, adv_country, adv_public
 select adv_title, cpn_name, adv_contract_type, adv_city, adv_country, adv_publication_date from Advertisement WHERE adv_required_exp='BAC +2';
 -- Select the card attributes of an Advertisement according to its size and the languages required
 select adv_title, cpn_name, adv_contract_type, adv_city, adv_country, adv_publication_date, adv_language from Advertisement WHERE adv_language like '%French%';
+
+-- USER QUERIES
+-- Check if User exists according to name and password
+select user_id FROM User WHERE user_email='louis.le-sourd@epitech.eu' and user_pwssd='louis';
