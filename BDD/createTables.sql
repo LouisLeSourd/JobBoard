@@ -36,8 +36,8 @@ CREATE TABLE IF NOT EXISTS Company (
     -- UNIQUES KEYS
     UNIQUE KEY ind_uni_cpn_id (cpn_id),
     UNIQUE KEY ind_uni_cpn_name (cpn_name),
-    UNIQUE KEY ind_uni_cpn_size (cpn_size),
-    UNIQUE KEY ind_uni_cpn_field (cpn_field),
+    KEY ind_uni_cpn_size (cpn_size),
+    KEY ind_uni_cpn_field (cpn_field),
     UNIQUE KEY ind_uni_cpn_email (cpn_email)
 ) ENGINE=InnoDB;
 --
@@ -53,8 +53,9 @@ CREATE TABLE IF NOT EXISTS Advertisement (
     adv_sector varchar(255) DEFAULT NULL, -- ad activity sector
     adv_fonction varchar(255) DEFAULT NULL, -- employement promoted by the ad
     adv_publication_date date, -- date of publication
+    adv_contract_type varchar(255), -- type of contact
     adv_beginning_contract date DEFAULT NULL, -- beginning of the employement
-    adv_required_exp int(255) DEFAULT NULL, -- minimum professional experience
+    adv_required_exp varchar(255) DEFAULT NULL, -- minimum professional experience
     adv_language varchar(255) DEFAULT 'French', -- language required for the employement
     adv_contract_duration int(255) DEFAULT NULL, -- duration of the employement promoted by the ad
     adv_description text DEFAULT NULL, -- description of the employement in month
