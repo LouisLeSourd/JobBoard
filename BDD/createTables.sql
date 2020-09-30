@@ -9,7 +9,7 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  'createTables'
 --
-use JobBoard;
+-- use JobBoard;
 -- --------------------------------------------------------
 DROP TABLE IF EXISTS Informations;
 DROP TABLE IF EXISTS Advertisement;
