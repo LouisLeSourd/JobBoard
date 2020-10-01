@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Company } from 'src/app/models/enum';
+import {Company} from 'src/app/models/models';
 import {DataService} from "../../services/data.service";
 
 @Component({
@@ -15,6 +15,7 @@ export class CompanyComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCompanies();
+    this.getCompaniesWithId(1);
   }
 
   private getCompanies():void {
@@ -25,8 +26,8 @@ export class CompanyComponent implements OnInit {
     });
   }
 
-  private getCompanies():void {
-    this.dataService.getCompanies$().subscribe(companies => {
+  private getCompaniesWithId(idCompany: number):void {
+    this.dataService.getCompaniesWithId$(idCompany).subscribe(companies => {
       if (companies) {
         this.companies = companies;
       }
