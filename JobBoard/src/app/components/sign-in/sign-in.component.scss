@@ -1,0 +1,28 @@
+:host {
+
+  .section-sign-in {
+    margin: calc(2rem * 2) calc(4rem * 2);
+  }
+
+  @media (min-width: 1024px) {
+
+    mat-card-title {
+      width: 100%;
+      .first-div {
+        //max-width: 500px;
+      }
+      margin: 20px;
+      line-height: 30px;
+    }
+
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+
+  }
+
+  @media (max-width: 767px) {
+
+  }
+
+}

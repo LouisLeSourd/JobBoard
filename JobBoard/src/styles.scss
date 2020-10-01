@@ -93,7 +93,7 @@ body {
 
 .margin-padding-0 {
   margin: 0;
-  padding: 0;
+  padding: 0 !important;
 }
 
 .margin-bottom32 {
@@ -164,3 +164,16 @@ a:hover {
 .width50 {
   width: 50%;
 }
+
+.width100 {
+  width: 100%;
+}
+
+.height50px {
+  height: 50px;
+}
+
+.height80 {
+  height: 80%;
+}
+
