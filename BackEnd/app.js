@@ -28,7 +28,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 // http://localhost:3000/users/
 app.use('/advertisements', advertisementsRouter);
-// http://localhost:3000/users/
+// http://localhost:3000/advertisements/
 app.use('/companies', companiesRouter);
 // http://localhost:3000/companies/
 app.use('/company', companyRouter);
