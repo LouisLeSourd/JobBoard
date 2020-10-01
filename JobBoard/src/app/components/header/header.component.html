@@ -14,19 +14,37 @@
          class="flex-align-center padding-side20 hover-green">
         <span>Offres</span>
       </a>
-      <button mat-button [matMenuTriggerFor]="account" class="flex-align-center padding-side20 margin-left40 align-self-center">
+      <button mat-button *ngIf="!isConnect" [matMenuTriggerFor]="account" class="flex-align-center padding-side20 margin-left40 align-self-center">
         <mat-menu #account="matMenu" xPosition="before">
           <button mat-menu-item (click)="goTo(page.LOGIN)">
-            <mat-icon svgIcon="connexion" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+            <mat-icon svgIcon="connexion" aria-hidden="false"></mat-icon>
             <span class="padding-side20">Connexion</span>
           </button>
           <button mat-menu-item (click)="goTo(page.SIGN_IN)">
-            <mat-icon svgIcon="inscription" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+            <mat-icon svgIcon="inscription" aria-hidden="false"></mat-icon>
             <span class="padding-side20">Inscription</span><br>
           </button>
         </mat-menu>
         <img class="icons25px vertical-align" src="assets/icons/users.png" alt>
         <span class="light-deep-green vertical-align margin-side10">Mon compte</span>
+      </button>
+      <button mat-button *ngIf="isConnect" [matMenuTriggerFor]="profile" class="flex-align-center padding-side20 margin-left40 align-self-center">
+        <mat-menu #profile="matMenu" xPosition="before">
+          <button mat-menu-item (click)="goTo(page.PROFILE)">
+            <mat-icon svgIcon="profile" aria-hidden="false"></mat-icon>
+            <span class="padding-side20">Mon profil</span>
+          </button>
+          <button mat-menu-item (click)="goTo(page.USER_SETTINGS)">
+            <mat-icon svgIcon="settings" aria-hidden="false"></mat-icon>
+            <span class="padding-side20">Paramètres</span><br>
+          </button>
+          <button mat-menu-item (click)="goTo(page.DECONNECTION)">
+            <mat-icon svgIcon="deconnection" aria-hidden="false"></mat-icon>
+            <span class="padding-side20">Déconnexion</span><br>
+          </button>
+        </mat-menu>
+        <img class="icons25px vertical-align" src="assets/icons/users.png" alt>
+        <span class="light-deep-green vertical-align margin-side10">Bonjour !</span>
       </button>
     </div>
   </div>

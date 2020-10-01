@@ -20,7 +20,6 @@ export class OffersComponent implements OnInit {
   private getOffersWithId(): void {
 
     const offerFilter: OfferFilter = {
-      adv_city: 'Paris',
       adv_country: 'France',
       adv_function: 'Génie Civil & Structures',
       adv_contract_type: 'CDI',

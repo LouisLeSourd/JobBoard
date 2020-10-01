@@ -23,6 +23,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {FormsModule} from '@angular/forms';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import {FormsModule} from '@angular/forms';
     LoginComponent,
     SignInComponent,
     OffersComponent,
-    CompanyComponent
+    CompanyComponent,
+    UserProfileComponent,
+    UserSettingsComponent
   ],
   imports: [
     BrowserModule,

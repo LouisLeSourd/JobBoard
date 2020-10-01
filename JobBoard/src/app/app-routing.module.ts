@@ -6,6 +6,8 @@ import {SignInComponent} from './components/sign-in/sign-in.component';
 import {OffersComponent} from './components/offers/offers.component';
 import {CompanyComponent} from './components/company/company.component';
 import {HomeComponent} from './components/home/home.component';
+import {UserProfileComponent} from './components/user-profile/user-profile.component';
+import {UserSettingsComponent} from './components/user-settings/user-settings.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -13,6 +15,8 @@ const routes: Routes = [
   {path: 'offers', component: OffersComponent},
   {path: 'login', component: LoginComponent},
   {path: 'sign-in', component: SignInComponent},
+  {path: 'user/profile', component: UserProfileComponent},
+  {path: 'user/settings', component: UserSettingsComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 

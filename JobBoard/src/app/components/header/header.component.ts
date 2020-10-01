@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
 
   public page = Page;
   public currentPage: Page = Page.HOME_PAGE;
+  public isConnect: boolean;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -22,6 +23,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isConnect = true;
   }
 
   goTo(page): void {
@@ -42,6 +44,16 @@ export class HeaderComponent implements OnInit {
       case Page.SIGN_IN:
         this.router.navigate(['/sign-in']);
         break;
+      case Page.DECONNECTION:
+        this.isConnect = false;
+        this.router.navigate(['']);
+        break;
+      case Page.PROFILE:
+        this.router.navigate(['/user/profile']);
+        break;
+      case Page.USER_SETTINGS:
+        this.router.navigate(['/user/settings']);
+        break;
     }
   }
 
@@ -56,6 +68,15 @@ export class HeaderComponent implements OnInit {
     iconRegistry.addSvgIcon(
         'inscription',
         sanitizer.bypassSecurityTrustResourceUrl('assets/icons/user.svg'));
+    iconRegistry.addSvgIcon(
+        'profile',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/utilisateur.svg'));
+    iconRegistry.addSvgIcon(
+        'settings',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/parametres.svg'));
+    iconRegistry.addSvgIcon(
+        'deconnection',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/prise.svg'));
   }
 
 }

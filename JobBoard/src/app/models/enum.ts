@@ -3,7 +3,10 @@ export enum Page {
     OFFER = 'OFFER',
     COMPANY = 'COMPANY',
     LOGIN = 'LOGIN',
-    SIGN_IN = 'SIGN_IN'
+    SIGN_IN = 'SIGN_IN',
+    DECONNECTION = 'DECONNECTION',
+    PROFILE = 'PROFILE',
+    USER_SETTINGS = 'USER_SETTINGS'
 }
 
 

@@ -51,6 +51,10 @@ p {
   margin-right: 20px;
 }
 
+.margin-right32 {
+  margin-right: 32px !important;
+}
+
 .margin-left10 {
   margin-left: 10px;
 }
@@ -105,6 +109,10 @@ p {
 
 .margin10 {
   margin: 10px;
+}
+
+.margin20 {
+  margin: 20px;
 }
 
 .margin0 {
@@ -215,4 +223,38 @@ a:hover {
 
 .relative {
   position: relative;
+}
+
+.width70 {
+  width: 70%;
+}
+
+.width75 {
+  width: 75%;
+}
+
+.width90 {
+  width: 90%;
+}
+
+.margin-auto {
+  margin: auto;
+}
+
+.margin-top-bottom5 {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.margin-top-bottom15 {
+  margin-top: 15% !important;
+  margin-bottom: 15% !important;
+}
+
+.border-radius0 {
+  border-radius: 0 !important;
+}
+
+.margin-bottom0 {
+  margin-bottom: 0 !important;
 }

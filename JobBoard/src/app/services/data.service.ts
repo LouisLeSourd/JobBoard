@@ -30,8 +30,7 @@ export class DataService {
         const body = {
             offerFilter: offerFilter
         }
-        console.log('FILTERS');
-        return this.http.post('http://localhost:3000/offer/toto', body);
+        return this.http.post('http://localhost:3000/offer/filters', body);
     }
 
     postUser$(
