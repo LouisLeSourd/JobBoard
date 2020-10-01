@@ -20,7 +20,9 @@ import { OffersComponent } from './components/offers/offers.component';
 import { CompanyComponent } from './components/company/company.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
-import {MatFormField, MatFormFieldModule, MatLabel} from '@angular/material/form-field';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import {MatFormField, MatFormFieldModule, MatLabel} from '@angular/material/form
     MatCardModule,
     HttpClientModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatCheckboxModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

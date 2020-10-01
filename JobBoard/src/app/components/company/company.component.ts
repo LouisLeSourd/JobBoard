@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Company } from 'src/app/models/enum';
+import {DataService} from "../../services/data.service";
 
 @Component({
   selector: 'app-company',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyComponent implements OnInit {
 
-  constructor() { }
+  public companies: Company[] = [];
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.getCompanies();
   }
+
+  private getCompanies():void {
+    this.dataService.getCompanies$().subscribe(companies => {
+      if (companies) {
+        this.companies = companies;
+      }
+    });
+  }
+
 
 }

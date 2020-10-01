@@ -15,6 +15,10 @@ body {
   font-size: 16px !important;
 }
 
+p {
+  text-align: justify;
+}
+
 .height100 {
   height: 100%;
 }
@@ -33,6 +37,10 @@ body {
 
 .space-around {
   justify-content: space-around;
+}
+
+.space-between {
+  justify-content: space-between;
 }
 
 .margin-right10 {
@@ -60,7 +68,11 @@ body {
 }
 
 .padding-side20 {
-  padding: 0 20px 0 20px;
+  padding: 0 20px 0 20px !important;
+}
+
+.padding-right32 {
+  padding-right: 32px !important;
 }
 
 .margin-side60 {
@@ -93,6 +105,14 @@ body {
 
 .margin10 {
   margin: 10px;
+}
+
+.margin0 {
+  margin: 0 !important;
+}
+
+.margin40 {
+  margin: 40px !important;
 }
 
 .margin-padding-0 {
@@ -173,6 +193,10 @@ a:hover {
   font-weight: bold !important;
 }
 
+.max-width50 {
+  max-width: 50%;
+}
+
 .width50 {
   width: 50%;
 }
@@ -188,7 +212,6 @@ a:hover {
 .height80 {
   height: 80%;
 }
-
 
 .relative {
   position: relative;
