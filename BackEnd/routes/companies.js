@@ -40,8 +40,8 @@ router.get('/size=:size', function(req, res, next) {
         res.send(result);
     })
 });
-// correspond a la route http://localhost:3000/companies/size= size/field=le field
-router.get('/size=:size/field=:field', function(req, res, next) {
+// correspond a la route http://localhost:3000/companies/size=size/field=field
+router.get('/field=:field/size=:size', function(req, res, next) {
     var field = req.params.field;
     var size = req.params.size;
     bdd.query("select cpn_name, cpn_size, cpn_employees_number, cpn_field from Company WHERE cpn_size = '" + size + "'and cpn_field='" + field + "';", (err, result, fields) => {
