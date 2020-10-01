@@ -1,0 +1,25 @@
+:host {
+
+  .section-connection {
+
+    display: block;
+    margin: calc(5rem * 2) calc(10rem * 2);
+
+    .forgot-pwd {
+      color: #00a34d;
+      text-decoration: underline;
+    }
+
+    p {
+      color: #4dc942;
+      span {
+        color: #00a34d;
+      }
+      span:hover {
+        text-decoration: underline;
+      }
+    }
+
+  }
+
+}

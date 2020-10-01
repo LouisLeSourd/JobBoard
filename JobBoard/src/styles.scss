@@ -87,6 +87,10 @@ body {
   color: #fff;
 }
 
+.grey {
+  color: grey;
+}
+
 .margin10 {
   margin: 10px;
 }
@@ -104,6 +108,10 @@ body {
   margin-top: 32px !important;
 }
 
+.margin-top-bottom40 {
+  margin: 40px 0 !important;
+}
+
 .align-self-center {
   align-self: center;
 }
@@ -113,7 +121,11 @@ body {
 }
 
 .font30 {
-  font-size: 30px;
+  font-size: 30px !important;
+}
+
+.font40 {
+  font-size: 40px !important;
 }
 
 .font50 {
@@ -177,3 +189,7 @@ a:hover {
   height: 80%;
 }
 
+
+.relative {
+  position: relative;
+}
