@@ -3,9 +3,9 @@ var router = express.Router();
 var bdd = require('./module/bdd')
 
 /* GET users listing. */
-// correspond a la route http://localhost:3000/users/
+// correspond a la route http://localhost:3000/companies/
 router.get('/', function(req, res, next) {
-    bdd.query("SELECT * from User", (err, result, fields) => {
+    bdd.query("SELECT * from Company", (err, result, fields) => {
         if (err) throw err;
         console.log(result);
         res.send(result);
