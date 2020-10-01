@@ -21,6 +21,8 @@ export class DataService {
         let body = {
             name: name
         }
+        console.log('postUser$');
+        // let test: Observable<any> = this.http.post('http://localhost:3000/users/add', body);
         return this.http.post('http://localhost:3000/users/add', body);
     }
 

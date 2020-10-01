@@ -45,7 +45,9 @@ export class SignInComponent implements OnInit {
   }
 
   addUser(): void {
-    this.dataService.postUser$(this.name);
+    this.dataService.postUser$(this.name).subscribe(result => {
+      console.log('okokokok');
+    });
   }
 
 }

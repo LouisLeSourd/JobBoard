@@ -25,5 +25,13 @@ export class CompanyComponent implements OnInit {
     });
   }
 
+  private getCompanies():void {
+    this.dataService.getCompanies$().subscribe(companies => {
+      if (companies) {
+        this.companies = companies;
+      }
+    });
+  }
+
 
 }
