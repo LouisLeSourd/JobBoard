@@ -14,7 +14,7 @@ Ils accompagnent les plus grands projets de l’ingénierie mondiale dans les do
 INSERT INTO Company (cpn_id, cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
 	cpn_turnover, cpn_email, cpn_description, cpn_social_media) 
 VALUES
-(1, 'Enabler of energy & digital revolutions', 'AssystemD', 'Ingénierie nationnale', 1966, 'Dominique Louis', '9-11 Allée de l Arche, 92400 Courbevoie',6000,
+(1, 'Enabler of energy & digital revolutions', 'AssystemD', 'Ingénierie nationale', 1966, 'Dominique Louis', '9-11 Allée de l Arche, 92400 Courbevoie',6000,
 497500000, 'contact2@assystem.eu', 
 'Assystem accompagne les autorités publiques, les opérateurs et les équipementiers pour développer, 
 exécuter et livrer des projets d’infrastructures critiques et complexes.
