@@ -7,6 +7,7 @@ var cors = require("cors")
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var companiesRouter = require('./routes/companies');
+var companyRouter = require('./routes/company');
 var advertisementsRouter = require('./routes/advertisements');
 
 var app = express();
@@ -27,8 +28,10 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 // http://localhost:3000/users/
 app.use('/advertisements', advertisementsRouter);
-// http://localhost:3000/users/
+// http://localhost:3000/advertisements/
 app.use('/companies', companiesRouter);
 // http://localhost:3000/companies/
+app.use('/company', companyRouter);
+// http://localhost:3000/company/
 
 module.exports = app;
