@@ -18,6 +18,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { OffersComponent } from './components/offers/offers.component';
 import { CompanyComponent } from './components/company/company.component';
+import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormField, MatFormFieldModule, MatLabel} from '@angular/material/form-field';
 
@@ -42,6 +43,8 @@ import {MatFormField, MatFormFieldModule, MatLabel} from '@angular/material/form
     MatDialogModule,
     MatMenuModule,
     MatIconModule,
+    HttpClientModule,
+    MatCardModule,
     HttpClientModule,
     MatInputModule,
     MatFormFieldModule
