@@ -29,7 +29,7 @@ router.post('/filters', function(req, res, next) {
         if (err) throw err;
         console.log(result);
         res.send(result);
-    })
+    });
 });
 
 function addCondition(conditionObject, conditionString, request) {

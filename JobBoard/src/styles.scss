@@ -24,7 +24,7 @@ p {
 }
 
 .flex {
-  display: flex;
+  display: flex !important;
 }
 
 .flex-direction-column {
@@ -148,6 +148,10 @@ p {
   vertical-align: middle;
 }
 
+.font18 {
+  font-size: 18px !important;
+}
+
 .font30 {
   font-size: 30px !important;
 }
@@ -179,8 +183,16 @@ a:hover {
 
 .flex-align-center {
   height: 100%;
-  display: flex;
+  display: flex !important;
   align-items: center;
+}
+
+.align-items-center{
+  align-items: center;
+}
+
+.justify-content-center {
+  justify-content: center;
 }
 
 .main-content {
@@ -225,6 +237,18 @@ a:hover {
   position: relative;
 }
 
+.width25 {
+  width: 25%;
+}
+
+.width30 {
+  width: 30%;
+}
+
+.width65 {
+  width: 65%;
+}
+
 .width70 {
   width: 70%;
 }
@@ -246,6 +270,11 @@ a:hover {
   margin-bottom: 5%;
 }
 
+.margin-top-bottom5 {
+  margin-top: 5% !important;
+  margin-bottom: 5% !important;
+}
+
 .margin-top-bottom15 {
   margin-top: 15% !important;
   margin-bottom: 15% !important;
@@ -257,4 +286,8 @@ a:hover {
 
 .margin-bottom0 {
   margin-bottom: 0 !important;
+}
+
+.width80 {
+  width: 80%;
 }
