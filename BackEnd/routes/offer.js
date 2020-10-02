@@ -6,7 +6,7 @@ var bdd = require('./module/bdd')
 // correspond a la route http://localhost:3000/offer/id=id
 router.get('/id=:id', function(req, res, next) {
     var id = req.params.id;
-    bdd.query("SELECT * from Offer where ", (err, result, fields) => {
+    bdd.query("SELECT * from Offer where offer_id = '" + id + "';", (err, result, fields) => {
         if (err) throw err;
         console.log(result);
         res.send(result);
