@@ -25,6 +25,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {FormsModule} from '@angular/forms';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
+import { DialogUpdateProfileComponent } from './dialogs/dialog-update-profile/dialog-update-profile.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import { UserSettingsComponent } from './components/user-settings/user-settings.
     OffersComponent,
     CompanyComponent,
     UserProfileComponent,
-    UserSettingsComponent
+    UserSettingsComponent,
+    DialogUpdateProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -55,9 +59,13 @@ import { UserSettingsComponent } from './components/user-settings/user-settings.
     MatInputModule,
     MatFormFieldModule,
     MatCheckboxModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
-  providers: [],
+  providers: [
+      DialogUpdateProfileComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

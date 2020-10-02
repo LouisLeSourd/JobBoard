@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Company, OfferFilter} from '../models/models';
+import {Company, AdvertisementFilter, User} from '../models/models';
+import {ErrConnection} from '../models/enum';
 
 @Injectable({
     providedIn: 'root'
@@ -25,21 +26,12 @@ export class DataService {
     }
 
     postOffersWithFilters$(
-        offerFilter: OfferFilter
+        offerFilter: AdvertisementFilter
     ): Observable<any> {
         const body = {
             offerFilter: offerFilter
         }
         return this.http.post('http://localhost:3000/offer/filters', body);
-    }
-
-    postUser$(
-        name: string
-    ): Observable<any> {
-        let body = {
-            name: name
-        }
-        return this.http.post('http://localhost:3000/users/add', body);
     }
 
 }

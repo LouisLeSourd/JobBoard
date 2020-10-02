@@ -1,3 +1,5 @@
+import { UserRole } from './enum'
+
 export interface Company {
     cpn_creation_year: number,
     cpn_description: string,
@@ -13,7 +15,7 @@ export interface Company {
     cpn_turnover: number
 }
 
-export interface OfferFilter {
+export interface AdvertisementFilter {
     adv_title: string,
     adv_city: string,
     adv_country: string,
@@ -23,5 +25,53 @@ export interface OfferFilter {
     adv_beginning_contract: Date,
     adv_required_exp: string,
     adv_language: string,
-    adv_contract_duration: number,
+    adv_contract_duration: number
 }
+
+export interface Advertisement {
+    adv_id: number,
+    adv_title: string,
+    adv_adress: string,
+    adv_postal_code: string,
+    adv_city: string,
+    adv_country: string,
+    adv_sector: string,
+    adv_function: string,
+    adv_publication_date: Date,
+    adv_contract_type: string,
+    adv_beginning_contract: Date,
+    adv_required_exp: string,
+    adv_language: string,
+    adv_contract_duration: number,
+    adv_description: string,
+    cpn_id: number,
+    cpn_field : string,
+    cpn_name: string,
+    cpn_size: string
+}
+
+export interface User {
+    user_id: number;
+    user_name: string,
+    user_surname: string,
+    user_adress: string,
+    user_posta_code: number,
+    user_city: string,
+    user_country: string,
+    user_graduation: string,
+    user_pwssd: string,
+    user_email: string,
+    user_description: string,
+    role: UserRole,
+    user_birth: Date
+}
+
+export interface Informations {
+    text_email: string,
+    cpn_id: number,
+    cpn_email: string,
+    user_id: number,
+    user_email: string,
+    adv_id: number
+}
+

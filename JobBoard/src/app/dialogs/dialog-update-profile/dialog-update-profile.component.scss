@@ -1,0 +1,13 @@
+:host {
+
+  ::ng-deep .mat-form-field-wrapper {
+    padding: 0 !important;
+  }
+
+  .separation-line {
+    border-bottom: 1px solid #4dc942;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+}

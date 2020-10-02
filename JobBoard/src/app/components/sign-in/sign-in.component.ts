@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Page} from '../../models/enum';
 import {ActivatedRoute, Router} from '@angular/router';
-import {DataService} from "../../services/data.service";
+import {UserDataService} from "../../services/user.data.service";
 
 @Component({
   selector: 'app-sign-in',
@@ -17,7 +17,7 @@ export class SignInComponent implements OnInit {
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private dataService: DataService) {
+              private userDataService: UserDataService) {
   }
 
   ngOnInit(): void {
@@ -45,7 +45,7 @@ export class SignInComponent implements OnInit {
   }
 
   addUser(): void {
-    this.dataService.postUser$(this.name).subscribe(result => {
+    this.userDataService.postUser$(this.name).subscribe(result => {
       console.log('okokokok');
     });
   }

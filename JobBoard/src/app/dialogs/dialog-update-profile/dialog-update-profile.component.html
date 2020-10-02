@@ -1,0 +1,64 @@
+<section matDialogTitle>
+    Update your profile
+</section>
+
+<div class="separation-line"></div>
+
+<mat-dialog-content>
+
+
+    <div class="flex flex-direction-row space-between">
+        <label class="align-self-center">Adresse</label>
+        <mat-form-field class="width50" appearance="outline">
+            <mat-label>Adresse</mat-label>
+            <input matInput placeholder="Entrez votre Adresse">
+        </mat-form-field>
+    </div>
+    <div class="flex flex-direction-row space-between">
+        <label class="align-self-center">Code postal</label>
+        <mat-form-field class="width50" appearance="outline">
+            <mat-label>Code postal</mat-label>
+            <input matInput placeholder="Entrez votre code postal">
+        </mat-form-field>
+    </div>
+    <div class="flex flex-direction-row space-between">
+        <label class="align-self-center">Ville</label>
+        <mat-form-field class="width50" appearance="outline">
+            <mat-label>Ville</mat-label>
+            <input matInput placeholder="Entrez votre ville">
+        </mat-form-field>
+    </div>
+    <div class="flex flex-direction-row space-between">
+        <label class="align-self-center">Pays</label>
+        <div class="width50">
+            <mat-form-field class="width100" appearance="outline">
+                <mat-label>Pays</mat-label>
+                <input matInput placeholder="Entrez votre pays">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="flex flex-direction-row space-between">
+        <label class="align-self-center">Diplômes</label>
+        <mat-form-field class="width50" appearance="outline">
+            <mat-label>Diplômes</mat-label>
+            <input matInput placeholder="Entrez vos diplôme">
+        </mat-form-field>
+    </div>
+    <div class="flex flex-direction-row space-between">
+        <label class="align-self-center">Anniversaire</label>
+        <mat-form-field class="width50" appearance="outline">
+            <mat-label>Anniversaire</mat-label>
+            <input matInput placeholder="Anniversaire" [matDatepicker]="birthday" (click)="birthday.open()" readonly>
+            <mat-datepicker #birthday></mat-datepicker>
+            <mat-datepicker-toggle matSuffix [for]="birthday"></mat-datepicker-toggle>
+        </mat-form-field>
+    </div>
+
+
+</mat-dialog-content>
+
+<div class="separation-line"></div>
+
+<mat-dialog-actions align="end">
+    <button mat-button class="bg-light-green white padding-side20" matDialogClose>Update</button>
+</mat-dialog-actions>

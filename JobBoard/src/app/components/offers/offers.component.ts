@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {OfferFilter} from 'src/app/models/models';
+import {AdvertisementFilter} from 'src/app/models/models';
 import {DataService} from '../../services/data.service';
 
 @Component({
@@ -19,11 +19,11 @@ export class OffersComponent implements OnInit {
 
   private getOffersWithId(): void {
 
-    const offerFilter: OfferFilter = {
+    const offerFilter: AdvertisementFilter = {
       adv_country: 'France',
       adv_function: 'Génie Civil & Structures',
       adv_contract_type: 'CDI',
-    } as OfferFilter;
+    } as AdvertisementFilter;
 
     this.dataService.postOffersWithFilters$(offerFilter).subscribe(offers => {
       if (offers) {
