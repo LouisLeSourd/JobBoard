@@ -224,3 +224,8 @@ INSERT INTO User (user_id,user_name, user_surname, user_adress, user_posta_code,
 INSERT INTO User (user_name, user_surname, user_adress, user_posta_code, user_city, user_country, user_graduation, user_pwssd, user_email, user_description, role, user_birth)
 	VALUES
     ('Admin', 'Admin', 'admin address', 35000, 'admin city', 'admin country', 'admin grade', 'admin password', 'admin@epitech.eu', 'Description de moi', 'Admin', DATE '2000-08-18');
+-- COMPANY
+-- id 2
+INSERT INTO User (user_name, user_surname, user_adress, user_posta_code, user_city, user_country, user_graduation, user_pwssd, user_email, user_description, role, user_birth)
+	VALUES
+    ('Company', 'Company', 'company address', 35000, 'company city', 'company country', 'company grade', 'company password', 'coppany@epitech.eu', 'Description de moi', 'company', DATE '2000-08-18');
