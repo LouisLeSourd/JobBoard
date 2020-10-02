@@ -3,7 +3,7 @@ var router = express.Router();
 var bdd = require('./module/bdd')
 
 /* GET users listing. */
-// correspond a la route http://localhost:3000/advertisements/
+// correspond a la route http://localhost:3000/offers/
 router.get('/', function(req, res, next) {
     bdd.query("SELECT adv_title, cpn_name, adv_contract_type, adv_city, adv_country, adv_publication_date, cpn_id from Advertisement", (err, result, fields) => {
         if (err) throw err;
@@ -12,6 +12,7 @@ router.get('/', function(req, res, next) {
     })
 });
 
+// correspond a la route http://localhost:3000/advertisements/
 router.post('/filters', function(req, res, next) {
     let request = "SELECT adv_title, cpn_name, adv_contract_type, adv_city, adv_country, adv_publication_date from Advertisement WHERE ";
     request = addCondition(req.body.offerFilter.adv_city, 'adv_city', request);

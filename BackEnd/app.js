@@ -8,7 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var companiesRouter = require('./routes/companies');
 var companyRouter = require('./routes/company');
-var advertisementsRouter = require('./routes/advertisements');
+var offersRouter = require('./routes/offers');
 
 var app = express();
 
@@ -27,7 +27,7 @@ app.use('/', indexRouter);
 // http://localhost:3000/
 app.use('/users', usersRouter);
 // http://localhost:3000/users/
-app.use('/offer', advertisementsRouter);
+app.use('/offers', offersRouter);
 // http://localhost:3000/advertisements/
 app.use('/companies', companiesRouter);
 // http://localhost:3000/companies/
