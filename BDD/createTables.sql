@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS Advertisement (
 	adv_id smallint(5) unsigned NOT NULL AUTO_INCREMENT, -- ad id
     adv_title varchar(255), -- ad title 
     adv_adress varchar(200) DEFAULT NULL, -- Company adress (for the ad)
-    adv_postal_code varchar(6) DEFAULT NULL, -- Company postal code (for the ad)
+    adv_postal_code int(5) DEFAULT NULL, -- Company postal code (for the ad)
 	adv_city varchar(60) DEFAULT NULL, -- Company city (for the ad)
     adv_country varchar(60) DEFAULT NULL, -- Company country (for the ad)
     adv_sector varchar(255) DEFAULT NULL, -- ad activity sector
