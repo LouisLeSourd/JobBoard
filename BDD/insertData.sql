@@ -130,7 +130,7 @@ INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector,
     ('Inspection générale Audit Informatique H/F - Promotion Janvier 2021', 'Ile de France', 'France', 
     'Audit, Banque / Finance',
     'Audit', DATE '2020-10-01', 'CDI', DATE '2021-02-01', 'Étudiant / jeune diplômé', 'French', '3 mois',
-    'En tant qu’inspecteur, vous menez des missions d’audit de 14 semaines sur toutes les activités du Groupe BPCE, à Paris, en région ou à l’étranger.
+    'En tant qu’inspecteur, vous menez des missions d’audit de 12 semaines sur toutes les activités du Groupe BPCE, à Paris, en région ou à l’étranger.
 	Le département d’Audit informatique est plus particulièrement en charge de l’évaluation de la maîtrise des risques et de l’efficacité des activités et entités du groupe BPCE sur le périmètre des systèmes d’information. 
     En forte coordination avec les inspecteurs bancaires et quantitatifs, vous vous voyez confier un thème d’audit différent à chaque mission : 
     organisation de la fonction informatique, développement et maintenance des SI, qualité du patrimoine applicatif, infogérance, sécurité et continuité d’activité, …',
@@ -144,7 +144,7 @@ INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector,
     ('Inspection générale Audit Bancaire H/F - Promotion Janvier 2021', 'Ile de France', 'France', 
     'Audit, Banque / Finance',
     'Audit', DATE '2020-10-01', 'CDI', DATE '2021-02-01', 'Étudiant / jeune diplômé', 'French', '3 mois',
-    'En tant qu’inspecteur, vous menez des missions d’audit de 14 semaines sur toutes les activités du Groupe BPCE, à Paris, en région ou à l’étranger.
+    'En tant qu’inspecteur, vous menez des missions d’audit de 12 semaines sur toutes les activités du Groupe BPCE, à Paris, en région ou à l’étranger.
 	Votre objectif ?
 	Réaliser des investigations sur une partie du périmètre de la mission afin d’évaluer la maîtrise des risques de l’entité auditée.
 	Pour y parvenir :
@@ -225,16 +225,11 @@ INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector,
 --
 -- USER
 -- id 0
-INSERT INTO User (user_id,user_name, user_surname, user_adress, user_posta_code, user_city, user_country, user_graduation, user_pwssd, user_email, user_description, role, user_birth)
+INSERT INTO User (user_id,user_name, user_surname, user_adress, user_posta_code, user_city, user_country, user_graduation, user_password, user_email, user_description, role, user_birth)
 	VALUES
     (0, 'User', 'User', 'user address', 35000, 'User city', 'user country', 'user grade', 'user password', 'user@epitech.eu', 'Description de moi', 'Utilisateur', DATE '1999-08-18');
 -- ADMIN
 -- id 1   
-INSERT INTO User (user_name, user_surname, user_adress, user_posta_code, user_city, user_country, user_graduation, user_pwssd, user_email, user_description, role, user_birth)
+INSERT INTO User (user_name, user_surname, user_adress, user_posta_code, user_city, user_country, user_graduation, user_password, user_email, user_description, role, user_birth)
 	VALUES
     ('Admin', 'Admin', 'admin address', 35000, 'admin city', 'admin country', 'admin grade', 'admin password', 'admin@epitech.eu', 'Description de moi', 'Admin', DATE '2000-08-18');
--- COMPANY
--- id 2
-INSERT INTO User (user_name, user_surname, user_adress, user_posta_code, user_city, user_country, user_graduation, user_pwssd, user_email, user_description, role, user_birth)
-	VALUES
-    ('Company', 'Company', 'company address', 35000, 'company city', 'company country', 'company grade', 'company password', 'coppany@epitech.eu', 'Description de moi', 'company', DATE '2000-08-18');

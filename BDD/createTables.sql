@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS User (
 	user_country varchar(60) DEFAULT NULL, -- user country
 	user_graduation varchar(60) DEFAULT NULL, -- user diplomas
     user_cv varchar(60) DEFAULT NULL, -- user resumé
-	user_pwssd varchar(60) DEFAULT NULL, -- user password
+	user_password varchar(60) DEFAULT NULL, -- user password
 	user_email varchar(100) DEFAULT NULL, -- user email
 	user_description text DEFAULT NULL, -- description of the user
 	role varchar(60) DEFAULT 'visiteur', -- user type (visitor, normal user, admin, Company repre)
