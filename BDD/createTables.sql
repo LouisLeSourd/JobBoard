@@ -12,7 +12,7 @@ SET time_zone = "+00:00";
 use JobBoard;
 -- --------------------------------------------------------
 DROP TABLE IF EXISTS Informations;
-DROP TABLE IF EXISTS Advertisement;
+DROP TABLE IF EXISTS Offer;
 DROP TABLE IF EXISTS Company;
 DROP TABLE IF EXISTS User;
 --
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS Company (
     cpn_representative varchar(255) DEFAULT NULL, -- Company VIP
     cpn_head_office varchar(255) NOT NULL, -- Company place of the main office
     cpn_employees_number int unsigned DEFAULT NULL, -- Company number of employees
-    cpn_turnover int NOT NULL, -- Company annual sales
+    cpn_turnover int, -- Company annual sales
 	cpn_email varchar(100) DEFAULT NULL, -- Company email
     cpn_description text DEFAULT NULL, -- Company description
     cpn_social_media varchar(255) DEFAULT NULL, -- Company social media
@@ -41,24 +41,24 @@ CREATE TABLE IF NOT EXISTS Company (
     UNIQUE KEY ind_uni_cpn_email (cpn_email)
 ) ENGINE=InnoDB;
 --
--- Structure de la table 'Advertisements'
+-- Structure de la table 'O'
 --
-CREATE TABLE IF NOT EXISTS Advertisement (
-	adv_id smallint(5) unsigned NOT NULL AUTO_INCREMENT, -- ad id
-    adv_title varchar(255), -- ad title 
-    adv_adress varchar(200) DEFAULT NULL, -- Company adress (for the ad)
-    adv_postal_code varchar(6) DEFAULT NULL, -- Company postal code (for the ad)
-	adv_city varchar(60) DEFAULT NULL, -- Company city (for the ad)
-    adv_country varchar(60) DEFAULT NULL, -- Company country (for the ad)
-    adv_sector varchar(255) DEFAULT NULL, -- ad activity sector
-    adv_function varchar(255) DEFAULT NULL, -- employement promoted by the ad
-    adv_publication_date date, -- date of publication
-    adv_contract_type varchar(255), -- type of contact
-    adv_beginning_contract date DEFAULT NULL, -- beginning of the employement
-    adv_required_exp varchar(255) DEFAULT NULL, -- minimum professional experience
-    adv_language varchar(255) DEFAULT 'French', -- language required for the employement
-    adv_contract_duration int(255) DEFAULT NULL, -- duration of the employement promoted by the ad
-    adv_description text DEFAULT NULL, -- description of the employement in month
+CREATE TABLE IF NOT EXISTS Offer (
+	offer_id smallint(5) unsigned NOT NULL AUTO_INCREMENT, -- ad id
+    offer_title varchar(255), -- ad title 
+    offer_adress varchar(200) DEFAULT NULL, -- Company adress (for the ad)
+    offer_postal_code int(5) DEFAULT NULL, -- Company postal code (for the ad)
+	offer_city varchar(60) DEFAULT NULL, -- Company city (for the ad)
+    offer_country varchar(60) DEFAULT NULL, -- Company country (for the ad)
+    offer_sector varchar(255) DEFAULT NULL, -- ad activity sector
+    offer_function varchar(255) DEFAULT NULL, -- employement promoted by the ad
+    offer_publication_date date, -- date of publication
+    offer_contract_type varchar(255), -- type of contact
+    offer_beginning_contract date DEFAULT NULL, -- beginning of the employement
+    offer_required_exp varchar(255) DEFAULT NULL, -- minimum professional experience
+    offer_language varchar(255) DEFAULT 'French', -- language required for the employement
+    offer_contract_duration int(255) DEFAULT NULL, -- duration of the employement promoted by the ad
+    offer_description text DEFAULT NULL, -- description of the employement in month
     -- Company attributes
     cpn_id smallint(5) unsigned,
     cpn_field varchar(255),
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS Advertisement (
     CONSTRAINT fk_cpn_size FOREIGN KEY (cpn_size) REFERENCES Company(cpn_size),
     CONSTRAINT fk_cpn_name FOREIGN KEY (cpn_name) REFERENCES Company(cpn_name),
     -- PRIMARY KEY
-    PRIMARY KEY (adv_id)
+    PRIMARY KEY (offer_id)
 ) ENGINE=InnoDB;
 --
 -- Structure de la table 'User'
@@ -84,6 +84,7 @@ CREATE TABLE IF NOT EXISTS User (
 	user_city varchar(60) DEFAULT NULL, -- user city
 	user_country varchar(60) DEFAULT NULL, -- user country
 	user_graduation varchar(60) DEFAULT NULL, -- user diplomas
+    user_cv varchar(60) DEFAULT NULL, -- user resumé
 	user_pwssd varchar(60) DEFAULT NULL, -- user password
 	user_email varchar(100) DEFAULT NULL, -- user email
 	user_description text DEFAULT NULL, -- description of the user
@@ -106,14 +107,14 @@ CREATE TABLE IF NOT EXISTS Informations (
     -- user attributes
     user_id smallint(5) unsigned,
     user_email varchar(100),
-    -- advertisements attributes
-    adv_id smallint(5) unsigned,
+    -- offers attributes
+    offer_id smallint(5) unsigned,
     -- links to Company attributes
     CONSTRAINT fk_cpn_email_info FOREIGN KEY (cpn_email) REFERENCES Company(cpn_email),
     CONSTRAINT fk_cpn_id_info FOREIGN KEY (cpn_id) REFERENCES Company(cpn_id),
     -- links to user attributes
     CONSTRAINT fk_user_id_info FOREIGN KEY (user_id) REFERENCES User(user_id),
     CONSTRAINT fk_user_email_info FOREIGN KEY (user_email) REFERENCES User(user_email),
-    -- links to advertisement attributes
-    CONSTRAINT fk_adv_id_info FOREIGN KEY (adv_id) REFERENCES Advertisement(adv_id)    
+    -- links to offer attributes
+    CONSTRAINT fk_offer_id_info FOREIGN KEY (offer_id) REFERENCES Offer(offer_id)    
 ) ENGINE=InnoDB;
