@@ -5,10 +5,11 @@ var logger = require('morgan');
 var cors = require("cors")
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var userRouter = require('./routes/user');
 var companiesRouter = require('./routes/companies');
 var companyRouter = require('./routes/company');
-var advertisementsRouter = require('./routes/advertisements');
+var offersRouter = require('./routes/offers');
+var offerRouter = require('./routes/offer');
 
 var app = express();
 
@@ -25,10 +26,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 // http://localhost:3000/
-app.use('/users', usersRouter);
-// http://localhost:3000/users/
-app.use('/offer', advertisementsRouter);
-// http://localhost:3000/advertisements/
+app.use('/user', userRouter);
+// http://localhost:3000/user/
+app.use('/offers', offersRouter);
+// http://localhost:3000/offers/
+app.use('/offer', offerRouter);
+// http://localhost:3000/offer/
 app.use('/companies', companiesRouter);
 // http://localhost:3000/companies/
 app.use('/company', companyRouter);
