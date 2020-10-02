@@ -13,10 +13,20 @@ leur expertise et leur capacité à faire bouger les lignes sont les architectes
 Tous les jours, nos 6 000 collaborateurs innovent au contact de leurs clients. 
 Ils accompagnent les plus grands projets de l’ingénierie mondiale dans les domaines de l’énergie, de la santé, des sciences de la vie et des transports.',
 'Twitter:https://twitter.com/Assystem LinkedIn:https://www.linkedin.com/company/assystem/');
--- FIELD Audit / Conseil / Juridique
 -- id 1
 INSERT INTO Company (cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
-	cpn_turnover, cpn_email, cpn_description, cpn_social_media) 
+	cpn_turnover, cpn_email, cpn_description) 
+VALUES
+('Informatique / Télécoms', 'AOS', 'Start-up', 2017, 'Thomas Cassou et Alexandre Brochot', 'Paris',80,
+4500000, 'contact@AOS.eu', 
+'Le secteur de la construction fait aujourd’hui face à de nombreux challenges : 
+bien que pilier de l’économie européenne, ce secteur peine à se transformer et s’adapter au digital.
+Depuis 2017 et après une première levée de fonds de 4,5 millions d’euros, 
+l’équipe d’AOS bouleverse ce marché en proposant un nouvel outil logiciel breveté qui simplifie et automatise les procédures encore réalisées à la main !');
+-- FIELD Audit / Conseil / Juridique
+-- id 2
+INSERT INTO Company (cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
+	cpn_turnover, cpn_email, cpn_description) 
 VALUES
 ('Audit / Conseil / Juridique', 'Inspection générale Groupe BPCE', 'Grande entreprise', 2019, 'Stéphanie PAIX', '110 Av. Pierre Mendès-France, 75013 Paris, France',175,
 NULL, 'contact@BPCE.fr', 
@@ -24,10 +34,9 @@ NULL, 'contact@BPCE.fr',
 celui des 14 Banques Populaires et celui des 16 Caisses d Epargne. Il est un acteur majeur de la banque de grande clientèle, de la gestion d’actifs et des services financiers avec NATIXIS.
 Au sein de BPCE SA, l organe central du groupe, l’Inspection générale groupe est composée de 180 collaborateurs. 
 Nous assurons le contrôle périodique de l’organisation, notamment du dispositif de contrôle interne, de la gestion et de la situation financière des établissements du Groupe. 
-C’est également l’Inspection générale qui anime et pilote la filière audit du Groupe.',
-'Twitter:https://twitter.com/Assystem LinkedIn:https://www.linkedin.com/company/assystem/');
+C’est également l’Inspection générale qui anime et pilote la filière audit du Groupe.');
 -- FIELD Banque / Finance / Assurance
--- id 2
+-- id 3
 INSERT INTO Company (cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
 	cpn_turnover, cpn_email, cpn_description) 
 VALUES
@@ -37,7 +46,7 @@ VALUES
 Intervenant directement en salle des marchés, nos solutions apportent performance, cohérence et fiabilité et doivent être faciles à maintenir,
  ce qui explique notre travail du code, basé sur les fondamentaux du software craftsmanship.');
 -- FIELD Distribution / Grande conso / Luxe
--- id 3
+-- id 4
 INSERT INTO Company (cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
 	cpn_turnover, cpn_email, cpn_description) 
 VALUES
@@ -46,7 +55,7 @@ VALUES
 'Fondée en 1872, le groupe Pirelli est l’un des principaux fabricants de pneumatiques au monde. 
 Spécialisée sur le segment haut de gamme, la firme italienne se distingue par la production de pneumatiques Premium bénéficiant d’une technologie de pointe.');
 -- FIELD Autre
--- id 4
+-- id 5
 INSERT INTO Company (cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
 	cpn_turnover, cpn_email, cpn_description) 
 VALUES
@@ -125,7 +134,7 @@ INSERT INTO Advertisement (adv_title, adv_city, adv_country, adv_sector,
 	Le département d’Audit informatique est plus particulièrement en charge de l’évaluation de la maîtrise des risques et de l’efficacité des activités et entités du groupe BPCE sur le périmètre des systèmes d’information. 
     En forte coordination avec les inspecteurs bancaires et quantitatifs, vous vous voyez confier un thème d’audit différent à chaque mission : 
     organisation de la fonction informatique, développement et maintenance des SI, qualité du patrimoine applicatif, infogérance, sécurité et continuité d’activité, …',
-    1, 'Audit / Conseil / Juridique', 'Inspection générale Groupe BPCE', 'Grande entreprise'
+    2, 'Audit / Conseil / Juridique', 'Inspection générale Groupe BPCE', 'Grande entreprise'
 	);
 -- id 3
 INSERT INTO Advertisement (adv_title, adv_city, adv_country, adv_sector,
@@ -144,7 +153,7 @@ INSERT INTO Advertisement (adv_title, adv_city, adv_country, adv_sector,
 	vos recommandations émises sont hiérarchisées selon leur degré de risque,
 	vous présentez vos conclusions aux équipes dirigeantes auditées,
 	vous rédigez une synthèse de vos analyses intégré dans le rapport global d’inspection.',
-    1, 'Audit / Conseil / Juridique', 'Inspection générale Groupe BPCE', 'Grande entreprise'
+    2, 'Audit / Conseil / Juridique', 'Inspection générale Groupe BPCE', 'Grande entreprise'
 	);
 --
 -- PIRELLI ID CPN 3
@@ -162,7 +171,7 @@ INSERT INTO Advertisement (adv_title, adv_city, adv_country, adv_sector,
 	-Présentation des résultats à la force de vente et préconisations pour notre stratégie marketing
 	-Création des différents supports d’aide à la vente et documentations techniques
 	-Aide à la création et mise à jour des supports de formation',
-    3, 'Distribution / Grande conso / Luxe', 'Pirelli', 'Grande entreprise'
+    4, 'Distribution / Grande conso / Luxe', 'Pirelli', 'Grande entreprise'
 	);
 -- id 5
 INSERT INTO Advertisement (adv_title, adv_city, adv_country, adv_sector,
@@ -185,7 +194,7 @@ INSERT INTO Advertisement (adv_title, adv_city, adv_country, adv_sector,
 	-Mise en place d’actions de communication spécifiques liées aux campagnes sell-in
 	-Respect de l’image et présence lors des évènements et compétitions (déplacements à prévoir)
 	-Gestion opérationnelle des collections produit',
-    3, 'Distribution / Grande conso / Luxe', 'Pirelli', 'Grande entreprise'
+    4, 'Distribution / Grande conso / Luxe', 'Pirelli', 'Grande entreprise'
 	);
 -- id 5
 INSERT INTO Advertisement (adv_title, adv_city, adv_country, adv_sector,
@@ -203,7 +212,7 @@ INSERT INTO Advertisement (adv_title, adv_city, adv_country, adv_sector,
 	-Support à l’administration du personnel (visites médicales, suivi des congés, etc.)
 	-Aide au déploiement du système d’information RH, en collaboration avec le Groupe
 	-Participation aux projets transverses RH',
-    3, 'Distribution / Grande conso / Luxe', 'Pirelli', 'Grande entreprise'
+    4, 'Distribution / Grande conso / Luxe', 'Pirelli', 'Grande entreprise'
 	);
 
 
