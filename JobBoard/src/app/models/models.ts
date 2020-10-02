@@ -66,6 +66,14 @@ export interface User {
     user_birth: Date
 }
 
+export interface NewUser {
+    name: string,
+    surname: string,
+    email: string,
+    pwd: string,
+    pwdConfirm: string,
+}
+
 export interface Informations {
     text_email: string,
     cpn_id: number,

@@ -9,6 +9,12 @@
     line-height: normal;
   }
 
+  .pwd-p-confirm {
+    font-size: 10px;
+    line-height: normal;
+    color: red;
+  }
+
   @media (min-width: 1024px) {
 
     mat-card-title {

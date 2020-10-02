@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
-import {User} from "../models/models";
+import {NewUser, User} from "../models/models";
 import {ErrConnection} from "../models/enum";
 import {HttpClient} from "@angular/common/http";
 
@@ -15,12 +15,12 @@ export class UserDataService {
 
 
   postUser$(
-      name: string
+      newUser: NewUser
   ): Observable<any> {
     let body = {
-      name: name
+      newUser: newUser
     }
-    return this.http.post('http://localhost:3000/users/add', body);
+    return this.http.post('http://localhost:3000/user/add', body);
   }
 
   getUser$(
