@@ -5,7 +5,7 @@ var bdd = require('./module/bdd')
 /* GET users listing. */
 // correspond a la route http://localhost:3000/advertisements/
 router.get('/', function(req, res, next) {
-    bdd.query("SELECT * from Advertisement", (err, result, fields) => {
+    bdd.query("SELECT adv_title, cpn_name, adv_contract_type, adv_city, adv_country, adv_publication_date, cpn_id from Advertisement", (err, result, fields) => {
         if (err) throw err;
         console.log(result);
         res.send(result);
@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/filters', function(req, res, next) {
-    let request = "SELECT * from Advertisement WHERE ";
+    let request = "SELECT adv_title, cpn_name, adv_contract_type, adv_city, adv_country, adv_publication_date from Advertisement WHERE ";
     request = addCondition(req.body.offerFilter.adv_city, 'adv_city', request);
     request = addCondition(req.body.offerFilter.adv_title, 'adv_title', request);
     request = addCondition(req.body.offerFilter.adv_sector, 'adv_sector', request);
