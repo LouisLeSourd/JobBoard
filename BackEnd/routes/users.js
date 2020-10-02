@@ -4,6 +4,14 @@ var bdd = require('./module/bdd')
 
 /* GET users listing. */
 // correspond a la route http://localhost:3000/users/
+router.get('/', function(req, res, next) {
+    bdd.query("SELECT * from User ;", (err, result, fields) => {
+        if (err) throw err;
+        console.log(result);
+        res.send(result);
+    })
+});
+
 router.get('/mail=:mail', function(req, res, next) {
     var mail = req.params.mail;
     bdd.query("SELECT * from User WHERE user_email='" + mail + "';", (err, result, fields) => {
@@ -45,20 +53,22 @@ router.post('/updateEmail&psswd', function(req, res, next) {
     })
 });
 
-router.post('/delete', function(req, res, next) {
-    bdd.query("INSERT INTO User (user_adress, user_posta_code, user_city, user_country, user_graduation, user_birth) VALUES('" + req.body.name + "', 'test', '8 contours du chatelet', 35310, 'Bréal sous Monfort', 'France', 'DUT info', 'test', 'test.test@epitech.eu', 'Description de moi', 'Utilisateur', DATE '1999-08-18');", (err, result, fields) => {
+// remove an user from DB
+router.get('/delete/id=:id', function(req, res, next) {
+    var id = req.params.id;
+    bdd.query("DELETE FROM User WHERE user_id='" + id + "';", (err, result, fields) => {
         if (err) throw err;
         console.log(result);
         res.send(result);
     })
 });
 
+// add a new user. sign in
 router.post('/add', function(req, res, next) {
-bdd.query("INSERT INTO User (user_name, user_surname, user_pwssd, user_email) VALUES('" + req.body.name + "', " + req.body.surname + 'test', '8 contours du chatelet', 35310, 'Bréal sous Monfort', 'France', 'DUT info', 'test', 'test.test@epitech.eu', 'Description de moi', 'Utilisateur', DATE '1999-08-18');
-", (err, result, fields) => {
-if (err) throw err;
-console.log(result);
-res.send(result);
-})
+    bdd.query("INSERT INTO User (user_name, user_surname, user_pwssd, user_email) VALUES('" + req.body.name + "', " + req.body.surname + "'test', '8 contours du chatelet', 35310, 'Bréal sous Monfort', 'France', 'DUT info', 'test', 'test.test@epitech.eu', 'Description de moi', 'Utilisateur', DATE '1999-08-18');", (err, result, fields) => {
+        if (err) throw err;
+        console.log(result);
+        res.send(result);
+    })
 });
 module.exports = router;
