@@ -5,7 +5,7 @@ var bdd = require('./module/bdd')
 /* GET users listing. */
 // correspond a la route http://localhost:3000/offers/
 router.get('/', function(req, res, next) {
-    bdd.query("SELECT offer_title, cpn_name, offer_contract_type, offer_city, offer_country, offer_publication_date, cpn_id from Offer", (err, result, fields) => {
+    bdd.query("SELECT offer_id, offer_title, cpn_name, offer_contract_type, offer_city, offer_country, offer_publication_date, cpn_id from Offer", (err, result, fields) => {
         if (err) throw err;
         console.log(result);
         res.send(result);

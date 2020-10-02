@@ -14,4 +14,14 @@ router.get('/id=:id', function(req, res, next) {
     })
 });
 
+// correspond a la route http://localhost:3000/company/id=cpn_id/offers
+router.get('/id=:id', function(req, res, next) {
+    var id = req.params.id;
+    bdd.query("select offer_title, cpn_name, offer_contract_type, offer_city, offer_country, offer_publication_date from Offer WHERE cpn_id=" + id + ";", (err, result, fields) => {
+        if (err) throw err;
+        console.log(result);
+        res.send(result);
+    })
+});
+
 module.exports = router;

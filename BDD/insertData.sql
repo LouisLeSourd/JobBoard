@@ -227,7 +227,7 @@ INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector,
 -- id 0
 INSERT INTO User (user_id,user_name, user_surname, user_adress, user_posta_code, user_city, user_country, user_graduation, user_password, user_email, user_description, role, user_birth)
 	VALUES
-    (0, 'User', 'User', 'user address', 35000, 'User city', 'user country', 'user grade', 'user password', 'user@epitech.eu', 'Description de moi', 'Utilisateur', DATE '1999-08-18');
+    (0, 'User', 'User', 'user address', 35000, 'User city', 'user country', 'user grade', 'user password', 'user@epitech.eu', 'Description de moi', 'User', DATE '1999-08-18');
 -- ADMIN
 -- id 1   
 INSERT INTO User (user_name, user_surname, user_adress, user_posta_code, user_city, user_country, user_graduation, user_password, user_email, user_description, role, user_birth)
