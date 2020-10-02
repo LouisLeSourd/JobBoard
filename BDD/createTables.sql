@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS Company (
     cpn_representative varchar(255) DEFAULT NULL, -- Company VIP
     cpn_head_office varchar(255) NOT NULL, -- Company place of the main office
     cpn_employees_number int unsigned DEFAULT NULL, -- Company number of employees
-    cpn_turnover int NOT NULL, -- Company annual sales
+    cpn_turnover int, -- Company annual sales
 	cpn_email varchar(100) DEFAULT NULL, -- Company email
     cpn_description text DEFAULT NULL, -- Company description
     cpn_social_media varchar(255) DEFAULT NULL, -- Company social media
@@ -84,6 +84,7 @@ CREATE TABLE IF NOT EXISTS User (
 	user_city varchar(60) DEFAULT NULL, -- user city
 	user_country varchar(60) DEFAULT NULL, -- user country
 	user_graduation varchar(60) DEFAULT NULL, -- user diplomas
+    user_cv varchar(60) DEFAULT NULL, -- user resumé
 	user_pwssd varchar(60) DEFAULT NULL, -- user password
 	user_email varchar(100) DEFAULT NULL, -- user email
 	user_description text DEFAULT NULL, -- description of the user

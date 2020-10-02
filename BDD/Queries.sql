@@ -37,3 +37,9 @@ select adv_title, cpn_name, adv_contract_type, adv_city, adv_country, adv_public
 -- USER QUERIES
 -- Check if User exists according to name and password
 select user_id FROM User WHERE user_email='louis.le-sourd@epitech.eu' and user_pwssd='louis';
+
+-- INFORMATION QUERIES
+select * FROM Company;
+select * FROM Advertisement;
+select * FROM User;
+select * FROM Informations;
