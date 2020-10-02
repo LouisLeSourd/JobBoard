@@ -3,16 +3,17 @@ var router = express.Router();
 var bdd = require('./module/bdd')
 
 /* GET users listing. */
-// correspond a la route http://localhost:3000/offers/
-router.get('/', function(req, res, next) {
-    bdd.query("SELECT offer_title, cpn_name, offer_contract_type, offer_city, offer_country, offer_publication_date, cpn_id from Offer", (err, result, fields) => {
+// correspond a la route http://localhost:3000/offer/id=id
+router.get('/id=:id', function(req, res, next) {
+    var id = req.params.id;
+    bdd.query("SELECT * from Offer where ", (err, result, fields) => {
         if (err) throw err;
         console.log(result);
         res.send(result);
     })
 });
 
-// correspond a la route http://localhost:3000/offers/filters
+// correspond a la route http://localhost:3000/offer/
 router.post('/filters', function(req, res, next) {
     let request = "SELECT offer_title, cpn_name, offer_contract_type, offer_city, offer_country, offer_publication_date from Offer WHERE ";
     request = addCondition(req.body.offerFilter.offer_city, 'offer_city', request);

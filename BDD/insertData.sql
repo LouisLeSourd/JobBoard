@@ -73,14 +73,14 @@ Trouver votre futur stage, alternance, CDD ou CDI, en parcourant les offres d em
 
 
 --
--- ADVERTISEMENT QUERIES
+-- OFFER QUERIES
 --
 
 --
 -- ASSYSTEM ADS ID CPN 0
 -- id 0
-INSERT INTO Advertisement (adv_id, adv_title, adv_city, adv_country, adv_sector,
-	adv_function, adv_publication_date, adv_contract_type, adv_beginning_contract, adv_required_exp, adv_language, adv_contract_duration, adv_description,
+INSERT INTO Offer (offer_id, offer_title, offer_city, offer_country, offer_sector,
+	offer_function, offer_publication_date, offer_contract_type, offer_beginning_contract, offer_required_exp, offer_language, offer_contract_duration, offer_description,
     cpn_id, cpn_field, cpn_name, cpn_size)
     VALUES
     (0, 'Ingénieur Développement UX/UI - H/F', 'Saint-Priest', 'France', 
@@ -100,8 +100,8 @@ INSERT INTO Advertisement (adv_id, adv_title, adv_city, adv_country, adv_sector,
     0, 'Informatique / Télécoms', 'Assystem', 'Grande entreprise'
 	);
 -- id 1
-INSERT INTO Advertisement (adv_title, adv_city, adv_country, adv_sector,
-	adv_function, adv_publication_date, adv_contract_type, adv_beginning_contract, adv_required_exp, adv_language, adv_contract_duration, adv_description,
+INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector,
+	offer_function, offer_publication_date, offer_contract_type, offer_beginning_contract, offer_required_exp, offer_language, offer_contract_duration, offer_description,
     cpn_id, cpn_field, cpn_name, cpn_size)
     VALUES
     ('Ingénieur Développement UX/UI - H/F', 'Paris', 'France', 
@@ -123,8 +123,8 @@ INSERT INTO Advertisement (adv_title, adv_city, adv_country, adv_sector,
 --
 -- Inspection générale Groupe BPCE ADS ID CPN 1
 -- id 2
-INSERT INTO Advertisement (adv_title, adv_city, adv_country, adv_sector,
-	adv_function, adv_publication_date, adv_contract_type, adv_beginning_contract, adv_required_exp, adv_language, adv_contract_duration, adv_description,
+INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector,
+	offer_function, offer_publication_date, offer_contract_type, offer_beginning_contract, offer_required_exp, offer_language, offer_contract_duration, offer_description,
     cpn_id, cpn_field, cpn_name, cpn_size)
     VALUES
     ('Inspection générale Audit Informatique H/F - Promotion Janvier 2021', 'Ile de France', 'France', 
@@ -137,8 +137,8 @@ INSERT INTO Advertisement (adv_title, adv_city, adv_country, adv_sector,
     2, 'Audit / Conseil / Juridique', 'Inspection générale Groupe BPCE', 'Grande entreprise'
 	);
 -- id 3
-INSERT INTO Advertisement (adv_title, adv_city, adv_country, adv_sector,
-	adv_function, adv_publication_date, adv_contract_type, adv_beginning_contract, adv_required_exp, adv_language, adv_contract_duration, adv_description,
+INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector,
+	offer_function, offer_publication_date, offer_contract_type, offer_beginning_contract, offer_required_exp, offer_language, offer_contract_duration, offer_description,
     cpn_id, cpn_field, cpn_name, cpn_size)
     VALUES
     ('Inspection générale Audit Bancaire H/F - Promotion Janvier 2021', 'Ile de France', 'France', 
@@ -158,8 +158,8 @@ INSERT INTO Advertisement (adv_title, adv_city, adv_country, adv_sector,
 --
 -- PIRELLI ID CPN 3
 -- id 4
-INSERT INTO Advertisement (adv_title, adv_city, adv_country, adv_sector,
-	adv_function, adv_publication_date, adv_contract_type, adv_beginning_contract, adv_required_exp, adv_language, adv_contract_duration, adv_description,
+INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector,
+	offer_function, offer_publication_date, offer_contract_type, offer_beginning_contract, offer_required_exp, offer_language, offer_contract_duration, offer_description,
     cpn_id, cpn_field, cpn_name, cpn_size)
     VALUES
     ('Assistant (e) Trade Marketing Moto (H/F)', 'Villepinte', 'France', 
@@ -174,8 +174,8 @@ INSERT INTO Advertisement (adv_title, adv_city, adv_country, adv_sector,
     4, 'Distribution / Grande conso / Luxe', 'Pirelli', 'Grande entreprise'
 	);
 -- id 5
-INSERT INTO Advertisement (adv_title, adv_city, adv_country, adv_sector,
-	adv_function, adv_publication_date, adv_contract_type, adv_beginning_contract, adv_required_exp, adv_language, adv_contract_duration, adv_description,
+INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector,
+	offer_function, offer_publication_date, offer_contract_type, offer_beginning_contract, offer_required_exp, offer_language, offer_contract_duration, offer_description,
     cpn_id, cpn_field, cpn_name, cpn_size)
     VALUES
     ('Assistant(e) Communication et Contenu / Création (H/F)', 'Villepinte', 'France', 
@@ -197,8 +197,8 @@ INSERT INTO Advertisement (adv_title, adv_city, adv_country, adv_sector,
     4, 'Distribution / Grande conso / Luxe', 'Pirelli', 'Grande entreprise'
 	);
 -- id 5
-INSERT INTO Advertisement (adv_title, adv_city, adv_country, adv_sector,
-	adv_function, adv_publication_date, adv_contract_type, adv_beginning_contract, adv_required_exp, adv_language, adv_contract_duration, adv_description,
+INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector,
+	offer_function, offer_publication_date, offer_contract_type, offer_beginning_contract, offer_required_exp, offer_language, offer_contract_duration, offer_description,
     cpn_id, cpn_field, cpn_name, cpn_size)
     VALUES
     ('Assistant(e) Ressources Humaines (H/F)', 'Villepinte', 'France', 
