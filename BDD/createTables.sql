@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS Company (
     cpn_employees_number int unsigned DEFAULT NULL, -- Company number of employees
     cpn_turnover int, -- Company annual sales
 	cpn_email varchar(100) DEFAULT NULL, -- Company email
+    cpn_logo varchar(255) DEFAULT NULL, -- company logo
     cpn_description text DEFAULT NULL, -- Company description
     cpn_social_media varchar(255) DEFAULT NULL, -- Company social media
     -- PRIMARY KEY
@@ -38,6 +39,7 @@ CREATE TABLE IF NOT EXISTS Company (
     UNIQUE KEY ind_uni_cpn_name (cpn_name),
     KEY ind_uni_cpn_size (cpn_size),
     KEY ind_uni_cpn_field (cpn_field),
+	UNIQUE KEY ind_uni_cpn_logo (cpn_logo),
     UNIQUE KEY ind_uni_cpn_email (cpn_email)
 ) ENGINE=InnoDB;
 --
@@ -64,8 +66,10 @@ CREATE TABLE IF NOT EXISTS Offer (
     cpn_field varchar(255),
     cpn_name varchar(100),
     cpn_size varchar(255),
+    cpn_logo varchar(255),
     -- links to Company attributes
     CONSTRAINT fk_cpn_id FOREIGN KEY (cpn_id) REFERENCES Company(cpn_id),
+    CONSTRAINT fk_cpn_logo FOREIGN KEY (cpn_logo) REFERENCES Company(cpn_logo),
     CONSTRAINT fk_cpn_field FOREIGN KEY (cpn_field) REFERENCES Company(cpn_field),
     CONSTRAINT fk_cpn_size FOREIGN KEY (cpn_size) REFERENCES Company(cpn_size),
     CONSTRAINT fk_cpn_name FOREIGN KEY (cpn_name) REFERENCES Company(cpn_name),
@@ -88,7 +92,7 @@ CREATE TABLE IF NOT EXISTS User (
 	user_password varchar(60) DEFAULT NULL, -- user password
 	user_email varchar(100) DEFAULT NULL, -- user email
 	user_description text DEFAULT NULL, -- description of the user
-	role varchar(60) DEFAULT 'visiteur', -- user type (visitor, normal user, admin, Company repre)
+	role varchar(60) DEFAULT 'User', -- user type (visitor, normal user, admin, Company repre)
 	user_birth date DEFAULT NULL, -- date of user birth
     -- PRIMARYU KEY
 	PRIMARY KEY (user_id),
