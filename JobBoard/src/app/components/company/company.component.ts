@@ -5,7 +5,7 @@ import {MatIconRegistry} from "@angular/material/icon";
 import {DomSanitizer} from "@angular/platform-browser";
 import {Page} from "../../models/enum";
 import {CompaniesDataService} from "../../services/companies.data.service";
-import { CompanyFields } from 'src/app/models/models';
+import {CompanyField, CompanySize} from 'src/app/models/models';
 
 @Component({
   selector: 'app-company',
@@ -14,7 +14,8 @@ import { CompanyFields } from 'src/app/models/models';
 })
 export class CompanyComponent implements OnInit {
 
-  public companiesFields: CompanyFields[];
+  public companiesFields: CompanyField[];
+  public companiesSizes: CompanySize[];
 
   constructor(
       private companiesDataService: CompaniesDataService,
@@ -24,18 +25,22 @@ export class CompanyComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.companiesDataService.getCompaniesFileds$().subscribe(results => {
-      results.forEach(result => {
-        console.log(result.cpn_field);
-      });
-      this.companiesFields = results;
-    });
+    this.loadCompanySettings();
   }
 
-matIconRegistry(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer): void {
-  iconRegistry.addSvgIcon(
-      'search',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/search.svg'));
-}
+  matIconRegistry(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer): void {
+    iconRegistry.addSvgIcon(
+        'search',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/search.svg'));
+  }
+
+  loadCompanySettings(): void {
+    this.companiesDataService.getCompaniesFileds$().subscribe(fields => {
+      this.companiesFields = fields;
+    });
+    this.companiesDataService.getCompaniesFileds$().subscribe(sizes => {
+      this.companiesSizes = sizes;
+    });
+  }
 
 }
