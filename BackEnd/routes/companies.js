@@ -19,10 +19,9 @@ router.get('/fields', function(req, res, next) {
         res.send(result);
     })
 });
-// correspond a la route http://localhost:3000/companies/field=le field
-router.get('/field=:field', function(req, res, next) {
-    var field = req.params.field;
-    bdd.query("select cpn_name, cpn_size, cpn_employees_number, cpn_field, cpn_logo from Company WHERE cpn_field = '" + field + "';", (err, result, fields) => {
+// correspond a la route http://localhost:3000/companies/fields
+router.get('/sizes', function(req, res, next) {
+    bdd.query("select distinct cpn_size from Company;", (err, result, fields) => {
         if (err) throw err;
         console.log(result);
         res.send(result);
