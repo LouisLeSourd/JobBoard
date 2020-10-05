@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Company} from 'src/app/models/models';
-import {DataService} from "../../services/data.service";
+import {ActivatedRoute, Router} from "@angular/router";
+import {UserService} from "../../services/user.service";
+import {MatIconRegistry} from "@angular/material/icon";
+import {DomSanitizer} from "@angular/platform-browser";
+import {Page} from "../../models/enum";
 
 @Component({
   selector: 'app-company',
@@ -9,30 +12,19 @@ import {DataService} from "../../services/data.service";
 })
 export class CompanyComponent implements OnInit {
 
-  public companies: Company[] = [];
-
-  constructor(private dataService: DataService) { }
+  constructor(
+      iconRegistry: MatIconRegistry,
+      sanitizer: DomSanitizer) {
+    this.matIconRegistry(iconRegistry, sanitizer);
+  }
 
   ngOnInit(): void {
-    this.getCompanies();
-    this.getCompaniesWithId(1);
   }
 
-  private getCompanies():void {
-    this.dataService.getCompanies$().subscribe(companies => {
-      if (companies) {
-        this.companies = companies;
-      }
-    });
-  }
-
-  private getCompaniesWithId(idCompany: number):void {
-    this.dataService.getCompaniesWithId$(idCompany).subscribe(companies => {
-      if (companies) {
-        this.companies = companies;
-      }
-    });
-  }
-
+matIconRegistry(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer): void {
+  iconRegistry.addSvgIcon(
+      'search',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/search.svg'));
+}
 
 }

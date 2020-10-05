@@ -10,9 +10,7 @@ import {HttpClient} from "@angular/common/http";
 export class UserDataService {
 
   constructor(protected http: HttpClient) {
-
   }
-
 
   postUser$(
       newUser: NewUser

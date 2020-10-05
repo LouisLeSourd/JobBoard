@@ -29,6 +29,8 @@ import { DialogUpdateProfileComponent } from './dialogs/dialog-update-profile/di
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { DatabaseSettingsComponent } from './components/database-settings/database-settings.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatGridListModule, MatGridTile} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -65,6 +67,8 @@ import { DatabaseSettingsComponent } from './components/database-settings/databa
         MatDatepickerModule,
         MatNativeDateModule,
         ReactiveFormsModule,
+        MatSelectModule,
+        MatGridListModule
     ],
   providers: [
       DialogUpdateProfileComponent
