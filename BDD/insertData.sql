@@ -2,10 +2,10 @@
 -- FIELD Informatique / Télécoms
 -- id 0
 INSERT INTO Company (cpn_id, cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
-	cpn_turnover, cpn_email, cpn_description, cpn_social_media) 
+	cpn_turnover, cpn_email, cpn_logo, cpn_description, cpn_social_media) 
 VALUES
 (0, 'Informatique / Télécoms', 'Assystem', 'Grande entreprise', 1966, 'Dominique Louis', '9-11 Allée de l Arche, 92400 Courbevoie',6000,
-497500000, 'contact@assystem.eu', 
+497500000, 'contact@assystem.eu',  'assystem.png',
 'Assystem accompagne les autorités publiques, les opérateurs et les équipementiers pour développer, 
 exécuter et livrer des projets d’infrastructures critiques et complexes.
 Depuis 54 ans, nous sommes animés par la conviction que les ingénieurs, par leur audace, 
@@ -15,10 +15,10 @@ Ils accompagnent les plus grands projets de l’ingénierie mondiale dans les do
 'Twitter:https://twitter.com/Assystem LinkedIn:https://www.linkedin.com/company/assystem/');
 -- id 1
 INSERT INTO Company (cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
-	cpn_turnover, cpn_email, cpn_description) 
+	cpn_turnover, cpn_email, cpn_logo, cpn_description) 
 VALUES
 ('Informatique / Télécoms', 'VMware', 'Grande entreprise', 1998, 'Pat Gelsinger', 'Palo Alto, California, United States',31000,
-10800000000, 'contact@VMware.com', 
+10800000000, 'contact@VMware.com', 'vmware.png',
 'At VMware, we believe that software has the power to unlock new opportunities for people and our planet. 
 We look beyond the barriers of compromise to engineer new ways to make technologies work together seamlessly. 
 Our software forms a digital foundation that powers the apps, services and experiences that are transforming the world. 
@@ -27,10 +27,10 @@ We streamline the journey for our customers to become digital businesses that de
 Our software helps employees simply and securely access the apps and data they need, from anywhere, to do their best work.');
 -- id 2
 INSERT INTO Company (cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
-	cpn_turnover, cpn_email, cpn_description) 
+	cpn_turnover, cpn_email, cpn_logo, cpn_description) 
 VALUES
 ('Informatique / Télécoms', 'AOS', 'Start-up', 2017, 'Thomas Cassou et Alexandre Brochot', 'Paris',80,
-4500000, 'contact@AOS.eu', 
+4500000, 'contact@AOS.eu', 'aos.png',
 'Le secteur de la construction fait aujourd’hui face à de nombreux challenges : 
 bien que pilier de l’économie européenne, ce secteur peine à se transformer et s’adapter au digital.
 Depuis 2017 et après une première levée de fonds de 4,5 millions d’euros, 
@@ -38,10 +38,10 @@ l’équipe d’AOS bouleverse ce marché en proposant un nouvel outil logiciel 
 -- FIELD Audit / Conseil / Juridique
 -- id 3
 INSERT INTO Company (cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
-	cpn_turnover, cpn_email, cpn_description) 
+	cpn_turnover, cpn_email, cpn_logo, cpn_description) 
 VALUES
 ('Audit / Conseil / Juridique', 'Inspection générale Groupe BPCE', 'Grande entreprise', 2019, 'Stéphanie PAIX', '110 Av. Pierre Mendès-France, 75013 Paris, France',175,
-NULL, 'contact@BPCE.fr', 
+NULL, 'contact@BPCE.fr', 'BCPE.png',
 'Le Groupe BPCE, deuxième groupe bancaire en France, s’appuie sur deux réseaux de banques commerciales coopératives, autonomes et complémentaires : 
 celui des 14 Banques Populaires et celui des 16 Caisses d Epargne. Il est un acteur majeur de la banque de grande clientèle, de la gestion d’actifs et des services financiers avec NATIXIS.
 Au sein de BPCE SA, l organe central du groupe, l’Inspection générale groupe est composée de 180 collaborateurs. 
@@ -50,29 +50,29 @@ C’est également l’Inspection générale qui anime et pilote la filière aud
 -- FIELD Banque / Finance / Assurance
 -- id 4
 INSERT INTO Company (cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
-	cpn_turnover, cpn_email, cpn_description) 
+	cpn_turnover, cpn_email, cpn_logo, cpn_description) 
 VALUES
 ('Banque / Finance / Assurance', 'XRAYS TRADING', 'PME', 2004, 'Christian Baré-Wenger', '59 rue des Petites Ecuries - 75010 Paris',25,
-2300000, 'contact@trading.fr', 
+2300000, 'contact@trading.fr', 'xray.png',
 'XRAYS TRADING est à la fois un opérateur technique et un bureau d études spécialiste des automates de trading algorithmique et des softs connectés aux marchés financiers. 
 Intervenant directement en salle des marchés, nos solutions apportent performance, cohérence et fiabilité et doivent être faciles à maintenir,
  ce qui explique notre travail du code, basé sur les fondamentaux du software craftsmanship.');
 -- FIELD Distribution / Grande conso / Luxe
 -- id 5
 INSERT INTO Company (cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
-	cpn_turnover, cpn_email, cpn_description) 
+	cpn_turnover, cpn_email, cpn_logo, cpn_description) 
 VALUES
 ('Distribution / Grande conso / Luxe', 'Pirelli', 'Grande entreprise', 1872, '(Directeur Général) Laurent Cabassu', 'Immeuble Rameau - Paris Nord 2 - 22 avenue des Nations - 93420 Villepinte',30000,
-955000000, 'contact@pirelli.com', 
+955000000, 'contact@pirelli.com', 'pirelli.png',
 'Fondée en 1872, le groupe Pirelli est l’un des principaux fabricants de pneumatiques au monde. 
 Spécialisée sur le segment haut de gamme, la firme italienne se distingue par la production de pneumatiques Premium bénéficiant d’une technologie de pointe.');
 -- FIELD Autre
 -- id 6
 INSERT INTO Company (cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
-	cpn_turnover, cpn_email, cpn_description) 
+	cpn_turnover, cpn_email, cpn_logo, cpn_description) 
 VALUES
 ('Autre', 'La French Tech', 'Start-up', 202, NULL, 'France',3,
-NULL, 'contact@frenchtech.fr', 
+NULL, 'contact@frenchtech.fr', 'french.png',
 'Découvrez les startups qui recrutent, décrochez votre prochain emploi
 Trouver votre futur stage, alternance, CDD ou CDI, en parcourant les offres d emploi à pourvoir.');
 
@@ -253,9 +253,9 @@ INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector,
 -- id 0
 INSERT INTO User (user_id,user_name, user_surname, user_adress, user_posta_code, user_city, user_country, user_graduation, user_password, user_email, user_description, role, user_birth)
 	VALUES
-    (0, 'User', 'User', 'user address', 35000, 'User city', 'user country', 'user grade', 'user password', 'user@epitech.eu', 'Description de moi', 'User', DATE '1999-08-18');
+    (0, 'User', 'User', 'user address', 35000, 'User city', 'user country', 'user grade', 'user', 'user@epitech.eu', 'Description de moi', 'User', DATE '1999-08-18');
 -- ADMIN
 -- id 1   
 INSERT INTO User (user_name, user_surname, user_adress, user_posta_code, user_city, user_country, user_graduation, user_password, user_email, user_description, role, user_birth)
 	VALUES
-    ('Admin', 'Admin', 'admin address', 35000, 'admin city', 'admin country', 'admin grade', 'admin password', 'admin@epitech.eu', 'Description de moi', 'Admin', DATE '2000-08-18');
+    ('Admin', 'Admin', 'admin address', 35000, 'admin city', 'admin country', 'admin grade', 'admin', 'admin@epitech.eu', 'Description de moi', 'Admin', DATE '2000-08-18');
