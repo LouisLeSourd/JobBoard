@@ -9,6 +9,7 @@ export class UserService {
   public user: User;
   public userName: string;
   public isConnect: boolean;
+  public isAdmin: boolean;
 
   constructor() {
   }
@@ -27,6 +28,10 @@ export class UserService {
 
   getUser(): User {
     return this.user;
+  }
+
+  getUserId(): number {
+    return this.user.user_id;
   }
 
 }

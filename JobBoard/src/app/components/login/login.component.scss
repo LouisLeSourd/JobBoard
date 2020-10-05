@@ -1,5 +1,9 @@
 :host {
 
+  ::ng-deep .mat-form-field-wrapper {
+    padding: 0 !important;
+  }
+
   .section-connection {
 
     display: block;
@@ -8,6 +12,13 @@
     .forgot-pwd {
       color: #00a34d;
       text-decoration: underline;
+    }
+
+    .pwd-p {
+      margin-left: 20px;
+      font-size: 10px;
+      line-height: normal;
+      color: red;
     }
 
     p {

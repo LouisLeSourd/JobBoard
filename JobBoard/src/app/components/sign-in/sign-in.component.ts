@@ -62,7 +62,7 @@ export class SignInComponent implements OnInit {
   addUser(): void {
     this.userDataService.postUser$(this.newUser).subscribe(result => {
       if (result) {
-        this.userDataService.getUser$(this.newUser.email).subscribe((newUser: User) => {
+        this.userDataService.getUserByEmail$(this.newUser.email).subscribe((newUser: User) => {
           this.userServcie.setUser(newUser[0]);
           this.goTo(this.page.HOME_PAGE);
         });

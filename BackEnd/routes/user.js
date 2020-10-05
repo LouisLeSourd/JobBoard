@@ -20,13 +20,31 @@ router.get('/mail=:mail', function(req, res, next) {
         res.send(result);
     })
 });
-// correspond a la route http://localhost:3000/user/updateProfile
-router.post('/updateProfil', function(req, res, next) {
-    bdd.query("UPDATE User SET user_adress + '" + req.body.adress + "', user_posta_code = '" + req.body.postal + "', user_city = '" + req.body.city + "', user_country = '" + req.body.country + "', user_graduation = '" + req.body.graduation + "', user_birth = '" + req.body.birth + "' WHERE email_user = '" + req.body.email + "';", (err, result, fields) => {
+// correspond a la route http://localhost:3000/user/id=id
+router.get('/id=:id', function(req, res, next) {
+    var id = req.params.id;
+    bdd.query("SELECT * from User WHERE user_id='" + id + "';", (err, result, fields) => {
         if (err) throw err;
         console.log(result);
         res.send(result);
     })
+});
+// correspond a la route http://localhost:3000/user/updateProfile
+router.post('/updateProfile', function(req, res, next) {
+    let request = "UPDATE User SET ";
+    request = addUpdateCondition(req.body.updateUserProfile.user_city, 'user_city', request);
+    request = addUpdateCondition(req.body.updateUserProfile.user_birth, 'user_birth', request);
+    request = addUpdateCondition(req.body.updateUserProfile.user_adress, 'user_adress', request);
+    request = addUpdateCondition(req.body.updateUserProfile.user_country, 'user_country', request);
+    request = addUpdateCondition(req.body.updateUserProfile.user_posta_code, 'user_posta_code', request);
+    request = addUpdateCondition(req.body.updateUserProfile.user_graduation, 'user_graduation', request);
+    request += " WHERE user_id = '" + req.body.userId + "';";
+    bdd.query(request, (err, result, fields) => {
+        console.log('request', request);
+        if (err) throw err;
+        console.log(result);
+        res.send(result);
+    });
 });
 // correspond a la route http://localhost:3000/user/updateDescrip
 router.post('/updateDescrip', function(req, res, next) {
@@ -73,3 +91,15 @@ router.post('/add', function(req, res, next) {
     })
 });
 module.exports = router;
+
+function addUpdateCondition(conditionObject, conditionString, request) {
+    if (request !== "UPDATE User SET ") {
+        request += ", ";
+    }
+    if (conditionObject) {
+        request += "" + conditionString + "='" + conditionObject + "'";
+    } else {
+        request += "" + conditionString + "=" + null + "";
+    }
+    return request;
+}

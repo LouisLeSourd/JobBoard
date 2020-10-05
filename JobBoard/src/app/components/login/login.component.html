@@ -11,11 +11,13 @@
                 <mat-label>Email address *</mat-label>
                 <input matInput [(ngModel)]="email" placeholder="email address *">
             </mat-form-field>
+            <p class="pwd-p" *ngIf="bad_email">L'email rentré ne correspond à aucun compte.</p>
 
             <mat-form-field appearance="outline">
                 <mat-label>Password *</mat-label>
                 <input matInput type="password" [(ngModel)]="pwd" placeholder="password *">
             </mat-form-field>
+                <p class="pwd-p" *ngIf="bad_pwd">Mot de passe incorrect</p>
 
 <!--            <a class="forgot-pwd">Mot de passe oublié</a>-->
 

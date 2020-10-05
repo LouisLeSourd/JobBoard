@@ -7,15 +7,9 @@ export enum Page {
     SIGN_IN = 'SIGN_IN',
     DECONNECTION = 'DECONNECTION',
     PROFILE = 'PROFILE',
-    USER_SETTINGS = 'USER_SETTINGS'
+    USER_SETTINGS = 'USER_SETTINGS',
+    DATABASE = 'DATABASE'
 }
-
-export enum UserRole {
-    USER = 'USER',
-    ADMIN = 'ADMIN',
-    COMPANY = 'COMPANY'
-}
-
 
 export enum ErrConnection {
     BAD_EMAIL = 'BAD_EMAIL',

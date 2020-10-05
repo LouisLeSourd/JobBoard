@@ -8,7 +8,7 @@
                             <img class="bg-light-green" src="assets/icons/profile_user.svg" width="80%" height="80%" alt>
                         </mat-card-title>
                         <mat-card-subtitle>
-                            <span class="bold font18">user_name user_surname</span>
+                            <span class="bold font18">{{userService.user?.user_name}} {{userService.user?.user_surname}}</span>
                         </mat-card-subtitle>
                     </mat-card-header>
                     <mat-card-content class="width90 margin-auto">
@@ -17,9 +17,9 @@
                                 <mat-icon svgIcon="adress" aria-hidden="false"></mat-icon>
                             </div>
                             <div class="margin-left20">
-                                <p>adress</p>
-                                <p>postal_code & city</p>
-                                <p class="margin0">Country</p>
+                                <p>{{dataLoaded(userService.user?.user_adress)}}</p>
+                                <p>{{dataLoadedNumber(userService.user?.user_posta_code)}} {{userService.user?.user_city}}</p>
+                                <p class="margin0">{{dataLoaded(userService.user?.user_country)}}</p>
                             </div>
                         </section>
                         <div class="separation-line margin40"></div>
@@ -28,7 +28,7 @@
                                 <mat-icon svgIcon="birth" aria-hidden="false"></mat-icon>
                             </div>
                             <div class="margin-left20">
-                                <p class="margin0">birthday</p>
+                                <p class="margin0">{{dataLoadedDate(userService.user?.user_birth)}}</p>
                             </div>
                         </section>
                         <div class="separation-line margin40"></div>
@@ -37,7 +37,7 @@
                                 <mat-icon svgIcon="graduate" aria-hidden="false"></mat-icon>
                             </div>
                             <div class="margin-left20">
-                                <p class="margin0">graduate</p>
+                                <p class="margin0">{{dataLoaded(userService.user?.user_graduation)}}</p>
                             </div>
                         </section>
                     </mat-card-content>
