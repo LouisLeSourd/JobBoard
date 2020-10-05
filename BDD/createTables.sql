@@ -22,6 +22,7 @@ CREATE TABLE IF NOT EXISTS Company (
 	cpn_id smallint(5) unsigned NOT NULL AUTO_INCREMENT, -- Company id
 	cpn_field varchar(255) DEFAULT NULL, -- Company working field
 	cpn_name varchar(100) NOT NULL, -- Company name
+	cpn_logo varchar(255) DEFAULT NULL, -- company logo
 	cpn_size varchar(255) DEFAULT NULL, -- Company size
     cpn_creation_year int NOT NULL, -- Company year of creation
     cpn_representative varchar(255) DEFAULT NULL, -- Company VIP
@@ -29,7 +30,6 @@ CREATE TABLE IF NOT EXISTS Company (
     cpn_employees_number int unsigned DEFAULT NULL, -- Company number of employees
     cpn_turnover int, -- Company annual sales
 	cpn_email varchar(100) DEFAULT NULL, -- Company email
-    cpn_logo varchar(255) DEFAULT NULL, -- company logo
     cpn_description text DEFAULT NULL, -- Company description
     cpn_social_media varchar(255) DEFAULT NULL, -- Company social media
     -- PRIMARY KEY
