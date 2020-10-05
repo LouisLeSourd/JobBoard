@@ -17,6 +17,18 @@ Ils accompagnent les plus grands projets de l’ingénierie mondiale dans les do
 INSERT INTO Company (cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
 	cpn_turnover, cpn_email, cpn_description) 
 VALUES
+('Informatique / Télécoms', 'VMware', 'Grande entreprise', 1998, 'Pat Gelsinger', 'Palo Alto, California, United States',31000,
+10800000000, 'contact@VMware.com', 
+'At VMware, we believe that software has the power to unlock new opportunities for people and our planet. 
+We look beyond the barriers of compromise to engineer new ways to make technologies work together seamlessly. 
+Our software forms a digital foundation that powers the apps, services and experiences that are transforming the world. 
+We enable organizations to flex and to harness new technology quickly, without disrupting operations. 
+We streamline the journey for our customers to become digital businesses that deliver better experiences for their customers, that in turn drive growth. 
+Our software helps employees simply and securely access the apps and data they need, from anywhere, to do their best work.');
+-- id 2
+INSERT INTO Company (cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
+	cpn_turnover, cpn_email, cpn_description) 
+VALUES
 ('Informatique / Télécoms', 'AOS', 'Start-up', 2017, 'Thomas Cassou et Alexandre Brochot', 'Paris',80,
 4500000, 'contact@AOS.eu', 
 'Le secteur de la construction fait aujourd’hui face à de nombreux challenges : 
@@ -24,7 +36,7 @@ bien que pilier de l’économie européenne, ce secteur peine à se transformer
 Depuis 2017 et après une première levée de fonds de 4,5 millions d’euros, 
 l’équipe d’AOS bouleverse ce marché en proposant un nouvel outil logiciel breveté qui simplifie et automatise les procédures encore réalisées à la main !');
 -- FIELD Audit / Conseil / Juridique
--- id 2
+-- id 3
 INSERT INTO Company (cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
 	cpn_turnover, cpn_email, cpn_description) 
 VALUES
@@ -36,7 +48,7 @@ Au sein de BPCE SA, l organe central du groupe, l’Inspection générale groupe
 Nous assurons le contrôle périodique de l’organisation, notamment du dispositif de contrôle interne, de la gestion et de la situation financière des établissements du Groupe. 
 C’est également l’Inspection générale qui anime et pilote la filière audit du Groupe.');
 -- FIELD Banque / Finance / Assurance
--- id 3
+-- id 4
 INSERT INTO Company (cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
 	cpn_turnover, cpn_email, cpn_description) 
 VALUES
@@ -46,7 +58,7 @@ VALUES
 Intervenant directement en salle des marchés, nos solutions apportent performance, cohérence et fiabilité et doivent être faciles à maintenir,
  ce qui explique notre travail du code, basé sur les fondamentaux du software craftsmanship.');
 -- FIELD Distribution / Grande conso / Luxe
--- id 4
+-- id 5
 INSERT INTO Company (cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
 	cpn_turnover, cpn_email, cpn_description) 
 VALUES
@@ -55,7 +67,7 @@ VALUES
 'Fondée en 1872, le groupe Pirelli est l’un des principaux fabricants de pneumatiques au monde. 
 Spécialisée sur le segment haut de gamme, la firme italienne se distingue par la production de pneumatiques Premium bénéficiant d’une technologie de pointe.');
 -- FIELD Autre
--- id 5
+-- id 6
 INSERT INTO Company (cpn_field, cpn_name, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, 
 	cpn_turnover, cpn_email, cpn_description) 
 VALUES
@@ -134,7 +146,7 @@ INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector,
 	Le département d’Audit informatique est plus particulièrement en charge de l’évaluation de la maîtrise des risques et de l’efficacité des activités et entités du groupe BPCE sur le périmètre des systèmes d’information. 
     En forte coordination avec les inspecteurs bancaires et quantitatifs, vous vous voyez confier un thème d’audit différent à chaque mission : 
     organisation de la fonction informatique, développement et maintenance des SI, qualité du patrimoine applicatif, infogérance, sécurité et continuité d’activité, …',
-    2, 'Audit / Conseil / Juridique', 'Inspection générale Groupe BPCE', 'Grande entreprise'
+    3, 'Audit / Conseil / Juridique', 'Inspection générale Groupe BPCE', 'Grande entreprise'
 	);
 -- id 3
 INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector,
@@ -153,7 +165,7 @@ INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector,
 	vos recommandations émises sont hiérarchisées selon leur degré de risque,
 	vous présentez vos conclusions aux équipes dirigeantes auditées,
 	vous rédigez une synthèse de vos analyses intégré dans le rapport global d’inspection.',
-    2, 'Audit / Conseil / Juridique', 'Inspection générale Groupe BPCE', 'Grande entreprise'
+    3, 'Audit / Conseil / Juridique', 'Inspection générale Groupe BPCE', 'Grande entreprise'
 	);
 --
 -- PIRELLI ID CPN 3
@@ -194,9 +206,9 @@ INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector,
 	-Mise en place d’actions de communication spécifiques liées aux campagnes sell-in
 	-Respect de l’image et présence lors des évènements et compétitions (déplacements à prévoir)
 	-Gestion opérationnelle des collections produit',
-    4, 'Distribution / Grande conso / Luxe', 'Pirelli', 'Grande entreprise'
+    5, 'Distribution / Grande conso / Luxe', 'Pirelli', 'Grande entreprise'
 	);
--- id 5
+-- id 6
 INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector,
 	offer_function, offer_publication_date, offer_contract_type, offer_beginning_contract, offer_required_exp, offer_language, offer_contract_duration, offer_description,
     cpn_id, cpn_field, cpn_name, cpn_size)
@@ -212,9 +224,23 @@ INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector,
 	-Support à l’administration du personnel (visites médicales, suivi des congés, etc.)
 	-Aide au déploiement du système d’information RH, en collaboration avec le Groupe
 	-Participation aux projets transverses RH',
-    4, 'Distribution / Grande conso / Luxe', 'Pirelli', 'Grande entreprise'
+    5, 'Distribution / Grande conso / Luxe', 'Pirelli', 'Grande entreprise'
 	);
-
+--  VMWARE ID CPN 1
+-- id 7
+INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector,
+	offer_function, offer_publication_date, offer_contract_type, offer_beginning_contract, offer_required_exp, offer_language, offer_contract_duration, offer_description,
+    cpn_id, cpn_field, cpn_name, cpn_size)
+    VALUES
+    ('Professional Services Intern - German Speaking', 'Munich', 'Germany', 
+    'Consulting, Banking / Finance, Environment, Aerospace, Automotive, Electronics, IT / IT Consulting / Software',
+    'IT Project, Data & Product Management', DATE '2020-10-03', 'Internship', DATE '2021-01-01', 'Student / Recent Graduate', 'English-German', 'From 4 to 6 months',
+    'We are investing for the future in VMware s Technical Services Organisation in EMEA. 
+    Successful candidates will work in the Munich office alongside senior PSO managers and team members. 
+    You will be exposed to real life client projects and start to learn the key roles within a client implementation. 
+    This is an excellent opportunity to work in one of the most integral organisations in VMware.',
+    1, 'Informatique / Télécoms', 'VMware', 'Grande entreprise'
+	);
 
 
 
