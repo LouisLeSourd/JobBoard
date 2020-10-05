@@ -28,15 +28,20 @@ router.get('/sizes', function(req, res, next) {
     })
 });
 // correspond a la route http://localhost:3000/companies/size=size/field=field
-router.get('/field=:field/size=:size', function(req, res, next) {
-    var field = req.params.field;
-    var size = req.params.size;
-    bdd.query("select cpn_name, cpn_size, cpn_employees_number, cpn_field, cpn_logo from Company WHERE cpn_size = '" + size + "'and cpn_field='" + field + "';", (err, result, fields) => {
-        if (err) throw err;
-        console.log(result);
-        res.send(result);
-    })
+router.post('/field&size', function(req, res, next) {
+    let request = "select cpn_name, cpn_size, cpn_employees_number, cpn_field, cpn_logo from Company WHERE ";
+    request = addCondition(req.body.companyFilter.cpn_field, 'cpn_field', request);
+    request = addCondition(req.body.companyFilter.cpn_size, 'cpn_size', request);
 });
 
+function addCondition(conditionObject, conditionString, request) {
+    if (conditionObject) {
+        if (request !== "SELECT cpn_name, cpn_size, cpn_employees_number, cpn_field, cpn_logo from Company WHERE ") {
+            request += " and ";
+        }
+        request += "" + conditionString + "='" + conditionObject + "'";
+    }
+    return request;
+}
 
 module.exports = router;

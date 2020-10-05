@@ -35,7 +35,7 @@ router.post('/filters', function(req, res, next) {
 
 function addCondition(conditionObject, conditionString, request) {
     if (conditionObject) {
-        if (request !== "SELECT * from Offer WHERE ") {
+        if (request !== "SELECT offer_title, cpn_name, offer_contract_type, offer_city, offer_country, offer_publication_date, cpn_logo from Offer WHERE ") {
             request += " and ";
         }
         request += "" + conditionString + "='" + conditionObject + "'";
