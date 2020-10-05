@@ -3,6 +3,7 @@ import {ErrConnection, Page} from '../../models/enum';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from "../../services/user.service";
 import {UserDataService} from 'src/app/services/user.data.service';
+import { User } from 'src/app/models/models';
 
 @Component({
   selector: 'app-login',
@@ -27,19 +28,16 @@ export class LoginComponent implements OnInit {
   }
 
   connection(): void {
-    this.userDataService.getTestConnection$(this.email, this.pwd).subscribe((result: ErrConnection) => {
-      switch (result) {
-        case ErrConnection.SUCCESS:
-          this.userDataService.getUser$(this.email).subscribe(user => {
-            if (user) {
-              this.userService.setUser(user);
-            }
-          });
-          break;
-        case ErrConnection.BAD_EMAIL:
-          break;
-        case ErrConnection.BAD_PWD:
-          break;
+    this.userDataService.getUser$(this.email).subscribe((user: User) => {
+      if (!user[0]) {
+        // bad_email
+      } else {
+        if (user[0].user_password === this.pwd) {
+          this.userService.setUser(user[0]);
+          this.goTo(this.page.HOME_PAGE);
+        } else {
+          // bad_pwd
+        }
       }
     });
   }

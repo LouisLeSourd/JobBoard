@@ -39,8 +39,8 @@
                     <div class="flex flex-direction-row space-between">
                         <label class="align-self-center">Email *</label>
                         <mat-form-field class="width50" appearance="outline">
-                            <mat-label>Email *</mat-label>
-                            <input matInput [(ngModel)]="newUser.email" placeholder="Entrez votre email">
+                            <input matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                                   [(ngModel)]="newUser.email" placeholder="Ex. pat@example.com">
                         </mat-form-field>
                     </div>
                     <div class="flex flex-direction-row space-between">
@@ -48,7 +48,7 @@
                         <div class="width50">
                             <mat-form-field class="width100" appearance="outline">
                                 <mat-label>Mot de passe *</mat-label>
-                                <input matInput [(ngModel)]="newUser.pwd" placeholder="Entrez votre mot de passe">
+                                <input matInput type="password" [(ngModel)]="newUser.pwd" placeholder="Entrez votre mot de passe">
                             </mat-form-field>
                             <p class="pwd-p">Votre mot de passe doit contenir 8 caractères et au moins 2 des éléments suivants: minuscules, majuscules, chiffres ou caractères spéciaux.</p>
                         </div>
@@ -58,7 +58,7 @@
                         <div class="width50">
                             <mat-form-field class="width100" appearance="outline">
                                 <mat-label>Confirmation du mot de passe *</mat-label>
-                                <input matInput [(ngModel)]="newUser.pwdConfirm" placeholder="Entrez votre mot de passe">
+                                <input matInput type="password" [(ngModel)]="newUser.pwdConfirm" placeholder="Entrez votre mot de passe">
                             </mat-form-field>
                             <p class="pwd-p-confirm" *ngIf="newUser.pwd !== newUser.pwdConfirm">Les mots de passe ne correspondent pas !</p>
                         </div>
@@ -67,11 +67,12 @@
                 </section>
 
                 <section class="margin40 flex flex-direction-column">
-                    <mat-checkbox class="align-self-center">J'accepte les
+                    <mat-checkbox [(ngModel)]="acceptation" class="align-self-center">J'accepte les
                         <a href="assets/documents/Conditions_d'utilisations.pdf" target="_blank">Conditions d'Utilisation</a>
                         et la
                         <a href="assets/documents/Politique_de_confidentialite.pdf" target="_blank">Politique de confidentialité</a>
-                        de JobBoard</mat-checkbox>
+                        de JobBoard
+                    </mat-checkbox>
                 </section>
 
             </mat-card-content>

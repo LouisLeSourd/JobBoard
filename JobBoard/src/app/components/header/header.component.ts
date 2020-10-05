@@ -3,6 +3,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import {Page} from '../../models/enum';
 import {MatIconRegistry} from '@angular/material/icon';
 import {ActivatedRoute, Router} from '@angular/router';
+import {User} from '../../models/models';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -13,17 +15,20 @@ export class HeaderComponent implements OnInit {
 
   public page = Page;
   public currentPage: Page = Page.HOME_PAGE;
-  public isConnect: boolean;
+  public user: User;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
+              public userService: UserService,
               iconRegistry: MatIconRegistry,
               sanitizer: DomSanitizer) {
     this.matIconRegistry(iconRegistry, sanitizer);
   }
 
   ngOnInit(): void {
-    this.isConnect = true;
+    if (this.userService.getUser()) {
+    this.user = this.userService.getUser();
+    }
   }
 
   goTo(page): void {
@@ -45,7 +50,7 @@ export class HeaderComponent implements OnInit {
         this.router.navigate(['/sign-in']);
         break;
       case Page.DECONNECTION:
-        this.isConnect = false;
+        this.userService.unSetUser();
         this.router.navigate(['']);
         break;
       case Page.PROFILE:

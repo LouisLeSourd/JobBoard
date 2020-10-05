@@ -25,11 +25,11 @@ export class UserDataService {
 
   getUser$(
       email: string
-  ): Observable<User> {
-    let body = {
+  ): Observable<any> {
+    let params = {
       email: email
     }
-    return this.http.post<User>('http://localhost:3000/users/get', body);
+    return this.http.get("http://localhost:3000/user/mail=" + email);
   }
 
   getTestConnection$(

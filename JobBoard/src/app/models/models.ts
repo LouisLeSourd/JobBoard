@@ -59,7 +59,7 @@ export interface User {
     user_city: string,
     user_country: string,
     user_graduation: string,
-    user_pwssd: string,
+    user_password: string,
     user_email: string,
     user_description: string,
     role: UserRole,

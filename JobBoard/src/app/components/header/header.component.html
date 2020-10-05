@@ -14,7 +14,7 @@
          class="flex-align-center padding-side20 hover-green">
         <span>Offres</span>
       </a>
-      <button mat-button *ngIf="!isConnect" [matMenuTriggerFor]="account" class="flex-align-center padding-side20 margin-left40 align-self-center">
+      <button mat-button *ngIf="!userService.isConnect" [matMenuTriggerFor]="account" class="flex-align-center padding-side20 margin-left40 align-self-center">
         <mat-menu #account="matMenu" xPosition="before">
           <button mat-menu-item (click)="goTo(page.LOGIN)">
             <mat-icon svgIcon="connexion" aria-hidden="false"></mat-icon>
@@ -28,7 +28,7 @@
         <img class="icons25px vertical-align" src="assets/icons/users.png" alt>
         <span class="light-deep-green vertical-align margin-side10">Mon compte</span>
       </button>
-      <button mat-button *ngIf="isConnect" [matMenuTriggerFor]="profile" class="flex-align-center padding-side20 margin-left40 align-self-center">
+      <button mat-button *ngIf="userService.isConnect" [matMenuTriggerFor]="profile" class="flex-align-center padding-side20 margin-left40 align-self-center">
         <mat-menu #profile="matMenu" xPosition="before">
           <button mat-menu-item (click)="goTo(page.PROFILE)">
             <mat-icon svgIcon="profile" aria-hidden="false"></mat-icon>
@@ -44,7 +44,7 @@
           </button>
         </mat-menu>
         <img class="icons25px vertical-align" src="assets/icons/users.png" alt>
-        <span class="light-deep-green vertical-align margin-side10">Bonjour !</span>
+        <span class="light-deep-green vertical-align margin-side10">Bonjour {{userService.userName}} !</span>
       </button>
     </div>
   </div>

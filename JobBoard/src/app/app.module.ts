@@ -22,7 +22,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 import { DialogUpdateProfileComponent } from './dialogs/dialog-update-profile/dialog-update-profile.component';
@@ -45,24 +45,25 @@ import {MatNativeDateModule} from '@angular/material/core';
     UserSettingsComponent,
     DialogUpdateProfileComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatMenuModule,
-    MatIconModule,
-    HttpClientModule,
-    MatCardModule,
-    HttpClientModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatCheckboxModule,
-    FormsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatDialogModule,
+        MatMenuModule,
+        MatIconModule,
+        HttpClientModule,
+        MatCardModule,
+        HttpClientModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatCheckboxModule,
+        FormsModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        ReactiveFormsModule,
+    ],
   providers: [
       DialogUpdateProfileComponent
   ],

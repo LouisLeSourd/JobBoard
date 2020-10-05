@@ -7,13 +7,22 @@ import { User } from '../models/models';
 export class UserService {
 
   public user: User;
+  public userName: string;
+  public isConnect: boolean;
 
   constructor() {
+  }
 
+  unSetUser(): void {
+    this.user = null;
+    this.userName = '';
+    this.isConnect = false;
   }
 
   setUser(user: User): void {
     this.user = user;
+    this.userName = user.user_name
+    this.isConnect = true
   }
 
   getUser(): User {
