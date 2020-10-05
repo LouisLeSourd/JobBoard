@@ -28,8 +28,11 @@
                             <div class="width50">
                                 <mat-form-field class="width100" appearance="outline">
                                     <mat-label>Mot de passe actuel</mat-label>
-                                    <input matInput type="password" placeholder="Entrez votre mot de passe actuel">
+                                    <input matInput type="password" [(ngModel)]="actualPwd"
+                                           placeholder="Entrez votre mot de passe actuel">
                                 </mat-form-field>
+                                <p class="pwd-p" *ngIf="actualPwd !== userService.user.user_password && actualPwd">
+                                    Mot de passe incorrect</p>
                             </div>
                         </div>
                         <div class="flex flex-direction-row space-between">
@@ -37,28 +40,36 @@
                             <div class="width50">
                                 <mat-form-field class="width100" appearance="outline">
                                     <mat-label>Nouveau mot de passe</mat-label>
-                                    <input matInput type="password" placeholder="Entrez votre nouveau mot de passe">
+                                    <input matInput type="password" [(ngModel)]="newPwd"
+                                           placeholder="Entrez votre nouveau mot de passe">
                                 </mat-form-field>
                                 <p class="pwd-p">Votre mot de passe doit contenir 8 caractères et au moins 2 des éléments suivants: minuscules, majuscules, chiffres ou caractères spéciaux.</p>
                             </div>
                         </div>
                         <div class="flex flex-direction-row space-between">
                             <label class="align-self-center">Confirmation du nouveau mot de passe</label>
-                            <mat-form-field class="width50" appearance="outline">
-                                <mat-label>Confirmation du nouveau mot de passe</mat-label>
-                                <input matInput type="password" placeholder="Entrez votre nouveau mot de passe">
-                            </mat-form-field>
+                            <div class="width50">
+                                <mat-form-field class="width100" appearance="outline">
+                                    <mat-label>Confirmation du nouveau mot de passe</mat-label>
+                                    <input matInput type="password" [(ngModel)]="newPwdConfirm"
+                                           placeholder="Entrez votre nouveau mot de passe">
+                                </mat-form-field>
+                                <p class="pwd-p-confirm" *ngIf="newPwd !== newPwdConfirm">
+                                    Les mots de passe ne correspondent pas !</p>
+                            </div>
                         </div>
                     </section>
                     <div class="separation-line margin-bottom0"></div>
                     <section class="flex flex-direction-column">
-                        <button mat-button class="bg-light-green white margin40">Supprimer mon compte</button>
+                        <button mat-button class="bg-light-green white margin40" (click)="deleteAccount()">
+                            Supprimer mon compte</button>
                     </section>
                 </mat-card-content>
             </mat-card>
         </section>
         <section class="flex space-around">
-            <button mat-button class="bg-light-green white margin40">Sauvegarder</button>
+            <button mat-button class="bg-light-green white margin40" [class.display-none]="canUpdate()"
+                    (click)="updatePwd()">Sauvegarder</button>
         </section>
         <section class="footer-section">
             <div class="separation-line"></div>

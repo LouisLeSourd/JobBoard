@@ -63,14 +63,16 @@
                             <div class="separation-line margin-top-bottom40"></div>
                             <section>
                                 <p class="grey">C'est le moment de faire mouche : vos points forts, vos attentes...présentez-vous en quelques mots pour séduire les recruteurs. Punchlines raffinées ou succession de mots-clés, il n'y a pas vraiment de recette miracle : cela dépendra surtout du secteur que vous visez. Adaptez votre discours en fonction !</p>
-                                <mat-form-field class="width100 height50px">
+                                <mat-form-field class="width100 height200px">
                                     <mat-label>Description</mat-label>
-                                    <textarea matInput placeholder="Je suis actuellement en 2ème année de droit et je suis à la recherche..."></textarea>
+                                    <textarea matInput class="height200px" [(ngModel)]="description" cdkTextareaAutosize #message maxlength="960"
+                                              placeholder="Je suis actuellement en 2ème année de droit et je suis à la recherche..."></textarea>
+                                    <mat-hint align="end">{{message.value.length}} / 960</mat-hint>
                                 </mat-form-field>
                             </section>
                         </mat-card-content>
                         <mat-card-actions class="margin-right40 padding-bottom15" align="end">
-                            <button mat-button class="bg-light-green white">Modifier ma descritpion</button>
+                            <button mat-button class="bg-light-green white" (click)="updateDescription()">Modifier ma descritpion</button>
                         </mat-card-actions>
                     </mat-card>
                 </section>
@@ -86,8 +88,8 @@
                                 <mat-card-subtitle>Ajouter votre CV vous permet de postuler plus rapidement aux offres et est nécessaire pour être à l'écoute d'opportunités.</mat-card-subtitle>
                             </section>
                             <section class="flex align-item-center">
-                                <button *ngIf="!isAlreadyACV" mat-button class="bg-light-green white">Ajouter mon CV</button>
-                                <button *ngIf="isAlreadyACV" mat-button class="bg-light-green white">Voir mon CV</button>
+                                <button *ngIf="!isAlreadyACV" mat-button class="bg-light-green white" (click)="updateCV()">Ajouter mon CV</button>
+                                <button *ngIf="isAlreadyACV" mat-button class="bg-light-green white" (click)="getCV()">Voir mon CV</button>
                             </section>
                         </mat-card-header>
                     </mat-card>

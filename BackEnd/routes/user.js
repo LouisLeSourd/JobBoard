@@ -48,7 +48,7 @@ router.post('/updateProfile', function(req, res, next) {
 });
 // correspond a la route http://localhost:3000/user/updateDescrip
 router.post('/updateDescrip', function(req, res, next) {
-    bdd.query("UPDATE User SET user_description ='" + req.body.description + "' WHERE user_id = " + req.body.id + "';", (err, result, fields) => {
+    bdd.query("UPDATE User SET user_description ='" + req.body.description + "' WHERE user_id = '" + req.body.userId + "';", (err, result, fields) => {
         if (err) throw err;
         console.log(result);
         res.send(result);
@@ -56,15 +56,15 @@ router.post('/updateDescrip', function(req, res, next) {
 });
 // correspond a la route http://localhost:3000/user/updateCV
 router.post('/updateCV', function(req, res, next) {
-    bdd.query("UPDATE User SET user_cv ='" + req.body.cv + "' WHERE user_id = " + req.body.id + "';", (err, result, fields) => {
+    bdd.query("UPDATE User SET user_cv ='" + req.body.cv + "' WHERE user_id = '" + req.body.id + "';", (err, result, fields) => {
         if (err) throw err;
         console.log(result);
         res.send(result);
     })
 });
 // correspond a la route http://localhost:3000/user/updateEmail&Password
-router.post('/updateEmail&Password', function(req, res, next) {
-    bdd.query("UPDATE User SET user_email ='" + req.body.email + "', user_password = '" + req.body.password + "' WHERE user_id = " + req.body.id + "';", (err, result, fields) => {
+router.post('/updatePassword', function(req, res, next) {
+    bdd.query("UPDATE User SET user_password = '" + req.body.newPwd + "' WHERE user_id = '" + req.body.userId + "';", (err, result, fields) => {
         if (err) throw err;
         console.log(result);
         res.send(result);

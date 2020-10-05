@@ -63,5 +63,36 @@ export class UserDataService {
     return this.http.post<ErrConnection>('http://localhost:3000/users/testConnection', body);
   }
 
+  deleteUser$(
+      userId: number
+  ): Observable<any> {
+    let params = {
+      userId: userId
+    }
+    return this.http.get("http://localhost:3000/user/delete/id=" + userId);
+  }
+
+  updateUserPwd$(
+      userId: number,
+      newPwd: string,
+  ): Observable<any> {
+    let body = {
+      userId: userId,
+      newPwd: newPwd
+    }
+    return this.http.post<any>("http://localhost:3000/user/updatePassword", body);
+  }
+
+  updateUserDescription$(
+      userId: number,
+      description: string,
+  ): Observable<any> {
+    let body = {
+      userId: userId,
+      description: description
+    }
+    return this.http.post<any>("http://localhost:3000/user/updateDescrip", body);
+  }
+
 
 }

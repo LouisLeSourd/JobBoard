@@ -5,7 +5,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {DialogUpdateProfileComponent} from '../../dialogs/dialog-update-profile/dialog-update-profile.component';
 import {UserService} from '../../services/user.service';
 import {UserDataService} from '../../services/user.data.service';
-import {UpdateUserProfile, User} from "../../models/models";
+import {UpdateUserProfile, User} from '../../models/models';
 
 @Component({
   selector: 'app-user-profile',
@@ -14,6 +14,7 @@ import {UpdateUserProfile, User} from "../../models/models";
 })
 export class UserProfileComponent implements OnInit {
 
+  public description: string;
   public isAlreadyACV: boolean;
 
   constructor(iconRegistry: MatIconRegistry,
@@ -55,6 +56,20 @@ export class UserProfileComponent implements OnInit {
           });
         });
       }
+    });
+  }
+
+  getCV(): void {
+
+  }
+
+  updateCV(): void {
+
+  }
+
+  updateDescription(): void {
+    this.userDataService.updateUserDescription$(this.userService.getUserId(), this.description).subscribe(() => {
+      alert('Votre description a bien été modifié');
     });
   }
 
