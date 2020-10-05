@@ -4,6 +4,8 @@ import {UserService} from "../../services/user.service";
 import {MatIconRegistry} from "@angular/material/icon";
 import {DomSanitizer} from "@angular/platform-browser";
 import {Page} from "../../models/enum";
+import {CompaniesDataService} from "../../services/companies.data.service";
+import { CompanyFields } from 'src/app/models/models';
 
 @Component({
   selector: 'app-company',
@@ -12,13 +14,22 @@ import {Page} from "../../models/enum";
 })
 export class CompanyComponent implements OnInit {
 
+  public companiesFields: CompanyFields[];
+
   constructor(
+      private companiesDataService: CompaniesDataService,
       iconRegistry: MatIconRegistry,
       sanitizer: DomSanitizer) {
     this.matIconRegistry(iconRegistry, sanitizer);
   }
 
   ngOnInit(): void {
+    this.companiesDataService.getCompaniesFileds$().subscribe(results => {
+      results.forEach(result => {
+        console.log(result.cpn_field);
+      });
+      this.companiesFields = results;
+    });
   }
 
 matIconRegistry(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer): void {

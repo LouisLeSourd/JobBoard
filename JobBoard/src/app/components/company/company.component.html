@@ -4,19 +4,20 @@
 
             <section class="card-section">
                 <mat-card class="margin-padding-0 border-radius0 shadow">
-                    <mat-card-content class="width90 margin-auto padding-top-bottom15">
+                    <mat-card-content class="width95 margin-auto padding-top-bottom15">
 
                         <section class="flex space-between">
-                            <mat-form-field class="width45" appearance="outline">
+                            <mat-form-field class="width32" appearance="outline">
                                 <mat-icon svgIcon="search" aria-hidden="false" matPrefix class="margin-right20"></mat-icon>
                                 <input matInput type="search" placeholder="Search...">
                             </mat-form-field>
-                            <mat-form-field class="width20" appearance="outline">
+                            <mat-form-field class="width32" appearance="outline">
                                 <mat-select>
-                                    <mat-option>test</mat-option>
+                                    <mat-option *ngFor="let companiesField of companiesFields" [value]="companiesField.cpn_field">
+                                        {{companiesField.cpn_field}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
-                            <mat-form-field class="width20" appearance="outline">
+                            <mat-form-field class="width32" appearance="outline">
                                 <mat-select>
                                     <mat-option>test</mat-option>
                                 </mat-select>

@@ -90,3 +90,6 @@ export interface Informations {
     adv_id: number
 }
 
+export interface CompanyFields {
+    cpn_field: string;
+}
