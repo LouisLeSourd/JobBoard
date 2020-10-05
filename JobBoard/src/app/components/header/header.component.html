@@ -14,6 +14,10 @@
          class="flex-align-center padding-side20 hover-green">
         <span>Offres</span>
       </a>
+      <a *ngIf="userService.user?.role === 'Admin'" (click)="goTo(page.DATABASE)" [class.active-page]="displayBorderBottom(page.DATABASE)"
+         class="flex-align-center padding-side20 hover-green">
+        <span>Database</span>
+      </a>
       <button mat-button *ngIf="!userService.isConnect" [matMenuTriggerFor]="account" class="flex-align-center padding-side20 margin-left40 align-self-center">
         <mat-menu #account="matMenu" xPosition="before">
           <button mat-menu-item (click)="goTo(page.LOGIN)">

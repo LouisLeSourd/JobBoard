@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit {
 
   public email: string;
   public pwd: string;
+  public bad_pwd: boolean = false;
+  public bad_email: boolean = false;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -28,15 +30,17 @@ export class LoginComponent implements OnInit {
   }
 
   connection(): void {
-    this.userDataService.getUser$(this.email).subscribe((user: User) => {
+    this.bad_pwd = false;
+    this.bad_email = false;
+    this.userDataService.getUserByEmail$(this.email).subscribe((user: User) => {
       if (!user[0]) {
-        // bad_email
+        this.bad_email = true;
       } else {
         if (user[0].user_password === this.pwd) {
           this.userService.setUser(user[0]);
           this.goTo(this.page.HOME_PAGE);
         } else {
-          // bad_pwd
+          this.bad_pwd = true;
         }
       }
     });

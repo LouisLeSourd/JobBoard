@@ -8,6 +8,7 @@ import {CompanyComponent} from './components/company/company.component';
 import {HomeComponent} from './components/home/home.component';
 import {UserProfileComponent} from './components/user-profile/user-profile.component';
 import {UserSettingsComponent} from './components/user-settings/user-settings.component';
+import {DatabaseSettingsComponent} from './components/database-settings/database-settings.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'sign-in', component: SignInComponent},
   {path: 'user/profile', component: UserProfileComponent},
   {path: 'user/settings', component: UserSettingsComponent},
+  {path: 'user/admin/database', component: DatabaseSettingsComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 

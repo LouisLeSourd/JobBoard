@@ -28,6 +28,7 @@ import { UserSettingsComponent } from './components/user-settings/user-settings.
 import { DialogUpdateProfileComponent } from './dialogs/dialog-update-profile/dialog-update-profile.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { DatabaseSettingsComponent } from './components/database-settings/database-settings.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {MatNativeDateModule} from '@angular/material/core';
     CompanyComponent,
     UserProfileComponent,
     UserSettingsComponent,
-    DialogUpdateProfileComponent
+    DialogUpdateProfileComponent,
+    DatabaseSettingsComponent
   ],
     imports: [
         BrowserModule,

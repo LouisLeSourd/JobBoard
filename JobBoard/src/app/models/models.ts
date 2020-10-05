@@ -1,5 +1,3 @@
-import { UserRole } from './enum'
-
 export interface Company {
     cpn_creation_year: number,
     cpn_description: string,
@@ -62,7 +60,16 @@ export interface User {
     user_password: string,
     user_email: string,
     user_description: string,
-    role: UserRole,
+    role: string,
+    user_birth: Date
+}
+
+export interface UpdateUserProfile {
+    user_adress: string,
+    user_posta_code: number,
+    user_city: string,
+    user_country: string,
+    user_graduation: string,
     user_birth: Date
 }
 

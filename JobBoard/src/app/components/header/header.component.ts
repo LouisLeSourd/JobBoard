@@ -59,6 +59,9 @@ export class HeaderComponent implements OnInit {
       case Page.USER_SETTINGS:
         this.router.navigate(['/user/settings']);
         break;
+      case Page.DATABASE:
+        this.router.navigate(['/user/admin/database']);
+        break;
     }
   }
 
