@@ -253,8 +253,16 @@ a:hover {
   height: 200px !important;
 }
 
+.height50 {
+  height: 50%;
+}
+
 .height80 {
   height: 80%;
+}
+
+.height25 {
+  height: 25%;
 }
 
 .relative {
@@ -309,8 +317,18 @@ a:hover {
   padding-bottom: 15px !important;
 }
 
+.padding-top-bottom8 {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
 .border-radius0 {
   border-radius: 0 !important;
+}
+
+.border-bottom-radius4 {
+  border-bottom-left-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
 }
 
 .margin-bottom0 {
@@ -325,6 +343,10 @@ a:hover {
   width: 80%;
 }
 
+.width85 {
+  width: 85%;
+}
+
 .display-none {
   display: none;
 }
@@ -333,8 +355,16 @@ a:hover {
   background-color: white;
 }
 
+.bg-grey {
+  background-color: #f8f8f8;
+}
+
 .margin-top10 {
   margin-top: 10%;
+}
+
+.margin-top5 {
+  margin-top: 5%;
 }
 
 .width95 {

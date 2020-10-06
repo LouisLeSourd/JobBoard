@@ -10,7 +10,22 @@ export interface Company {
     cpn_representative: string,
     cpn_size: string,
     cpn_social_media: string,
-    cpn_turnover: number
+    cpn_turnover: number,
+    cpn_logo: string
+}
+
+export interface Companies {
+    cpn_employees_number: number,
+    cpn_field: string,
+    cpn_size: string,
+    cpn_logo: string
+    cpn_name: string,
+}
+
+export interface CompaniesFilters {
+    cpn_field: string,
+    cpn_size: string,
+    cpn_name: string,
 }
 
 export interface AdvertisementFilter {
