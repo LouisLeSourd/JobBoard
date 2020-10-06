@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from "../../services/user.service";
 import {UserDataService} from 'src/app/services/user.data.service';
 import { User } from 'src/app/models/models';
+import {FormGroup} from '@angular/forms';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -23,6 +25,7 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router,
               private route: ActivatedRoute,
               private userDataService: UserDataService,
+              private cookieService: CookieService,
               private userService: UserService) {
   }
 
@@ -37,6 +40,10 @@ export class LoginComponent implements OnInit {
         this.bad_email = true;
       } else {
         if (user[0].user_password === this.pwd) {
+          this.cookieService.set('email', this.email);
+          this.cookieService.set('password', this.pwd);
+          console.log(this.cookieService.get('email'));
+          console.log(this.cookieService.get('password'));
           this.userService.setUser(user[0]);
           this.goTo(this.page.HOME_PAGE);
         } else {
