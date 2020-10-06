@@ -27,6 +27,54 @@ router.get('/functions', function(req, res, next) {
         res.send(result);
     })
 });
+// correspond a la route http://localhost:3000/offers/fields
+router.get('/fields', function(req, res, next) {
+    bdd.query("select distinct cpn_field from Offer;", (err, result, fields) => {
+        if (err) throw err;
+        console.log(result);
+        res.send(result);
+    })
+});
+// correspond a la route http://localhost:3000/offers/sizes
+router.get('/sizes', function(req, res, next) {
+    bdd.query("select distinct cpn_size from Offer;", (err, result, fields) => {
+        if (err) throw err;
+        console.log(result);
+        res.send(result);
+    })
+});
+// correspond a la route http://localhost:3000/offers/durations
+router.get('/durations', function(req, res, next) {
+    bdd.query("select distinct offer_contract_duration from Offer;", (err, result, fields) => {
+        if (err) throw err;
+        console.log(result);
+        res.send(result);
+    })
+});
+// correspond a la route http://localhost:3000/offers/beginnings
+router.get('/beginnings', function(req, res, next) {
+    bdd.query("select distinct offer_beginning_contract from Offer;", (err, result, fields) => {
+        if (err) throw err;
+        console.log(result);
+        res.send(result);
+    })
+});
+// correspond a la route http://localhost:3000/offers/experiences
+router.get('/experiences', function(req, res, next) {
+    bdd.query("select distinct offer_required_exp from Offer;", (err, result, fields) => {
+        if (err) throw err;
+        console.log(result);
+        res.send(result);
+    })
+});
+// correspond a la route http://localhost:3000/offers/languages
+router.get('/languages', function(req, res, next) {
+    bdd.query("select distinct offer_language from Offer;", (err, result, fields) => {
+        if (err) throw err;
+        console.log(result);
+        res.send(result);
+    })
+});
 // correspond a la route http://localhost:3000/offers/filters
 router.post('/filters', function(req, res, next) {
     let request = "SELECT offer_title, cpn_name, offer_contract_type, offer_city, offer_country, offer_publication_date, cpn_logo from Offer WHERE ";
