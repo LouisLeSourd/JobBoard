@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Company, AdvertisementFilter, User} from '../models/models';
+import {Company, OffersFilter, User} from '../models/models';
 import {ErrConnection} from '../models/enum';
 
 @Injectable({
@@ -26,7 +26,7 @@ export class DataService {
     }
 
     postOffersWithFilters$(
-        offerFilter: AdvertisementFilter
+        offerFilter: OffersFilter
     ): Observable<any> {
         const body = {
             offerFilter: offerFilter

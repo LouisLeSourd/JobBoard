@@ -9,10 +9,10 @@ import {Companies, CompaniesFilters, Company, CompanyField, CompanySize} from 's
 
 @Component({
   selector: 'app-company',
-  templateUrl: './company.component.html',
-  styleUrls: ['./company.component.scss']
+  templateUrl: './companies.component.html',
+  styleUrls: ['./companies.component.scss']
 })
-export class CompanyComponent implements OnInit {
+export class CompaniesComponent implements OnInit {
 
   public companiesFields: CompanyField[];
   public companiesSizes: CompanySize[];
@@ -49,14 +49,11 @@ export class CompanyComponent implements OnInit {
   }
 
   getCompaniesWithFilters(): void {
-    this.companiesDataService.getCompaniesByFilters$(this.companiesFilters).subscribe((companies: Companies[]) => {
-      this.filteredCompanies = companies;
-    });
-    if (this.companiesFilters.cpn_name) {
-      this.filteredCompanies.forEach(company => {
-        if (!company.cpn_name.includes(this.companiesFilters.cpn_name.toLowerCase())) {
-          this.filteredCompanies.splice(this.filteredCompanies.findIndex(companyIndex => companyIndex.cpn_name.toLowerCase() === company.cpn_name), 1);
-        }
+    if (!this.companiesFilters.cpn_size && !this.companiesFilters.cpn_field && this.companiesFilters.cpn_name === '') {
+      this.loadCompanies();
+    } else {
+      this.companiesDataService.getCompaniesByFilters$(this.companiesFilters).subscribe((companies: Companies[]) => {
+        this.filteredCompanies = companies;
       });
     }
   }

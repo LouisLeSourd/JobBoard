@@ -23,6 +23,14 @@ p {
   height: 100%;
 }
 
+.height60 {
+  height: 60%;
+}
+
+.width10 {
+  width: 10%;
+}
+
 .flex {
   display: flex !important;
 }
@@ -377,4 +385,8 @@ a:hover {
 
 .padding50px {
   padding: 50px !important;
+}
+
+.align-self-baseline {
+  align-self: baseline;
 }

@@ -28,39 +28,52 @@ export interface CompaniesFilters {
     cpn_name: string,
 }
 
-export interface AdvertisementFilter {
-    adv_title: string,
-    adv_city: string,
-    adv_country: string,
-    adv_sector: string,
-    adv_function: string,
-    adv_contract_type: string,
-    adv_beginning_contract: Date,
-    adv_required_exp: string,
-    adv_language: string,
-    adv_contract_duration: number
+export interface OffersFilter {
+    offer_title: string,
+    offer_city: string,
+    offer_country: string,
+    offer_sector: string,
+    offer_function: string,
+    offer_contract_type: string,
+    offer_beginning_contract: Date,
+    offer_required_exp: string,
+    offer_language: string,
+    offer_contract_duration: number
 }
 
-export interface Advertisement {
-    adv_id: number,
-    adv_title: string,
-    adv_adress: string,
-    adv_postal_code: string,
-    adv_city: string,
-    adv_country: string,
-    adv_sector: string,
-    adv_function: string,
-    adv_publication_date: Date,
-    adv_contract_type: string,
-    adv_beginning_contract: Date,
-    adv_required_exp: string,
-    adv_language: string,
-    adv_contract_duration: number,
-    adv_description: string,
+export interface Offer {
+    offer_id: number,
+    offer_title: string,
+    offer_adress: string,
+    offer_postal_code: string,
+    offer_city: string,
+    offer_country: string,
+    offer_sector: string,
+    offer_function: string,
+    offer_publication_date: Date,
+    offer_contract_type: string,
+    offer_beginning_contract: Date,
+    offer_required_exp: string,
+    offer_language: string,
+    offer_contract_duration: number,
+    offer_description: string,
     cpn_id: number,
     cpn_field : string,
     cpn_name: string,
-    cpn_size: string
+    cpn_size: string,
+    cpn_logo: string
+}
+
+export interface Offers {
+    offer_id: number,
+    offer_title: string,
+    offer_contract_type: string,
+    offer_city: string,
+    cpn_name: string,
+    offer_publication_date: Date,
+    offer_country: string,
+    cpn_id: number,
+    cpn_logo: string
 }
 
 export interface User {
@@ -102,7 +115,7 @@ export interface Informations {
     cpn_email: string,
     user_id: number,
     user_email: string,
-    adv_id: number
+    offer_id: number
 }
 
 export interface CompanyField {

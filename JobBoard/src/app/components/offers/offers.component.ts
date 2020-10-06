@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {AdvertisementFilter} from 'src/app/models/models';
+import {Companies, CompaniesFilters, Offers, OffersFilter} from 'src/app/models/models';
 import {DataService} from '../../services/data.service';
+import {CompaniesDataService} from "../../services/companies.data.service";
+import {MatIconRegistry} from "@angular/material/icon";
+import {DomSanitizer} from "@angular/platform-browser";
+import {OffersDataService} from "../../services/offers.data.service";
 
 @Component({
   selector: 'app-offers',
@@ -9,30 +13,41 @@ import {DataService} from '../../services/data.service';
 })
 export class OffersComponent implements OnInit {
 
-  public offers: any;
+  public offers: Offers[];
+  public filteredOffers: Offers[];
 
-  constructor(private dataService: DataService) { }
-
-  ngOnInit(): void {
-    this.getOffersWithId();
+  constructor(
+      private offersDataService: OffersDataService,
+      iconRegistry: MatIconRegistry,
+      sanitizer: DomSanitizer) {
+    this.matIconRegistry(iconRegistry, sanitizer);
   }
 
-  private getOffersWithId(): void {
+  ngOnInit(): void {
+    this.loadOffers();
+  }
 
-    const offerFilter: AdvertisementFilter = {
-      adv_country: 'France',
-      adv_function: 'Génie Civil & Structures',
-      adv_contract_type: 'CDI',
-    } as AdvertisementFilter;
+  matIconRegistry(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer): void {
+    iconRegistry.addSvgIcon(
+        'search',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/search.svg'));
+    iconRegistry.addSvgIcon(
+        'briefcase',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/briefcase.svg'));
+    iconRegistry.addSvgIcon(
+        'delete',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/delete.svg'));
+  }
 
-    this.dataService.postOffersWithFilters$(offerFilter).subscribe(offers => {
-      if (offers) {
-        this.offers = offers;
-        console.log('length', offers.length);
-        this.offers.forEach(offer => {
-          console.log('offer', offer);
-        });
-      }
+  buildURL(logo: string): string {
+    return 'assets/icons/logos/' + logo;
+  }
+
+  loadOffers(): void {
+    this.offersDataService.getOffers$().subscribe((offers: Offers[]) => {
+      this.offers = offers;
+      this.filteredOffers = offers;
+      console.log(this.filteredOffers);
     });
   }
 
