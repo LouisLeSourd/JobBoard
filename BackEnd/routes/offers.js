@@ -5,13 +5,28 @@ var bdd = require('./module/bdd')
 /* GET users listing. */
 // correspond a la route http://localhost:3000/offers/
 router.get('/', function(req, res, next) {
-    bdd.query("SELECT offer_id, offer_title, cpn_name, offer_contract_type, offer_city, offer_country, offer_publication_date, cpn_id, cpn_logo from Offer", (err, result, fields) => {
+    bdd.query("SELECT offer_title, cpn_name, offer_contract_type, offer_function, offer_city, offer_country, offer_contract_duration, cpn_field, cpn_size, cpn_logo from Offer", (err, result, fields) => {
         if (err) throw err;
         console.log(result);
         res.send(result);
     })
 });
-
+// correspond a la route http://localhost:3000/oofers/contracts
+router.get('/contracts', function(req, res, next) {
+    bdd.query("select distinct offer_contract_type from Offer;", (err, result, fields) => {
+        if (err) throw err;
+        console.log(result);
+        res.send(result);
+    })
+});
+// correspond a la route http://localhost:3000/offers/functions
+router.get('/functions', function(req, res, next) {
+    bdd.query("select distinct offer_function from Offer;", (err, result, fields) => {
+        if (err) throw err;
+        console.log(result);
+        res.send(result);
+    })
+});
 // correspond a la route http://localhost:3000/offers/filters
 router.post('/filters', function(req, res, next) {
     let request = "SELECT offer_title, cpn_name, offer_contract_type, offer_city, offer_country, offer_publication_date, cpn_logo from Offer WHERE ";
