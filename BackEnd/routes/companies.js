@@ -37,7 +37,7 @@ router.post('/field&size&name', function(req, res, next) {
 
 function addCondition(conditionObject, conditionString, request) {
     if (conditionObject) {
-        if (request !== "SELECT cpn_name, cpn_size, cpn_employees_number, cpn_field, cpn_logo from Company WHERE ") {
+        if (request !== "select cpn_name, cpn_size, cpn_employees_number, cpn_field, cpn_logo from Company WHERE ") {
             if (conditionString !== 'cpn_name')
                 request += "" + conditionString + "='" + conditionObject + "'";
             else
