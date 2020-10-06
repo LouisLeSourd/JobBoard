@@ -1,39 +1,61 @@
 <div class="main-content">
-
     <div class="width90 margin-auto margin-top-bottom3">
-
         <section class="card-section">
             <mat-card class="margin-padding-0 border-radius0 shadow">
                 <mat-card-content class="width95 margin-auto padding-top-bottom15">
-
-                    <section class="flex space-between">
-                        <mat-form-field class="width30" appearance="outline">
-                            <mat-icon svgIcon="search" aria-hidden="false" matPrefix class="margin-right20"></mat-icon>
-                            <input matInput [(ngModel)]="offersFilter.offer_title"  (ngModelChange)="getOffersWithFilters()"  type="search" placeholder="Search...">
-                        </mat-form-field>
-                        <mat-form-field class="width30" appearance="outline">
-                            <mat-select [(ngModel)]="offersFilter.cpn_field" (ngModelChange)="getOffersWithFilters()" placeholder="Sélectionnez un secteur">
-                                <!--<mat-option *ngFor="let companiesField of companiesFields" [value]="companiesField.cpn_field">
-                                    {{companiesField.cpn_field}}</mat-option>-->
-                            </mat-select>
-                        </mat-form-field>
-                        <mat-form-field class="width30" appearance="outline">
-                            <mat-select [(ngModel)]="offersFilter.cpn_size" (ngModelChange)="getOffersWithFilters()" placeholder="Sélectionnez un type">
-                                <!--<mat-option *ngFor="let companySize of companiesSizes" [value]="companySize.cpn_size">
-                                    {{companySize.cpn_size}}</mat-option>-->
-                            </mat-select>
-                        </mat-form-field>
-                        <section class="flex align-item-center">
-                            <a><mat-icon (click)="deleteOffersFilters()" svgIcon="delete" aria-hidden="false"></mat-icon></a>
+                    <section class="flex flex-direction-column">
+                        <section class="flex space-between">
+                            <mat-form-field class="width30" appearance="outline">
+                                <mat-icon svgIcon="search" aria-hidden="false" matPrefix class="margin-right20"></mat-icon>
+                                <input matInput [(ngModel)]="offersFilters.offer_title" (ngModelChange)="getOffersWithFilters()" type="search" placeholder="Search...">
+                            </mat-form-field>
+                            <mat-form-field class="width30" appearance="outline">
+                                <mat-select [(ngModel)]="offersFilters.offer_contract_type" (ngModelChange)="getOffersWithFilters()" placeholder="Contrat">
+                                    <mat-option *ngFor="let offerContractType of offerContractTypes" [value]="offerContractType.offer_contract_type">
+                                        {{offerContractType.offer_contract_type}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field class="width30" appearance="outline">
+                                <mat-select [(ngModel)]="offersFilters.offer_function" (ngModelChange)="getOffersWithFilters()" placeholder="Fonction">
+                                    <mat-option *ngFor="let offerFunction of offerFunctions" [value]="offerFunction.offer_function">
+                                        {{offerFunction.offer_function}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </section>
+                        <section class="flex space-between">
+                            <mat-form-field class="width20" appearance="outline">
+                                <mat-select [(ngModel)]="offersFilters.cpn_field" (ngModelChange)="getOffersWithFilters()" placeholder="Secteur d'entreprise">
+                                    <mat-option *ngFor="let companyField of companyFields" [value]="companyField.cpn_field">
+                                        {{companyField.cpn_field}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field class="width20" appearance="outline">
+                                <mat-select [(ngModel)]="offersFilters.cpn_size" (ngModelChange)="getOffersWithFilters()" placeholder="Taille d'entreprise">
+                                    <mat-option *ngFor="let companySize of companySizes" [value]="companySize.cpn_size">
+                                        {{companySize.cpn_size}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field class="width20" appearance="outline">
+                                <mat-select [(ngModel)]="offersFilters.offer_contract_duration" (ngModelChange)="getOffersWithFilters()" placeholder="Durée">
+                                    <mat-option *ngFor="let offerContractDuration of offerContractDurations" [value]="offerContractDuration.offer_contract_duration">
+                                        {{offerContractDuration.offer_contract_duration}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field class="width20" appearance="outline">
+                                <mat-select [(ngModel)]="offersFilters.offer_required_exp" (ngModelChange)="getOffersWithFilters()" placeholder="Expérience">
+                                    <mat-option *ngFor="let offerRequiredExp of offerRequiredExps" [value]="offerRequiredExp.offer_required_exp">
+                                        {{offerRequiredExp.offer_required_exp}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <section class="flex align-item-center">
+                                <a><mat-icon (click)="deleteOffersFilters()" svgIcon="delete" aria-hidden="false"></mat-icon></a>
+                            </section>
                         </section>
                     </section>
-
                 </mat-card-content>
             </mat-card>
         </section>
-
         <section class="tiles-section margin-top5">
-
             <mat-grid-list cols="1" rowHeight="200px">
                 <mat-grid-tile *ngFor="let offer of filteredOffers">
                     <mat-card class="width90 height60 shadow">
@@ -50,9 +72,6 @@
                     </mat-card>
                 </mat-grid-tile>
             </mat-grid-list>
-
         </section>
-
     </div>
-
 </div>

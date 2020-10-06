@@ -32,7 +32,7 @@ export class UserSettingsComponent implements OnInit {
   }
 
   canUpdate(): boolean {
-    return (this.newPwd === this.newPwdConfirm && this.userService.user.user_password === this.actualPwd);
+    return !(this.newPwd === this.newPwdConfirm && this.userService.user.user_password === this.actualPwd && this.newPwd !== undefined);
   }
 
   updatePwd(): void {

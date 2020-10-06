@@ -28,7 +28,7 @@ export interface CompaniesFilters {
     cpn_name: string,
 }
 
-export interface OffersFilter {
+export interface OffersFilters {
     offer_title: string,
     offer_function: string,
     offer_contract_type: string,
@@ -116,6 +116,26 @@ export interface Informations {
     user_id: number,
     user_email: string,
     offer_id: number
+}
+
+export interface OfferTitle {
+    offer_title: string,
+}
+
+export interface OfferFunction {
+    offer_function: string,
+}
+
+export interface OfferContractType {
+    offer_contract_type: string,
+}
+
+export interface OfferRequiredExp {
+    offer_required_exp: string,
+}
+
+export interface OfferContractDuration {
+    offer_contract_duration: number
 }
 
 export interface CompanyField {
