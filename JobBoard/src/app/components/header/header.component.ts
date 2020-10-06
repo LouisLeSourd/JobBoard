@@ -5,6 +5,8 @@ import {MatIconRegistry} from '@angular/material/icon';
 import {ActivatedRoute, Router} from '@angular/router';
 import {User} from '../../models/models';
 import {UserService} from '../../services/user.service';
+import {CookieService} from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-header',
@@ -19,6 +21,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router: Router,
               private route: ActivatedRoute,
+              private cookieService: CookieService,
               public userService: UserService,
               iconRegistry: MatIconRegistry,
               sanitizer: DomSanitizer) {
@@ -52,6 +55,8 @@ export class HeaderComponent implements OnInit {
       case Page.DECONNECTION:
         this.userService.unSetUser();
         this.router.navigate(['']);
+        this.cookieService.delete('password');
+        this.cookieService.delete('email');
         break;
       case Page.PROFILE:
         this.router.navigate(['/user/profile']);
