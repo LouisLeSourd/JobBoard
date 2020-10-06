@@ -14,6 +14,7 @@ import {OffersDataService} from "../../services/offers.data.service";
 export class OffersComponent implements OnInit {
 
   public offers: Offers[];
+  public offersFilter: OffersFilter;
   public filteredOffers: Offers[];
 
   constructor(
@@ -41,6 +42,14 @@ export class OffersComponent implements OnInit {
 
   buildURL(logo: string): string {
     return 'assets/icons/logos/' + logo;
+  }
+
+  getOffersWithFilters(): void {
+
+  }
+
+  deleteOffersFilters(): void {
+
   }
 
   loadOffers(): void {

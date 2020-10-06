@@ -30,15 +30,12 @@ export interface CompaniesFilters {
 
 export interface OffersFilter {
     offer_title: string,
-    offer_city: string,
-    offer_country: string,
-    offer_sector: string,
     offer_function: string,
     offer_contract_type: string,
-    offer_beginning_contract: Date,
     offer_required_exp: string,
-    offer_language: string,
     offer_contract_duration: number
+    cpn_field : string,
+    cpn_size: string,
 }
 
 export interface Offer {
