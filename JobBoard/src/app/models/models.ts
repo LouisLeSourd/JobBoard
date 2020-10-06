@@ -72,7 +72,10 @@ export interface Offers {
     cpn_name: string,
     offer_publication_date: Date,
     offer_country: string,
-    cpn_id: number,
+    offer_contract_duration: number,
+    offer_function: string,
+    cpn_field : string,
+    cpn_size: string,
     cpn_logo: string
 }
 
