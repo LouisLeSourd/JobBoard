@@ -12,14 +12,15 @@
                                 <input matInput type="search" placeholder="Search...">
                             </mat-form-field>
                             <mat-form-field class="width32" appearance="outline">
-                                <mat-select>
+                                <mat-select placeholder="Sélectionnez un secteur">
                                     <mat-option *ngFor="let companiesField of companiesFields" [value]="companiesField.cpn_field">
                                         {{companiesField.cpn_field}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                             <mat-form-field class="width32" appearance="outline">
-                                <mat-select>
-                                    <mat-option>test</mat-option>
+                                <mat-select placeholder="Sélectionnez un type">
+                                    <mat-option *ngFor="let companySize of companiesSizes" [value]="companySize.cpn_size">
+                                    {{companySize.cpn_size}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </section>
@@ -30,9 +31,16 @@
 
             <section class="tiles-section margin-top10">
 
-                <mat-grid-list cols="3" rowHeight="100px">
-                    <mat-grid-tile>
-                        <mat-card>test</mat-card>
+                <mat-grid-list gutterSize="10" cols="3">
+                    <mat-grid-tile *ngFor="let company of companies">
+                        <mat-card>
+                            <mat-card-header>{{company.cpn_name}}</mat-card-header>
+
+                            <mat-card-footer>
+                                <a>Voir nos offres</a>
+                            </mat-card-footer>
+
+                        </mat-card>
                     </mat-grid-tile>
                 </mat-grid-list>
 

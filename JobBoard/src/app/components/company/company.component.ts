@@ -5,7 +5,7 @@ import {MatIconRegistry} from "@angular/material/icon";
 import {DomSanitizer} from "@angular/platform-browser";
 import {Page} from "../../models/enum";
 import {CompaniesDataService} from "../../services/companies.data.service";
-import {CompanyField, CompanySize} from 'src/app/models/models';
+import {Company, CompanyField, CompanySize} from 'src/app/models/models';
 
 @Component({
   selector: 'app-company',
@@ -16,6 +16,7 @@ export class CompanyComponent implements OnInit {
 
   public companiesFields: CompanyField[];
   public companiesSizes: CompanySize[];
+  public companies: Company[];
 
   constructor(
       private companiesDataService: CompaniesDataService,
@@ -26,6 +27,7 @@ export class CompanyComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCompanySettings();
+    this.loadCompanies();
   }
 
   matIconRegistry(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer): void {
@@ -35,11 +37,17 @@ export class CompanyComponent implements OnInit {
   }
 
   loadCompanySettings(): void {
-    this.companiesDataService.getCompaniesFileds$().subscribe(fields => {
+    this.companiesDataService.getCompanyFileds$().subscribe(fields => {
       this.companiesFields = fields;
     });
-    this.companiesDataService.getCompaniesFileds$().subscribe(sizes => {
+    this.companiesDataService.getCompanySizes$().subscribe(sizes => {
       this.companiesSizes = sizes;
+    });
+  }
+
+  loadCompanies(): void {
+    this.companiesDataService.getCompanies$().subscribe(companies => {
+      this.companies = companies;
     });
   }
 

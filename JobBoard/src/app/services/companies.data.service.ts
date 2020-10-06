@@ -10,12 +10,16 @@ export class CompaniesDataService {
   constructor(protected http: HttpClient) {
   }
 
-  getCompaniesFileds$(): Observable<any> {
+  getCompanyFileds$(): Observable<any> {
     return this.http.get('http://localhost:3000/companies/fields');
   }
 
-  getCompaniesSizes$(): Observable<any> {
-    return this.http.get('http://localhost:3000/companies/fields');
+  getCompanySizes$(): Observable<any> {
+    return this.http.get('http://localhost:3000/companies/sizes');
+  }
+
+  getCompanies$(): Observable<any> {
+    return this.http.get('http://localhost:3000/companies');
   }
 
 }
