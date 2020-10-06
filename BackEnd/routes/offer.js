@@ -13,15 +13,4 @@ router.get('/id=:id', function(req, res, next) {
     })
 });
 
-// correspond a la route http://localhost:3000/offer/delete/id=id
-router.get('/delete/id=:id', function(req, res, next) {
-    var id = req.params.id;
-    bdd.query("DELETE FROM Offer WHERE offer_id=" + id + ";", (err, result, fields) => {
-        if (err) throw err;
-        console.log(result);
-        res.send(result);
-    })
-});
-
-
 module.exports = router;

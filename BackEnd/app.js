@@ -10,6 +10,7 @@ var companiesRouter = require('./routes/companies');
 var companyRouter = require('./routes/company');
 var offersRouter = require('./routes/offers');
 var offerRouter = require('./routes/offer');
+var adminRouter = require('./routes/admin');
 
 var app = express();
 
@@ -36,5 +37,7 @@ app.use('/companies', companiesRouter);
 // http://localhost:3000/companies/
 app.use('/company', companyRouter);
 // http://localhost:3000/company/
+app.use('/admin', adminRouter);
+// http://localhost:3000/admin/
 
 module.exports = app;
