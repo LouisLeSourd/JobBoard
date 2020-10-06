@@ -29,8 +29,7 @@ export class CompaniesDataService {
     const body = {
       companiesFilters
     };
-    console.log('companiesFilters', companiesFilters);
-    return this.http.post<any>('http://localhost:3000/companies/comapniesFilters', body);
+    return this.http.post<any>('http://localhost:3000/companies/companiesFilters', body);
   }
 
 }
