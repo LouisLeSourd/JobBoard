@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {CompaniesFilters} from '../models/models';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,16 @@ export class CompaniesDataService {
 
   getCompanies$(): Observable<any> {
     return this.http.get('http://localhost:3000/companies');
+  }
+
+  getCompaniesByFilters$(
+      companiesFilters: CompaniesFilters
+  ): Observable<any> {
+    const body = {
+      companiesFilters
+    };
+    console.log('companiesFilters', companiesFilters);
+    return this.http.post<any>('http://localhost:3000/companies/comapniesFilters', body);
   }
 
 }

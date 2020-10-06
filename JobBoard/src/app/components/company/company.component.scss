@@ -9,4 +9,33 @@
     margin-bottom: 30px;
   }
 
+  a {
+    font-size: 12px;
+    color: #4dc942;
+    text-decoration: underline;
+  }
+
+  .height-calc {
+    height: calc(100% - 37px);
+  }
+
+  mat-card-footer {
+    mat-icon {
+      height: 15px !important;
+      width: 15px !important;
+    }
+  }
+
+  .bottom0 {
+    bottom: 0;
+  }
+
+  .shadow {
+    box-shadow: 0 5px 20px 0 rgba(0,0,0,.15);
+  }
+
+  p {
+    text-align: unset;
+  }
+
 }
