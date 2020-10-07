@@ -51,7 +51,6 @@ router.post('/addUser', function(req, res, next) {
         res.send(result);
     })
 });
-
 // correspond a la route http://localhost:3000/admin/addOffer
 router.post('/addOffer', function(req, res, next) {
     bdd.query("INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector, offer_function, offer_contract_type, offer_required_exp, offer_language, offer_contract_duration, offer_description,cpn_id, cpn_field, cpn_name, cpn_size) VALUES('" + req.body.newOffer.offer_title + "', '" + req.body.newOffer.offer_city + "', '" + req.body.newOffer.offer_country + "', '" + req.body.newOffer.offer_sector + "', '" + req.body.newOffer.offer_function + "', '" + req.body.newOffer.offer_contract_type + "', '" + req.body.newOffer.offer_required_exp + "', '" + req.body.newOffer.offer_language + "', '" + req.body.newOffer.offer_contract_duration + "', '" + req.body.newOffer.offer_description + "', '" + req.body.newOffer.cpn_id + "', '" + req.body.newOffer.cpn_field + "', '" + req.body.newOffer.cpn_name + "', '" + req.body.newOffer.cpn_size + "');", (err, result, fields) => {
