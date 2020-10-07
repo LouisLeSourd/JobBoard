@@ -75,19 +75,16 @@ router.get('/languages', function(req, res, next) {
         res.send(result);
     })
 });
-// correspond a la route http://localhost:3000/offers/filters
-router.post('/filters', function(req, res, next) {
-    let request = "SELECT offer_title, cpn_name, offer_contract_type, offer_city, offer_country, offer_publication_date, cpn_logo from Offer WHERE ";
-    request = addCondition(req.body.offerFilter.offer_city, 'offer_city', request);
-    request = addCondition(req.body.offerFilter.offer_title, 'offer_title', request);
-    request = addCondition(req.body.offerFilter.offer_sector, 'offer_sector', request);
-    request = addCondition(req.body.offerFilter.offer_country, 'offer_country', request);
-    request = addCondition(req.body.offerFilter.offer_language, 'offer_language', request);
-    request = addCondition(req.body.offerFilter.offer_function, 'offer_function', request);
-    request = addCondition(req.body.offerFilter.offer_required_exp, 'offer_required_exp', request);
-    request = addCondition(req.body.offerFilter.offer_contract_type, 'offer_contract_type', request);
-    request = addCondition(req.body.offerFilter.offer_contract_duration, 'offer_contract_duration', request);
-    request = addCondition(req.body.offerFilter.offer_beginning_contract, 'offer_beginning_contract', request);
+// correspond a la route http://localhost:3000/offers/offersFilters
+router.post('/offersFilters', function(req, res, next) {
+    let request = "SELECT offer_title, cpn_name, offer_contract_type, offer_function, offer_city, offer_country, offer_contract_duration, cpn_field, cpn_size, cpn_logo from Offer WHERE ";
+    request = addCondition(req.body.offersFilters.cpn_size, 'cpn_size', request);
+    request = addCondition(req.body.offersFilters.cpn_field, 'cpn_field', request);
+    request = addCondition(req.body.offersFilters.offer_title, 'offer_title', request);
+    request = addCondition(req.body.offersFilters.offer_function, 'offer_function', request);
+    request = addCondition(req.body.offersFilters.offer_required_exp, 'offer_required_exp', request);
+    request = addCondition(req.body.offersFilters.offer_contract_type, 'offer_contract_type', request);
+    request = addCondition(req.body.offersFilters.offer_contract_duration, 'offer_contract_duration', request);
     request += ";";
     bdd.query(request, (err, result, fields) => {
         if (err) throw err;
@@ -98,13 +95,16 @@ router.post('/filters', function(req, res, next) {
 
 function addCondition(conditionObject, conditionString, request) {
     if (conditionObject) {
-        if (request !== "SELECT offer_title, cpn_name, offer_contract_type, offer_city, offer_country, offer_publication_date, cpn_logo from Offer WHERE ") {
-            if (conditionString !== 'offer_title')
-                request += "" + conditionString + "='" + conditionObject + "'";
-            else
-                request += "" + conditionString + "like '%" + conditionObject + "%'";
+        if (request !== "SELECT offer_title, cpn_name, offer_contract_type, offer_function, offer_city, offer_country, offer_contract_duration, cpn_field, cpn_size, cpn_logo from Offer WHERE ") {
+            request += " and ";
+        }
+        if (conditionString !== 'offer_title') {
+            request += "" + conditionString + "='" + conditionObject + "'";
+        } else {
+            request += "" + conditionString + " like '%" + conditionObject + "%'";
         }
     }
+    return request;
 }
 
 module.exports = router;

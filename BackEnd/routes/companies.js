@@ -33,6 +33,7 @@ router.post('/companiesFilters', function(req, res, next) {
     request = addCondition(req.body.companiesFilters.cpn_field, 'cpn_field', request);
     request = addCondition(req.body.companiesFilters.cpn_size, 'cpn_size', request);
     request = addCondition(req.body.companiesFilters.cpn_name, 'cpn_name', request);
+    request += ";";
     bdd.query(request, (err, result, fields) => {
         if (err) throw err;
         console.log(result);

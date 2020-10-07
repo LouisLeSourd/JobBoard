@@ -68,8 +68,8 @@
             </mat-card>
         </section>
         <section class="flex space-around">
-            <button mat-button class="bg-light-green white margin40" [class.display-none]="canUpdate()"
-                    (click)="updatePwd()">Sauvegarder</button>
+            <button mat-button class="bg-light-green white margin40"
+                    (click)="updatePwd()" [disabled]="canUpdate()">Sauvegarder</button>
         </section>
         <section class="footer-section">
             <div class="separation-line"></div>

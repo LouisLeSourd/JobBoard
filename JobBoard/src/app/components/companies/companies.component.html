@@ -12,13 +12,13 @@
                                 <input matInput [(ngModel)]="companiesFilters.cpn_name"  (ngModelChange)="getCompaniesWithFilters()"  type="search" placeholder="Search...">
                             </mat-form-field>
                             <mat-form-field class="width30" appearance="outline">
-                                <mat-select [(ngModel)]="companiesFilters.cpn_field" (ngModelChange)="getCompaniesWithFilters()" placeholder="Sélectionnez un secteur">
+                                <mat-select [(ngModel)]="companiesFilters.cpn_field" (ngModelChange)="getCompaniesWithFilters()" placeholder="Secteur d'entreprise">
                                     <mat-option *ngFor="let companiesField of companiesFields" [value]="companiesField.cpn_field">
                                         {{companiesField.cpn_field}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                             <mat-form-field class="width30" appearance="outline">
-                                <mat-select [(ngModel)]="companiesFilters.cpn_size" (ngModelChange)="getCompaniesWithFilters()" placeholder="Sélectionnez un type">
+                                <mat-select [(ngModel)]="companiesFilters.cpn_size" (ngModelChange)="getCompaniesWithFilters()" placeholder="Taille d'entreprise">
                                     <mat-option *ngFor="let companySize of companiesSizes" [value]="companySize.cpn_size">
                                     {{companySize.cpn_size}}</mat-option>
                                 </mat-select>

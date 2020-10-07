@@ -28,17 +28,14 @@ export interface CompaniesFilters {
     cpn_name: string,
 }
 
-export interface OffersFilter {
+export interface OffersFilters {
     offer_title: string,
-    offer_city: string,
-    offer_country: string,
-    offer_sector: string,
     offer_function: string,
     offer_contract_type: string,
-    offer_beginning_contract: Date,
     offer_required_exp: string,
-    offer_language: string,
     offer_contract_duration: number
+    cpn_field : string,
+    cpn_size: string,
 }
 
 export interface Offer {
@@ -72,7 +69,10 @@ export interface Offers {
     cpn_name: string,
     offer_publication_date: Date,
     offer_country: string,
-    cpn_id: number,
+    offer_contract_duration: number,
+    offer_function: string,
+    cpn_field : string,
+    cpn_size: string,
     cpn_logo: string
 }
 
@@ -116,6 +116,26 @@ export interface Informations {
     user_id: number,
     user_email: string,
     offer_id: number
+}
+
+export interface OfferTitle {
+    offer_title: string,
+}
+
+export interface OfferFunction {
+    offer_function: string,
+}
+
+export interface OfferContractType {
+    offer_contract_type: string,
+}
+
+export interface OfferRequiredExp {
+    offer_required_exp: string,
+}
+
+export interface OfferContractDuration {
+    offer_contract_duration: number
 }
 
 export interface CompanyField {
