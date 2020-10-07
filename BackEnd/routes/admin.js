@@ -51,7 +51,14 @@ router.post('/addUser', function(req, res, next) {
         res.send(result);
     })
 });
-
+// correspond a la route http://localhost:3000/admin/cpn_names
+router.get('/cpn_names', function(req, res, next) {
+    bdd.query("select distinct cpn_name from Company;", (err, result, fields) => {
+        if (err) throw err;
+        console.log(result);
+        res.send(result);
+    })
+});
 // correspond a la route http://localhost:3000/admin/addOffer
 router.post('/addOffer', function(req, res, next) {
     bdd.query("INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector, offer_function, offer_publication_date, offer_contract_type, offer_beginning_contract, offer_required_exp, offer_language, offer_contract_duration, offer_description,cpn_id, cpn_field, cpn_name, cpn_logo, cpn_size) VALUES('" + req.body.object.offer_title + "', '" + req.body.object.offer_city + "', '" + req.body.object.offer_country + "', '" + req.body.object.offer_sector + "', '" + req.body.object.offer_function + "', '" + req.body.object.offer_publication_date + "', '" + req.body.object.offer_contract_type + "', '" + req.body.object.offer_beginning_contract + "', '" + req.body.object.offer_required_exp + "', '" + req.body.object.offer_language + "', '" + req.body.object.offer_contract_duration + "', '" + req.body.object.offer_description + "', '" + req.body.object.cpn_id + "', '" + req.body.object.cpn_field + "', '" + req.body.object.cpn_name + "', '" + req.body.object.cpn_logo + "', '" + req.body.object.cpn_size + "';", (err, result, fields) => {
