@@ -110,7 +110,7 @@ export interface NewUser {
     pwdConfirm: string,
 }
 
-export interface Informations {
+export interface Information {
     text_email: string,
     cpn_id: number,
     cpn_email: string,

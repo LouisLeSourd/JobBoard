@@ -32,6 +32,9 @@ import { DatabaseSettingsComponent } from './components/database-settings/databa
 import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule, MatGridTile} from '@angular/material/grid-list';
 import { DialogApplyComponent } from './dialogs/dialog-apply/dialog-apply.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -70,7 +73,10 @@ import { DialogApplyComponent } from './dialogs/dialog-apply/dialog-apply.compon
         MatNativeDateModule,
         ReactiveFormsModule,
         MatSelectModule,
-        MatGridListModule
+        MatGridListModule,
+        MatTableModule,
+        MatSortModule,
+        MatPaginatorModule
     ],
   providers: [
       DialogUpdateProfileComponent,
