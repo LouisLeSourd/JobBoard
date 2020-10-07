@@ -211,6 +211,10 @@ a:hover {
   justify-content: center;
 }
 
+.justify-content-flex-end {
+  justify-content: flex-end;
+}
+
 .main-content {
   overflow-y: auto;
   position: fixed;
@@ -261,6 +265,14 @@ a:hover {
   height: 200px !important;
 }
 
+.height300px {
+  height: 300px !important;
+}
+
+.height400px {
+  height: 400px !important;
+}
+
 .height50 {
   height: 50%;
 }
@@ -287,6 +299,10 @@ a:hover {
 
 .width30 {
   width: 30%;
+}
+
+.width40 {
+  width: 40%;
 }
 
 .width65 {
@@ -332,6 +348,10 @@ a:hover {
 .padding-top-bottom8 {
   padding-top: 8px !important;
   padding-bottom: 8px !important;
+}
+
+.padding-top40px {
+  padding-top: 40px !important;
 }
 
 .border-radius0 {

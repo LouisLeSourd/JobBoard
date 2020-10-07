@@ -1,0 +1,20 @@
+<section>
+    <section class="flex margin-auto justify-content-center">
+        <img src="assets/icons/description_user.svg" width="10%" height="10%" alt>
+    </section>
+    <div class="separation-line margin-top-bottom40"></div>
+    <section>
+        <p class="grey">Pour postuler, il vous suffit de renseigner une lettre de motivation ci dessous. Si votre CV est bien uploader vous pourrez postuler, sinon renseigner votre CV <a>ici</a>.</p>
+        <br>
+        <mat-form-field class="width100 height300px">
+            <mat-label>Description</mat-label>
+            <textarea matInput class="height300px" [(ngModel)]="motivation" cdkTextareaAutosize #message maxlength="1500"
+                      placeholder="Je suis actuellement en 2ème année de droit et je suis à la recherche..."></textarea>
+            <mat-hint align="end">{{message.value.length}} / 1500</mat-hint>
+        </mat-form-field>
+    </section>
+    <mat-card-actions class="margin0 padding-top40px" align="end">
+        <span class="flex align-item-center margin-right40" *ngIf="!user?.user_cv"> Vous n'avez pas de CV !</span>
+        <button mat-button class="bg-light-green white" (click)="updateMotivation()" [disabled]="canApply()">Postuler</button>
+    </mat-card-actions>
+</section>

@@ -7,7 +7,7 @@ import {
   Offer, OfferContractDuration, OfferContractType, OfferFunction, OfferRequiredExp,
   Offers,
   OffersFilters,
-  OfferTitle
+  OfferTitle, UpdateUserProfile, User
 } from 'src/app/models/models';
 import {DataService} from '../../services/data.service';
 import {CompaniesDataService} from "../../services/companies.data.service";
@@ -15,6 +15,11 @@ import {MatIconRegistry} from "@angular/material/icon";
 import {DomSanitizer} from "@angular/platform-browser";
 import {OffersDataService} from "../../services/offers.data.service";
 import { forkJoin } from 'rxjs';
+import {UserService} from "../../services/user.service";
+import {DialogUpdateProfileComponent} from "../../dialogs/dialog-update-profile/dialog-update-profile.component";
+import {Router} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogApplyComponent} from "../../dialogs/dialog-apply/dialog-apply.component";
 
 @Component({
   selector: 'app-offers',
@@ -37,13 +42,16 @@ export class OffersComponent implements OnInit {
 
 constructor(
       private offersDataService: OffersDataService,
+      private userService: UserService,
+      private router: Router,
+      private dialog: MatDialog,
       iconRegistry: MatIconRegistry,
       sanitizer: DomSanitizer) {
     this.matIconRegistry(iconRegistry, sanitizer);
   }
 
   ngOnInit(): void {
-  this.loadOffersSettings();
+    this.loadOffersSettings();
     this.loadOffers();
   }
 
@@ -96,6 +104,24 @@ constructor(
       this.offerFunctions = functions;
       this.offerRequiredExps = requiredExp;
     });
+  }
+
+  apply(offer: Offers): void {
+  console.log(this.userService);
+    if (this.userService.isConnect) {
+      const dialogRef = this.dialog.open(DialogApplyComponent, {
+        width: '60%',
+        data: {
+          user: this.userService.getUser()
+        }
+      });
+      dialogRef.afterClosed().subscribe((message: string) => {
+        console.log('message');
+      });
+    } else {
+      alert('Vous devez être connecté pour pouvoir postuler');
+      this.router.navigate(['/login']);
+    }
   }
 
   loadOffers(): void {

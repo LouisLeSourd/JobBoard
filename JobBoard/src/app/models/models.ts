@@ -89,6 +89,7 @@ export interface User {
     user_email: string,
     user_description: string,
     role: string,
+    user_cv: string,
     user_birth: Date
 }
 

@@ -31,6 +31,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { DatabaseSettingsComponent } from './components/database-settings/database-settings.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule, MatGridTile} from '@angular/material/grid-list';
+import { DialogApplyComponent } from './dialogs/dialog-apply/dialog-apply.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {MatGridListModule, MatGridTile} from '@angular/material/grid-list';
     UserProfileComponent,
     UserSettingsComponent,
     DialogUpdateProfileComponent,
-    DatabaseSettingsComponent
+    DatabaseSettingsComponent,
+    DialogApplyComponent
   ],
     imports: [
         BrowserModule,
@@ -71,7 +73,8 @@ import {MatGridListModule, MatGridTile} from '@angular/material/grid-list';
         MatGridListModule
     ],
   providers: [
-      DialogUpdateProfileComponent
+      DialogUpdateProfileComponent,
+      DialogApplyComponent
   ],
   bootstrap: [AppComponent]
 })

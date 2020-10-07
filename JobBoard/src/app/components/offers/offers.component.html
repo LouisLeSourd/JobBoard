@@ -63,10 +63,13 @@
                             <mat-card class="width10 height100 flex align-self-baseline shadow margin-left20">
                                 <img width="100%" height="100%" [src]="buildURL(offer.cpn_logo)" alt>
                             </mat-card>
-                            <section class="margin-left40 margin-top5">
+                            <section class="margin-left40 margin-top5 width65">
                                 <p class="bold">{{offer.offer_title}}</p>
                                 <p>{{offer.cpn_name}}</p>
-                                <p>{{offer.offer_contract_type}} | {{offer.offer_city}} ({{offer.offer_country}}) | {{offer.offer_publication_date}}</p>
+                                <p>{{offer.offer_contract_type}} | {{offer.offer_city}} ({{offer.offer_country}})</p>
+                            </section>
+                            <section class="margin-left40 margin-top5">
+                                <button mat-button class="bg-light-green white" (click)="apply(offer)">Postuler</button>
                             </section>
                         </mat-card-content>
                     </mat-card>
