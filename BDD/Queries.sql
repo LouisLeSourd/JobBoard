@@ -40,6 +40,12 @@ select user_id FROM User WHERE user_email='louis.le-sourd@epitech.eu' and user_p
 
 -- INFORMATION QUERIES
 select * FROM Company;
-select * FROM Advertisement;
+select * FROM Offer;
 select * FROM User;
 select * FROM Informations;
+select distinct * from Offer LEFT JOIN Company where offer_id='0' and cpn_id='0';
+INSERT INTO Informations VALUES ('iuzgdaiakbcjahk,cbakljbcXOMUACHX', 0, 'contact@assystem.eu', 0, 'user@epitech.eu', 3);
+
+DELETE FROM Informations WHERE user_id=0 and offer_id=3;
+DELETE FROM Offer WHERE cpn_id=3;
+DELETE FROM Company where cpn_id=0;

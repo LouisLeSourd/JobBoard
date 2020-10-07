@@ -6,8 +6,8 @@ var bdd = require('./module/bdd')
 // correspond a la route http://localhost:3000/admin/deleteCompany/id=id
 router.get('/deleteCompany/id=:id', function(req, res, next) {
     var id = req.params.id;
-    if (err) throw err;
     bdd.query("DELETE FROM Company WHERE cpn_id=" + id + ";", (err, result, fields) => {
+        if (err) throw err;
         console.log(result);
         res.send(result);
     })
