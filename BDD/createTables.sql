@@ -68,10 +68,8 @@ CREATE TABLE IF NOT EXISTS Offer (
     cpn_size varchar(255),
     cpn_logo varchar(255),
     -- links to Company attributes
-    CONSTRAINT fk_cpn_id FOREIGN KEY (cpn_id) REFERENCES Company(cpn_id),
+    CONSTRAINT fk_cpn_id FOREIGN KEY (cpn_id) REFERENCES Company(cpn_id) on delete cascade,
     CONSTRAINT fk_cpn_logo FOREIGN KEY (cpn_logo) REFERENCES Company(cpn_logo),
-    CONSTRAINT fk_cpn_field FOREIGN KEY (cpn_field) REFERENCES Company(cpn_field),
-    CONSTRAINT fk_cpn_size FOREIGN KEY (cpn_size) REFERENCES Company(cpn_size),
     CONSTRAINT fk_cpn_name FOREIGN KEY (cpn_name) REFERENCES Company(cpn_name),
     -- PRIMARY KEY
     PRIMARY KEY (offer_id)
@@ -112,13 +110,5 @@ CREATE TABLE IF NOT EXISTS Informations (
     user_id smallint(5) unsigned,
     user_email varchar(100),
     -- offers attributes
-    offer_id smallint(5) unsigned,
-    -- links to Company attributes
-    CONSTRAINT fk_cpn_email_info FOREIGN KEY (cpn_email) REFERENCES Company(cpn_email),
-    CONSTRAINT fk_cpn_id_info FOREIGN KEY (cpn_id) REFERENCES Company(cpn_id),
-    -- links to user attributes
-    CONSTRAINT fk_user_id_info FOREIGN KEY (user_id) REFERENCES User(user_id),
-    CONSTRAINT fk_user_email_info FOREIGN KEY (user_email) REFERENCES User(user_email),
-    -- links to offer attributes
-    CONSTRAINT fk_offer_id_info FOREIGN KEY (offer_id) REFERENCES Offer(offer_id)    
+    offer_id smallint(5) unsigned
 ) ENGINE=InnoDB;
