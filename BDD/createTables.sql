@@ -68,10 +68,8 @@ CREATE TABLE IF NOT EXISTS Offer (
     cpn_size varchar(255),
     cpn_logo varchar(255),
     -- links to Company attributes
-    CONSTRAINT fk_cpn_id FOREIGN KEY (cpn_id) REFERENCES Company(cpn_id),
+    CONSTRAINT fk_cpn_id FOREIGN KEY (cpn_id) REFERENCES Company(cpn_id) on delete cascade,
     CONSTRAINT fk_cpn_logo FOREIGN KEY (cpn_logo) REFERENCES Company(cpn_logo),
-    CONSTRAINT fk_cpn_field FOREIGN KEY (cpn_field) REFERENCES Company(cpn_field),
-    CONSTRAINT fk_cpn_size FOREIGN KEY (cpn_size) REFERENCES Company(cpn_size),
     CONSTRAINT fk_cpn_name FOREIGN KEY (cpn_name) REFERENCES Company(cpn_name),
     -- PRIMARY KEY
     PRIMARY KEY (offer_id)
