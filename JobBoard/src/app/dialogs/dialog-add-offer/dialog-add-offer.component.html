@@ -1,0 +1,88 @@
+<mat-dialog-content>
+    <section class="margin40 flex flex-direction-column">
+
+        <div class="flex flex-direction-row space-between">
+            <label class="align-self-center">Nom</label>
+            <mat-form-field class="width50" appearance="outline">
+                <mat-label>Nom</mat-label>
+                <input matInput [(ngModel)]="newCompany.cpn_name" placeholder="Nom">
+            </mat-form-field>
+        </div>
+        <div class="flex flex-direction-row space-between">
+            <label class="align-self-center">Description</label>
+            <mat-form-field class="width50" appearance="outline">
+                <mat-label>Description</mat-label>
+                <input matInput [(ngModel)]="newCompany.cpn_description" placeholder="Description">
+            </mat-form-field>
+        </div>
+        <div class="flex flex-direction-row space-between">
+            <label class="align-self-center">Email</label>
+            <mat-form-field class="width50" appearance="outline">
+                <input matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                       [(ngModel)]="newCompany.cpn_email" placeholder="Ex. pat@example.com">
+            </mat-form-field>
+        </div>
+        <div class="flex flex-direction-row space-between">
+            <label class="align-self-center">Nombre d'employés</label>
+            <div class="width50">
+                <mat-form-field class="width100" appearance="outline">
+                    <mat-label>Nombre d'employés</mat-label>
+                    <input matInput type="number" [(ngModel)]="newCompany.cpn_employees_number" placeholder="Nombre d'employés">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="flex flex-direction-row space-between">
+            <label class="align-self-center">Siège social</label>
+            <div class="width50">
+                <mat-form-field class="width100" appearance="outline">
+                    <mat-label>Siège social</mat-label>
+                    <input matInput [(ngModel)]="newCompany.cpn_head_office" placeholder="Siège social">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="flex flex-direction-row space-between">
+            <label class="align-self-center">PDG</label>
+            <div class="width50">
+                <mat-form-field class="width100" appearance="outline">
+                    <mat-label>PDG</mat-label>
+                    <input matInput [(ngModel)]="newCompany.cpn_representative" placeholder="PDG">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="flex flex-direction-row space-between">
+            <label class="align-self-center">Chiffre d'affaire</label>
+            <div class="width50">
+                <mat-form-field class="width100" appearance="outline">
+                    <mat-label>Chiffre d'affaire</mat-label>
+                    <input matInput type="number" [(ngModel)]="newCompany.cpn_turnover" placeholder="Chiffre d'affaire">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="flex flex-direction-row space-between">
+            <label class="align-self-center">Chiffre d'affaire</label>
+            <div class="width50">
+                <mat-form-field class="width100" appearance="outline">
+                    <mat-select [(ngModel)]="newCompany.cpn_field" placeholder="Secteur d'entreprise">
+                        <mat-option *ngFor="let companiesField of companiesFields" [value]="companiesField.cpn_field">
+                            {{companiesField.cpn_field}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="flex flex-direction-row space-between">
+            <label class="align-self-center">Chiffre d'affaire</label>
+            <div class="width50">
+                <mat-form-field class="width100" appearance="outline">
+                    <mat-select [(ngModel)]="newCompany.cpn_size" placeholder="Taille d'entreprise">
+                        <mat-option *ngFor="let companySize of companiesSizes" [value]="companySize.cpn_size">
+                            {{companySize.cpn_size}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+    </section>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button matDialogClose class="bg-light-green white padding-side20" [disabled]="disabledSubmit()" (click)="addCompany()">Ajouter</button>
+</mat-dialog-actions>
