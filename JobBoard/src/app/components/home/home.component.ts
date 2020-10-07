@@ -26,15 +26,15 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userDataService.getUserByEmail$(this.cookieService.get('email')).subscribe((user: User) => {
-      if (user[0]) {
-        if (user[0].user_password === this.cookieService.get('password')) {
-          console.log(this.cookieService.get('email'));
-          console.log(this.cookieService.get('password'));
-          this.userService.setUser(user[0]);
+    if (this.cookieService.get('email')) {
+      this.userDataService.getUserByEmail$(this.cookieService.get('email')).subscribe((user: User) => {
+        if (user[0]) {
+          if (user[0].user_password === this.cookieService.get('password')) {
+            this.userService.setUser(user[0]);
+          }
         }
-      }
-    });
+      });
+    }
   }
 
   goTo(page: Page): void {

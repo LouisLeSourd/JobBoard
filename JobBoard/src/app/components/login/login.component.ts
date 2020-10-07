@@ -42,8 +42,6 @@ export class LoginComponent implements OnInit {
         if (user[0].user_password === this.pwd) {
           this.cookieService.set('email', this.email);
           this.cookieService.set('password', this.pwd);
-          console.log(this.cookieService.get('email'));
-          console.log(this.cookieService.get('password'));
           this.userService.setUser(user[0]);
           this.goTo(this.page.HOME_PAGE);
         } else {

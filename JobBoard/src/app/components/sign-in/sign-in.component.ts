@@ -6,6 +6,7 @@ import {NewUser, User} from 'src/app/models/models';
 import { FormControl, Validators } from '@angular/forms';
 import {ErrorService} from "../../services/error.service";
 import { UserService } from 'src/app/services/user.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-sign-in',
@@ -24,6 +25,7 @@ export class SignInComponent implements OnInit {
               private route: ActivatedRoute,
               private userDataService: UserDataService,
               private userServcie: UserService,
+              private cookieService: CookieService,
               private errorService: ErrorService) {
   }
 
@@ -63,6 +65,8 @@ export class SignInComponent implements OnInit {
     this.userDataService.postUser$(this.newUser).subscribe(result => {
       if (result) {
         this.userDataService.getUserByEmail$(this.newUser.email).subscribe((newUser: User) => {
+          this.cookieService.set('email', this.newUser.email);
+          this.cookieService.set('password', this.newUser.pwd);
           this.userServcie.setUser(newUser[0]);
           this.goTo(this.page.HOME_PAGE);
         });
