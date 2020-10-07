@@ -32,5 +32,12 @@ router.get('/deleteOffer/id=:id', function(req, res, next) {
     })
 });
 
-
+// correspond a la route http://localhost:3000/admin/deleteCompany/id=id
+router.post('/addCompany', function(req, res, next) {
+    if (err) throw err;
+    bdd.query("INSERT INTO Company (cpn_field, cpn_name, cpn_logo, cpn_size, cpn_creation_year, cpn_representative, cpn_head_office, cpn_employees_number, cpn_turnover, cpn_email, cpn_description) VALUES ('" + req.body.object.cpn_field + "', '" + req.body.object.cpn_name + "', '" + req.body.object.cpn_logo + "', '" + req.body.object.cpn_size + "', '" + req.body.object.cpn_creation_year + "', '" + req.body.object.cpn_representative + "', '" + req.body.object.cpn_head_office + "', '" + req.body.object.cpn_employees_number + "', '" + req.body.object.cpn_turnover + "', '" + req.body.object.cpn_email + "', '" + req.body.object.cpn_description + "';", (err, result, fields) => {
+        console.log(result);
+        res.send(result);
+    })
+});
 module.exports = router;
