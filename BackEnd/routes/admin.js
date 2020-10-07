@@ -43,10 +43,19 @@ router.post('/addCompany', function(req, res, next) {
     })
 });
 
-// correspond a la route http://localhost:3000/admin/addCompany
+// correspond a la route http://localhost:3000/admin/addUser
 router.post('/addUser', function(req, res, next) {
     if (err) throw err;
     bdd.query("INSERT INTO User (user_name, user_surname, user_password, user_email) VALUES ('" + req.body.object.user_name + "', '" + req.body.object.user_surname + "', '" + req.body.object.user_password + "', '" + req.body.object.user_email + "';", (err, result, fields) => {
+        console.log(result);
+        res.send(result);
+    })
+});
+
+// correspond a la route http://localhost:3000/admin/addOffer
+router.post('/addOffer', function(req, res, next) {
+    if (err) throw err;
+    bdd.query("INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector, offer_function, offer_publication_date, offer_contract_type, offer_beginning_contract, offer_required_exp, offer_language, offer_contract_duration, offer_description,cpn_id, cpn_field, cpn_name, cpn_logo, cpn_size) VALUES('" + req.body.object.offer_title + "', '" + req.body.object.offer_city + "', '" + req.body.object.offer_country + "', '" + req.body.object.offer_sector + "', '" + req.body.object.offer_function + "', '" + req.body.object.offer_publication_date + "', '" + req.body.object.offer_contract_type + "', '" + req.body.object.offer_beginning_contract + "', '" + req.body.object.offer_required_exp + "', '" + req.body.object.offer_language + "', '" + req.body.object.offer_contract_duration + "', '" + req.body.object.offer_description + "', '" + req.body.object.cpn_id + "', '" + req.body.object.cpn_field + "', '" + req.body.object.cpn_name + "', '" + req.body.object.cpn_logo + "', '" + req.body.object.cpn_size + "';", (err, result, fields) => {
         console.log(result);
         res.send(result);
     })
