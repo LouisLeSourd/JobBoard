@@ -17,5 +17,10 @@ export enum ErrConnection {
     SUCCESS = 'SUCCESS'
 }
 
+export enum Row {
+    USER = 'USER',
+    COMPANY = 'COMPANY',
+    OFFER = 'OFFER'
+}
 
 
