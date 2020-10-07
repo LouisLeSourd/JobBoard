@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {AdminDataService} from '../../services/admin.data.service';
 import {forkJoin} from 'rxjs';
-import {Company, Information, Offer, User} from '../../models/models';
+import {Company, Information, NewUser, Offer, User} from '../../models/models';
 import {MatSort} from "@angular/material/sort";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatTableDataSource} from "@angular/material/table";
@@ -13,6 +13,10 @@ import {MatIconRegistry} from "@angular/material/icon";
 import {DomSanitizer} from "@angular/platform-browser";
 import { Row } from 'src/app/models/enum';
 import {UserDataService} from "../../services/user.data.service";
+import {DialogApplyComponent} from "../../dialogs/dialog-apply/dialog-apply.component";
+import {DialogAddUserComponent} from "../../dialogs/dialog-add-user/dialog-add-user.component";
+import {DialogAddOfferComponent} from "../../dialogs/dialog-add-offer/dialog-add-offer.component";
+import {DialogAddCompanyComponent} from "../../dialogs/dialog-add-company/dialog-add-company.component";
 
 @Component({
   selector: 'app-database-settings',
@@ -42,6 +46,7 @@ export class DatabaseSettingsComponent implements OnInit {
   @ViewChild('paginatorInformations') paginatorInformations: MatPaginator;
 
   constructor(private adminService: AdminDataService,
+              private dialog: MatDialog,
               iconRegistry: MatIconRegistry,
               sanitizer: DomSanitizer) {
     this.matIconRegistry(iconRegistry, sanitizer);
@@ -58,7 +63,45 @@ export class DatabaseSettingsComponent implements OnInit {
   }
 
   addRow(rowType: Row): void {
-
+    switch (rowType) {
+      case Row.USER:
+        const dialogRefUser = this.dialog.open(DialogAddUserComponent, {
+          disableClose: true,
+          width: '60%'
+        });
+        dialogRefUser.afterClosed().subscribe((newUser: NewUser) => {
+            this.adminService.postUser$(newUser).subscribe(() => {
+              alert('Utilisateur ' + newUser.user_name + ' ajouté avec succès !');
+              this.loadDatas();
+            });
+        });
+        break;
+      case Row.COMPANY:
+        const dialogRefCompany = this.dialog.open(DialogAddCompanyComponent, {
+          disableClose: true,
+          width: '60%',
+        });
+        dialogRefCompany.afterClosed().subscribe((newCompany: Company) => {
+          console.log(newCompany);
+          this.adminService.postCompany$(newCompany).subscribe(() => {
+            alert('Company ' + newCompany.cpn_name + ' ajouté avec succès !');
+            this.loadDatas();
+          });
+        });
+        break;
+      case Row.OFFER:
+        const dialogRefOffer = this.dialog.open(DialogAddOfferComponent, {
+          disableClose: true,
+          width: '60%',
+        });
+        dialogRefOffer.afterClosed().subscribe((newOffer: Offer) => {
+          this.adminService.postOffer$(newOffer).subscribe(() => {
+            alert('Offer ' + newOffer.offer_title + ' ajouté avec succès !');
+            this.loadDatas();
+          });
+        });
+        break;
+    }
   }
 
   removeRow(rowType: Row, id: number): void {

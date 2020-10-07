@@ -35,6 +35,9 @@ import { DialogApplyComponent } from './dialogs/dialog-apply/dialog-apply.compon
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from "@angular/material/paginator";
+import { DialogAddUserComponent } from './dialogs/dialog-add-user/dialog-add-user.component';
+import { DialogAddCompanyComponent } from './dialogs/dialog-add-company/dialog-add-company.component';
+import { DialogAddOfferComponent } from './dialogs/dialog-add-offer/dialog-add-offer.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,10 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     UserSettingsComponent,
     DialogUpdateProfileComponent,
     DatabaseSettingsComponent,
-    DialogApplyComponent
+    DialogApplyComponent,
+    DialogAddUserComponent,
+    DialogAddCompanyComponent,
+    DialogAddOfferComponent
   ],
     imports: [
         BrowserModule,

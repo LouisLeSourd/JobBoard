@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Company, NewUser, Offer} from "../models/models";
 
 @Injectable({
   providedIn: 'root'
@@ -52,6 +53,33 @@ export class AdminDataService {
       offerId: offerId
     };
     return this.http.get('http://localhost:3000/admin/deleteOffer/id=' + offerId);
+  }
+
+  postUser$(
+      newUser: NewUser
+  ): Observable<any> {
+    let body = {
+      newUser: newUser
+    }
+    return this.http.post('http://localhost:3000/admin/addUser', body);
+  }
+
+  postCompany$(
+      newCompany: Company
+  ): Observable<any> {
+    let body = {
+      newCompany: newCompany
+    }
+    return this.http.post('http://localhost:3000/admin/addCompany', body);
+  }
+
+  postOffer$(
+      newOffer: Offer
+  ): Observable<any> {
+    let body = {
+      newOffer: newOffer
+    }
+    return this.http.post('http://localhost:3000/admin/addoffer', body);
   }
 
 }

@@ -103,10 +103,10 @@ export interface UpdateUserProfile {
 }
 
 export interface NewUser {
-    name: string,
-    surname: string,
-    email: string,
-    pwd: string,
+    user_name: string,
+    user_surname: string,
+    user_email: string,
+    user_password: string,
     pwdConfirm: string,
 }
 
