@@ -3,7 +3,6 @@ var router = express.Router();
 var bdd = require('./module/bdd')
 
 /* GET users listing. */
-
 // correspond a la route http://localhost:3000/company/id=cpn_id
 router.get('/id=:id', function(req, res, next) {
     var id = req.params.id;

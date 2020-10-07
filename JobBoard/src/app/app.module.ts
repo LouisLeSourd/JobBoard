@@ -31,6 +31,10 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { DatabaseSettingsComponent } from './components/database-settings/database-settings.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule, MatGridTile} from '@angular/material/grid-list';
+import { DialogApplyComponent } from './dialogs/dialog-apply/dialog-apply.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -47,7 +51,8 @@ import {MatGridListModule, MatGridTile} from '@angular/material/grid-list';
     UserProfileComponent,
     UserSettingsComponent,
     DialogUpdateProfileComponent,
-    DatabaseSettingsComponent
+    DatabaseSettingsComponent,
+    DialogApplyComponent
   ],
     imports: [
         BrowserModule,
@@ -68,10 +73,14 @@ import {MatGridListModule, MatGridTile} from '@angular/material/grid-list';
         MatNativeDateModule,
         ReactiveFormsModule,
         MatSelectModule,
-        MatGridListModule
+        MatGridListModule,
+        MatTableModule,
+        MatSortModule,
+        MatPaginatorModule
     ],
   providers: [
-      DialogUpdateProfileComponent
+      DialogUpdateProfileComponent,
+      DialogApplyComponent
   ],
   bootstrap: [AppComponent]
 })

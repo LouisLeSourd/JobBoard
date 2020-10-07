@@ -139,6 +139,12 @@ p {
   margin: 40px !important;
 }
 
+.margin-top-side40 {
+  margin-top: 40px !important;
+  margin-right: 40px !important;
+  margin-left: 40px !important;
+}
+
 .margin-padding-0 {
   margin: 0;
   padding: 0 !important;
@@ -211,6 +217,10 @@ a:hover {
   justify-content: center;
 }
 
+.justify-content-flex-end {
+  justify-content: flex-end;
+}
+
 .main-content {
   overflow-y: auto;
   position: fixed;
@@ -261,6 +271,14 @@ a:hover {
   height: 200px !important;
 }
 
+.height300px {
+  height: 300px !important;
+}
+
+.height400px {
+  height: 400px !important;
+}
+
 .height50 {
   height: 50%;
 }
@@ -287,6 +305,10 @@ a:hover {
 
 .width30 {
   width: 30%;
+}
+
+.width40 {
+  width: 40%;
 }
 
 .width65 {
@@ -332,6 +354,10 @@ a:hover {
 .padding-top-bottom8 {
   padding-top: 8px !important;
   padding-bottom: 8px !important;
+}
+
+.padding-top40px {
+  padding-top: 40px !important;
 }
 
 .border-radius0 {
@@ -385,6 +411,10 @@ a:hover {
 
 .width32 {
   width: 32% !important;
+}
+
+.padding20px {
+  padding: 20px !important;
 }
 
 .padding50px {

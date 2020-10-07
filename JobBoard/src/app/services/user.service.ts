@@ -8,7 +8,7 @@ export class UserService {
 
   public user: User;
   public userName: string;
-  public isConnect: boolean;
+  public isConnect: boolean = false;
   public isAdmin: boolean;
 
   constructor() {

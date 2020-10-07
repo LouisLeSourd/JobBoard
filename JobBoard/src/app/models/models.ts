@@ -89,6 +89,7 @@ export interface User {
     user_email: string,
     user_description: string,
     role: string,
+    user_cv: string,
     user_birth: Date
 }
 
@@ -109,7 +110,7 @@ export interface NewUser {
     pwdConfirm: string,
 }
 
-export interface Informations {
+export interface Information {
     text_email: string,
     cpn_id: number,
     cpn_email: string,
