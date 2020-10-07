@@ -110,13 +110,5 @@ CREATE TABLE IF NOT EXISTS Informations (
     user_id smallint(5) unsigned,
     user_email varchar(100),
     -- offers attributes
-    offer_id smallint(5) unsigned,
-    -- links to Company attributes
-    CONSTRAINT fk_cpn_email_info FOREIGN KEY (cpn_email) REFERENCES Company(cpn_email),
-    CONSTRAINT fk_cpn_id_info FOREIGN KEY (cpn_id) REFERENCES Company(cpn_id),
-    -- links to user attributes
-    CONSTRAINT fk_user_id_info FOREIGN KEY (user_id) REFERENCES User(user_id),
-    CONSTRAINT fk_user_email_info FOREIGN KEY (user_email) REFERENCES User(user_email),
-    -- links to offer attributes
-    CONSTRAINT fk_offer_id_info FOREIGN KEY (offer_id) REFERENCES Offer(offer_id)    
+    offer_id smallint(5) unsigned
 ) ENGINE=InnoDB;
