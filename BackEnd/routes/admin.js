@@ -60,4 +60,40 @@ router.post('/addOffer', function(req, res, next) {
         res.send(result);
     })
 });
+
+// correspond a la route http://localhost:3000/admin/info/users
+router.get('/info/users', function(req, res, next) {
+    if (err) throw err;
+    bdd.query("SELECT * FROM User;", (err, result, fields) => {
+        console.log(result);
+        res.send(result);
+    })
+});
+
+// correspond a la route http://localhost:3000/admin/info/companies
+router.get('/info/companies', function(req, res, next) {
+    if (err) throw err;
+    bdd.query("SELECT * FROM Company;", (err, result, fields) => {
+        console.log(result);
+        res.send(result);
+    })
+});
+
+// correspond a la route http://localhost:3000/admin/info/offers
+router.get('/info/offers', function(req, res, next) {
+    if (err) throw err;
+    bdd.query("SELECT * FROM Offer;", (err, result, fields) => {
+        console.log(result);
+        res.send(result);
+    })
+});
+
+// correspond a la route http://localhost:3000/admin/info/apply
+router.get('/info/apply', function(req, res, next) {
+    if (err) throw err;
+    bdd.query("SELECT * FROM Informations;", (err, result, fields) => {
+        console.log(result);
+        res.send(result);
+    })
+});
 module.exports = router;

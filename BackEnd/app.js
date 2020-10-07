@@ -11,6 +11,7 @@ var companyRouter = require('./routes/company');
 var offersRouter = require('./routes/offers');
 var offerRouter = require('./routes/offer');
 var adminRouter = require('./routes/admin');
+var addInfoRouter = require('./routes/addInfo');
 
 var app = express();
 
@@ -39,5 +40,7 @@ app.use('/company', companyRouter);
 // http://localhost:3000/company/
 app.use('/admin', adminRouter);
 // http://localhost:3000/admin/
+app.use('/addInfo', addInfoRouter);
+// http://localhost:3000/addInfo/
 
 module.exports = app;
