@@ -75,7 +75,7 @@ router.get('/delete/id=:id', function(req, res, next) {
 // correspond a la route http://localhost:3000/user/add
 // add a new user. sign in
 router.post('/add', function(req, res, next) {
-    bdd.query("INSERT INTO User (user_name, user_surname, user_password, user_email) VALUES('" + req.body.newUser.name + "', '" + req.body.newUser.surname + "', '" + req.body.newUser.pwd + "', '" + req.body.newUser.email + "');", (err, result, fields) => {
+    bdd.query("INSERT INTO User (user_name, user_surname, user_password, user_email) VALUES('" + req.body.newUser.user_name + "', '" + req.body.newUser.user_surname + "', '" + req.body.newUser.user_password + "', '" + req.body.newUser.user_email + "');", (err, result, fields) => {
         if (err) throw err;
         console.log(result);
         res.send(result);

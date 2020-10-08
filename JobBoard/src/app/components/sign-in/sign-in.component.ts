@@ -53,8 +53,8 @@ export class SignInComponent implements OnInit {
   }
 
   disabledSubmit(): boolean {
-    if ((this.newUser.name && this.newUser.surname && this.newUser.email && this.newUser.pwd && this.newUser.pwdConfirm && this.acceptation)
-      && (this.newUser.pwd === this.newUser.pwdConfirm)) {
+    if ((this.newUser.user_name && this.newUser.user_surname && this.newUser.user_email && this.newUser.user_password && this.newUser.pwdConfirm && this.acceptation)
+      && (this.newUser.user_password === this.newUser.pwdConfirm)) {
       return false;
     } else {
       return true;
@@ -64,9 +64,9 @@ export class SignInComponent implements OnInit {
   addUser(): void {
     this.userDataService.postUser$(this.newUser).subscribe(result => {
       if (result) {
-        this.userDataService.getUserByEmail$(this.newUser.email).subscribe((newUser: User) => {
-          this.cookieService.set('email', this.newUser.email);
-          this.cookieService.set('password', this.newUser.pwd);
+        this.userDataService.getUserByEmail$(this.newUser.user_email).subscribe((newUser: User) => {
+          this.cookieService.set('email', this.newUser.user_email);
+          this.cookieService.set('password', this.newUser.user_password);
           this.userServcie.setUser(newUser[0]);
           this.goTo(this.page.HOME_PAGE);
         });

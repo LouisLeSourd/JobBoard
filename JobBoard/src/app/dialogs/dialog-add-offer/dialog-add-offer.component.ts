@@ -1,9 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {Company, CompanyField, CompanySize} from '../../models/models';
+import {CompanyField, CompanyName, CompanySize, Offer} from '../../models/models';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {CompaniesDataService} from '../../services/companies.data.service';
-import {FormControl, Validators} from '@angular/forms';
-import {ErrorService} from '../../services/error.service';
 
 @Component({
   selector: 'app-dialog-add-offer',
@@ -12,30 +10,24 @@ import {ErrorService} from '../../services/error.service';
 })
 export class DialogAddOfferComponent implements OnInit {
 
-  public newCompany: Company = {} as Company;
+  public newOffer: Offer = {} as Offer;
   public companiesFields: CompanyField[];
   public companiesSizes: CompanySize[];
+  public companiesNames: CompanyName[];
 
   constructor(@Inject(MAT_DIALOG_DATA) private data,
               private companiesDataService: CompaniesDataService,
               private dialogRef: MatDialogRef<DialogAddOfferComponent>) {
   }
 
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
-
-  matcher = new ErrorService();
-
   ngOnInit(): void {
     this.loadCompanySettings();
   }
 
   loadCompanySettings(): void {
-    /*this.companiesDataService.getCompanyNames$().subscribe(names => {
-      this.companiesName = names;
-    });*/
+    this.companiesDataService.getCompanyNames$().subscribe(names => {
+      this.companiesNames = names;
+    });
     this.companiesDataService.getCompanyFileds$().subscribe(fields => {
       this.companiesFields = fields;
     });
@@ -45,13 +37,15 @@ export class DialogAddOfferComponent implements OnInit {
   }
 
   disabledSubmit(): boolean {
-    return !(this.newCompany.cpn_turnover && this.newCompany.cpn_representative && this.newCompany.cpn_head_office
-        && this.newCompany.cpn_employees_number && this.newCompany.cpn_email && this.newCompany.cpn_description
-        && this.newCompany.cpn_name && this.newCompany.cpn_field && this.newCompany.cpn_size);
+    return !(this.newOffer.offer_sector && this.newOffer.offer_required_exp && this.newOffer.offer_language
+        && this.newOffer.offer_postal_code && this.newOffer.offer_description && this.newOffer.offer_function
+        && this.newOffer.offer_country && this.newOffer.offer_adress && this.newOffer.offer_city
+        && this.newOffer.cpn_size && this.newOffer.cpn_name && this.newOffer.cpn_field
+        && this.newOffer.offer_contract_type && this.newOffer.offer_title && this.newOffer.offer_contract_duration);
   }
 
-  addCompany(): void {
-    this.dialogRef.close(this.newCompany);
+  addOffer(): void {
+    this.dialogRef.close(this.newOffer);
   }
 
 }

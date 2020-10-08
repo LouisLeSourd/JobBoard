@@ -139,6 +139,10 @@ export interface OfferContractDuration {
     offer_contract_duration: number
 }
 
+export interface CompanyName {
+    cpn_name: string;
+}
+
 export interface CompanyField {
     cpn_field: string;
 }

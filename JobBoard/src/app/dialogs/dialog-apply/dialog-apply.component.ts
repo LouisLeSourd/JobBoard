@@ -1,6 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {User} from '../../models/models';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-dialog-apply',
@@ -13,6 +14,7 @@ export class DialogApplyComponent implements OnInit {
   public user: User;
 
   constructor(@Inject(MAT_DIALOG_DATA) private data,
+              private router: Router,
               private dialogRef: MatDialogRef<DialogApplyComponent>) { }
 
   ngOnInit(): void {
@@ -21,6 +23,10 @@ export class DialogApplyComponent implements OnInit {
 
   canApply(): boolean {
     return !this.user.user_cv;
+  }
+
+  goToPageSignIn(): void {
+    this.router.navigate(['/user/profile']);
   }
 
   updateMotivation(): void {

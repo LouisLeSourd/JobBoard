@@ -26,21 +26,21 @@
                         <label class="align-self-center">Prénom *</label>
                         <mat-form-field class="width50" appearance="outline">
                             <mat-label>Prénom *</mat-label>
-                            <input matInput [(ngModel)]="newUser.name" placeholder="Entrez votre prénom">
+                            <input matInput [(ngModel)]="newUser.user_name" placeholder="Entrez votre prénom">
                         </mat-form-field>
                     </div>
                     <div class="flex flex-direction-row space-between">
                         <label class="align-self-center">Nom *</label>
                         <mat-form-field class="width50" appearance="outline">
                             <mat-label>Nom *</mat-label>
-                            <input matInput [(ngModel)]="newUser.surname" placeholder="Entrez votre nom">
+                            <input matInput [(ngModel)]="newUser.user_surname" placeholder="Entrez votre nom">
                         </mat-form-field>
                     </div>
                     <div class="flex flex-direction-row space-between">
                         <label class="align-self-center">Email *</label>
                         <mat-form-field class="width50" appearance="outline">
                             <input matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-                                   [(ngModel)]="newUser.email" placeholder="Ex. pat@example.com">
+                                   [(ngModel)]="newUser.user_email" placeholder="Ex. pat@example.com">
                         </mat-form-field>
                     </div>
                     <div class="flex flex-direction-row space-between">
@@ -48,7 +48,7 @@
                         <div class="width50">
                             <mat-form-field class="width100" appearance="outline">
                                 <mat-label>Mot de passe *</mat-label>
-                                <input matInput type="password" [(ngModel)]="newUser.pwd" placeholder="Entrez votre mot de passe">
+                                <input matInput type="password" [(ngModel)]="newUser.user_password" placeholder="Entrez votre mot de passe">
                             </mat-form-field>
                             <p class="pwd-p">Votre mot de passe doit contenir 8 caractères et au moins 2 des éléments suivants: minuscules, majuscules, chiffres ou caractères spéciaux.</p>
                         </div>
@@ -60,7 +60,7 @@
                                 <mat-label>Confirmation du mot de passe *</mat-label>
                                 <input matInput type="password" [(ngModel)]="newUser.pwdConfirm" placeholder="Entrez votre mot de passe">
                             </mat-form-field>
-                            <p class="pwd-p-confirm" *ngIf="newUser.pwd !== newUser.pwdConfirm">Les mots de passe ne correspondent pas !</p>
+                            <p class="pwd-p-confirm" *ngIf="newUser.user_password !== newUser.pwdConfirm">Les mots de passe ne correspondent pas !</p>
                         </div>
                     </div>
 
