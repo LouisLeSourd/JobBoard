@@ -74,7 +74,8 @@ export interface Offers {
     cpn_field : string,
     cpn_size: string,
     cpn_id: number,
-    cpn_logo: string
+    cpn_logo: string,
+    cpn_email: string
 }
 
 export interface User {

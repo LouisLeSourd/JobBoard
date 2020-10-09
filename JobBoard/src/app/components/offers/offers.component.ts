@@ -125,7 +125,7 @@ constructor(
           text_email: message,
           user_email: this.userService.user.user_email
         } as Information;
-        this.infosDataService.postInfos$().subscribe(() => {
+        this.infosDataService.postInfos$(newInfo).subscribe(() => {
           alert('Vous avez postuler pour l\'offre : ' + offer.offer_title + ' !');
         });
       });

@@ -5,9 +5,9 @@ var bdd = require('./module/bdd')
 // DELETE REQUESTS
 // correspond a la route http://localhost:3000/addInfo
 router.post('/', function(req, res, next) {
-    if (err) throw err;
-    console.log(result);
-    bdd.query("INSERT INTO Informations VALUES('" + req.body.objetc.text_email + "', " + req.body.object.cpn_id + ", '" + req.body.object.cpn_email + "', " + req.body.object.user_id + ", '" + req.body.object.user_email + "', " + req.body.object.offer_id + ");", (err, result, fields) => {
+    bdd.query("INSERT INTO Informations VALUES('" + req.body.newInfo.text_email + "', " + req.body.newInfo.cpn_id + ", '" + req.body.newInfo.cpn_email + "', " + req.body.newInfo.user_id + ", '" + req.body.newInfo.user_email + "', " + req.body.newInfo.offer_id + ");", (err, result, fields) => {
+        if (err) throw err;
+        console.log(result);
         res.send(result);
     })
 });
