@@ -16,6 +16,7 @@ export class UserProfileComponent implements OnInit {
 
   public description: string;
   public isAlreadyACV: boolean;
+  public selectedFiles: any;
 
   constructor(iconRegistry: MatIconRegistry,
               sanitizer: DomSanitizer,
@@ -27,6 +28,9 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.isAlreadyACV = false;
+    if (this.userService.user.user_cv) {
+      this.selectedFiles = this.userService.user.user_cv;
+    }
   }
 
   dataLoaded(data: string): string {
@@ -59,12 +63,14 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  getCV(): void {
-
-  }
-
-  updateCV(): void {
-
+  selectFile(event): void {
+    this.selectedFiles = event.target.files[0].name;
+    this.userDataService.updateUserCV$(this.userService.getUserId(), this.selectedFiles).subscribe(() => {
+      alert('Votre cv a bien été modifié');
+      this.userDataService.getUserById$(this.userService.getUserId()).subscribe((user: User) => {
+        this.userService.setUser(user[0]);
+      });
+    });
   }
 
   updateDescription(): void {

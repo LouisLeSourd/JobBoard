@@ -88,8 +88,17 @@
                                 <mat-card-subtitle>Ajouter votre CV vous permet de postuler plus rapidement aux offres et est nécessaire pour être à l'écoute d'opportunités.</mat-card-subtitle>
                             </section>
                             <section class="flex align-item-center">
-                                <button *ngIf="!isAlreadyACV" mat-button class="bg-light-green white" (click)="updateCV()">Ajouter mon CV</button>
-                                <button *ngIf="isAlreadyACV" mat-button class="bg-light-green white" (click)="getCV()">Voir mon CV</button>
+                                <mat-form-field class="bg-light-green white border-radius4">
+                                    <mat-label class="white padding-left20" *ngIf="selectedFiles; else newFile">{{selectedFiles}}</mat-label>
+                                    <ng-template #newFile>
+                                        <mat-label class="white padding-left20">Choose file</mat-label>
+                                    </ng-template>
+                                    <input matInput disabled>
+                                    <button mat-icon-button matSuffix (click)="fileInput.click()">
+                                        <mat-icon>attach_file</mat-icon>
+                                    </button>
+                                    <input hidden (change)="selectFile($event)" #fileInput type="file" id="file">
+                                </mat-form-field>
                             </section>
                         </mat-card-header>
                     </mat-card>

@@ -47,7 +47,7 @@ router.post('/updateDescrip', function(req, res, next) {
 });
 // correspond a la route http://localhost:3000/user/updateCV
 router.post('/updateCV', function(req, res, next) {
-    bdd.query("UPDATE User SET user_cv ='" + req.body.cv + "' WHERE user_id = '" + req.body.id + "';", (err, result, fields) => {
+    bdd.query("UPDATE User SET user_cv ='" + req.body.cv + "' WHERE user_id = '" + req.body.userId + "';", (err, result, fields) => {
         if (err) throw err;
         console.log(result);
         res.send(result);

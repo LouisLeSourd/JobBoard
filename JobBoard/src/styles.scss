@@ -369,6 +369,10 @@ a:hover {
   border-radius: 0 !important;
 }
 
+.border-radius4 {
+  border-radius: 4px !important;
+}
+
 .border-bottom-radius4 {
   border-bottom-left-radius: 4px !important;
   border-bottom-right-radius: 4px !important;
@@ -428,4 +432,8 @@ a:hover {
 
 .align-self-baseline {
   align-self: baseline;
+}
+
+.padding-left20 {
+  padding-left: 20px;
 }

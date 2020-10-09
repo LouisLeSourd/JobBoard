@@ -3,13 +3,12 @@ import {
   Companies,
   CompaniesFilters,
   CompanyField,
-  CompanySize,
+  CompanySize, Information,
   Offer, OfferContractDuration, OfferContractType, OfferFunction, OfferRequiredExp,
   Offers,
   OffersFilters,
   OfferTitle, UpdateUserProfile, User
 } from 'src/app/models/models';
-import {DataService} from '../../services/data.service';
 import {CompaniesDataService} from "../../services/companies.data.service";
 import {MatIconRegistry} from "@angular/material/icon";
 import {DomSanitizer} from "@angular/platform-browser";
@@ -20,6 +19,7 @@ import {DialogUpdateProfileComponent} from "../../dialogs/dialog-update-profile/
 import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogApplyComponent} from "../../dialogs/dialog-apply/dialog-apply.component";
+import {InfosDataService} from "../../services/infos.data.service";
 
 @Component({
   selector: 'app-offers',
@@ -42,6 +42,7 @@ export class OffersComponent implements OnInit {
 
 constructor(
       private offersDataService: OffersDataService,
+      private infosDataService: InfosDataService,
       private userService: UserService,
       private router: Router,
       private dialog: MatDialog,
@@ -116,7 +117,17 @@ constructor(
         }
       });
       dialogRef.afterClosed().subscribe((message: string) => {
-        console.log('message');
+        let newInfo: Information = {
+          offer_id: offer.offer_id,
+          cpn_id: offer.cpn_id,
+          user_id: this.userService.getUserId(),
+          cpn_email: null,
+          text_email: message,
+          user_email: this.userService.user.user_email
+        } as Information;
+        this.infosDataService.postInfos$().subscribe(() => {
+          alert('Vous avez postuler pour l\'offre : ' + offer.offer_title + ' !');
+        });
       });
     } else {
       alert('Vous devez être connecté pour pouvoir postuler');

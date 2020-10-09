@@ -73,6 +73,7 @@ export interface Offers {
     offer_function: string,
     cpn_field : string,
     cpn_size: string,
+    cpn_id: number,
     cpn_logo: string
 }
 

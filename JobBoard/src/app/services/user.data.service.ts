@@ -92,5 +92,16 @@ export class UserDataService {
     return this.http.post<any>("http://localhost:3000/user/updateDescrip", body);
   }
 
+  updateUserCV$(
+      userId: number,
+      cv: string,
+  ): Observable<any> {
+    let body = {
+      userId: userId,
+      cv: cv
+    }
+    return this.http.post<any>("http://localhost:3000/user/updateCV", body);
+  }
+
 
 }
