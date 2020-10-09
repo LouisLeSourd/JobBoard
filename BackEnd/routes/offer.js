@@ -7,7 +7,7 @@ var bdd = require('./module/bdd')
 router.get('/name=:name/id=:id', function(req, res, next) {
     var name = req.params.name;
     var id = req.params.id;
-    bdd.query("select offer_title, offer_city, offer_country, offer_sector, offer_function, offer_publication_date, offer_contract_type, offer_beginning_contract, offer_required_exp, offer_language, offer_contract_duration, offer_description, Company.cpn_field, Offer.cpn_name, Offer.cpn_size, Company.cpn_logo, cpn_description from Offer JOIN Company where Company.cpn_name='" + name + "' and Offer.cpn_name='" + name + "' and Offer.offer_id=" + id + ";", (err, result, fields) => {
+    bdd.query("select offer_title, offer_city, offer_country, offer_sector, offer_function, offer_publication_date, offer_contract_type, offer_beginning_contract, offer_required_exp, offer_language, offer_contract_duration, offer_description, Company.cpn_field, Offer.cpn_name, Offer.cpn_size, Company.cpn_logo, cpn_description, cpn_email from Offer JOIN Company where Company.cpn_name='" + name + "' and Offer.cpn_name='" + name + "' and Offer.offer_id=" + id + ";", (err, result, fields) => {
         if (err) throw err;
         console.log(result);
         res.send(result);
