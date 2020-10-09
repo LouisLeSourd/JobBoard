@@ -121,10 +121,11 @@ constructor(
           offer_id: offer.offer_id,
           cpn_id: offer.cpn_id,
           user_id: this.userService.getUserId(),
-          cpn_email: null,
+          cpn_email: offer.cpn_email,
           text_email: message,
           user_email: this.userService.user.user_email
         } as Information;
+        console.log(newInfo);
         this.infosDataService.postInfos$(newInfo).subscribe(() => {
           alert('Vous avez postuler pour l\'offre : ' + offer.offer_title + ' !');
         });
