@@ -1,12 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import {Page} from '../../models/enum';
-import {MatIconRegistry} from '@angular/material/icon';
 import {ActivatedRoute, Router} from '@angular/router';
 import {User} from '../../models/models';
 import {UserService} from '../../services/user.service';
 import {CookieService} from 'ngx-cookie-service';
-
 
 @Component({
   selector: 'app-header',
@@ -22,10 +19,7 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router,
               private route: ActivatedRoute,
               private cookieService: CookieService,
-              public userService: UserService,
-              iconRegistry: MatIconRegistry,
-              sanitizer: DomSanitizer) {
-    this.matIconRegistry(iconRegistry, sanitizer);
+              public userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -72,24 +66,6 @@ export class HeaderComponent implements OnInit {
 
   displayBorderBottom(page: Page): boolean {
     return this.currentPage === page;
-  }
-
-  matIconRegistry(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer): void {
-    iconRegistry.addSvgIcon(
-        'connexion',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/key.svg'));
-    iconRegistry.addSvgIcon(
-        'inscription',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/user.svg'));
-    iconRegistry.addSvgIcon(
-        'profile',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/utilisateur.svg'));
-    iconRegistry.addSvgIcon(
-        'settings',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/parametres.svg'));
-    iconRegistry.addSvgIcon(
-        'deconnection',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/prise.svg'));
   }
 
 }

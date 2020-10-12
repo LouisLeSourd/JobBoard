@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
-import {MatIconRegistry} from "@angular/material/icon";
-import {DomSanitizer} from "@angular/platform-browser";
 import {Page} from "../../models/enum";
 import {CompaniesDataService} from "../../services/companies.data.service";
 import {Companies, CompaniesFilters, Company, CompanyField, CompanySize} from 'src/app/models/models';
@@ -21,27 +19,12 @@ export class CompaniesComponent implements OnInit {
   public companiesFilters: CompaniesFilters = {} as CompaniesFilters;
 
   constructor(
-      private companiesDataService: CompaniesDataService,
-      iconRegistry: MatIconRegistry,
-      sanitizer: DomSanitizer) {
-    this.matIconRegistry(iconRegistry, sanitizer);
+      private companiesDataService: CompaniesDataService) {
   }
 
   ngOnInit(): void {
     this.loadCompanySettings();
     this.loadCompanies();
-  }
-
-  matIconRegistry(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer): void {
-    iconRegistry.addSvgIcon(
-        'search',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/search.svg'));
-    iconRegistry.addSvgIcon(
-        'briefcase',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/briefcase.svg'));
-    iconRegistry.addSvgIcon(
-        'delete',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/delete.svg'));
   }
 
   buildURL(logo: string): string {

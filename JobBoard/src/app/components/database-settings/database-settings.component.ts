@@ -9,9 +9,7 @@ import {OffersDataService} from "../../services/offers.data.service";
 import {UserService} from "../../services/user.service";
 import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
-import {MatIconRegistry} from "@angular/material/icon";
-import {DomSanitizer} from "@angular/platform-browser";
-import { Row } from 'src/app/models/enum';
+import {Row} from 'src/app/models/enum';
 import {UserDataService} from "../../services/user.data.service";
 import {DialogApplyComponent} from "../../dialogs/dialog-apply/dialog-apply.component";
 import {DialogAddUserComponent} from "../../dialogs/dialog-add-user/dialog-add-user.component";
@@ -46,20 +44,11 @@ export class DatabaseSettingsComponent implements OnInit {
   @ViewChild('paginatorInformations') paginatorInformations: MatPaginator;
 
   constructor(private adminService: AdminDataService,
-              private dialog: MatDialog,
-              iconRegistry: MatIconRegistry,
-              sanitizer: DomSanitizer) {
-    this.matIconRegistry(iconRegistry, sanitizer);
+              private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
     this.loadDatas();
-  }
-
-  matIconRegistry(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer): void {
-    iconRegistry.addSvgIcon(
-        'delete',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/delete.svg'));
   }
 
   addRow(rowType: Row): void {

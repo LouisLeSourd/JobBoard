@@ -10,8 +10,6 @@ import {
   OfferTitle, UpdateUserProfile, User
 } from 'src/app/models/models';
 import {CompaniesDataService} from "../../services/companies.data.service";
-import {MatIconRegistry} from "@angular/material/icon";
-import {DomSanitizer} from "@angular/platform-browser";
 import {OffersDataService} from "../../services/offers.data.service";
 import { forkJoin } from 'rxjs';
 import {UserService} from "../../services/user.service";
@@ -48,27 +46,12 @@ constructor(
       private infosDataService: InfosDataService,
       private userService: UserService,
       private router: Router,
-      private dialog: MatDialog,
-      iconRegistry: MatIconRegistry,
-      sanitizer: DomSanitizer) {
-    this.matIconRegistry(iconRegistry, sanitizer);
+      private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
     this.loadOffersSettings();
     this.loadOffers();
-  }
-
-  matIconRegistry(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer): void {
-    iconRegistry.addSvgIcon(
-        'search',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/search.svg'));
-    iconRegistry.addSvgIcon(
-        'briefcase',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/briefcase.svg'));
-    iconRegistry.addSvgIcon(
-        'delete',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/delete.svg'));
   }
 
   buildURL(logo: string): string {

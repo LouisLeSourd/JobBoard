@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {MatIconRegistry} from '@angular/material/icon';
-import {DomSanitizer} from '@angular/platform-browser';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogUpdateProfileComponent} from '../../dialogs/dialog-update-profile/dialog-update-profile.component';
 import {UserService} from '../../services/user.service';
@@ -18,12 +16,9 @@ export class UserProfileComponent implements OnInit {
   public isAlreadyACV: boolean;
   public selectedFiles: any;
 
-  constructor(iconRegistry: MatIconRegistry,
-              sanitizer: DomSanitizer,
-              private dialog: MatDialog,
+  constructor(private dialog: MatDialog,
               public userService: UserService,
               private userDataService: UserDataService) {
-    this.matIconRegistry(iconRegistry, sanitizer);
   }
 
   ngOnInit(): void {
@@ -77,24 +72,6 @@ export class UserProfileComponent implements OnInit {
     this.userDataService.updateUserDescription$(this.userService.getUserId(), this.description).subscribe(() => {
       alert('Votre description a bien été modifié');
     });
-  }
-
-  matIconRegistry(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer): void {
-    iconRegistry.addSvgIcon(
-        'adress',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/adress.svg'));
-    iconRegistry.addSvgIcon(
-        'birth',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/birthday-cake.svg'));
-    iconRegistry.addSvgIcon(
-        'graduate',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/graduate.svg'));
-    iconRegistry.addSvgIcon(
-        'description',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/description_user.svg'));
-    iconRegistry.addSvgIcon(
-        'edit',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/writing.svg'));
   }
 
 }
