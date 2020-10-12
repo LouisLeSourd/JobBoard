@@ -241,6 +241,20 @@ INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector,
     This is an excellent opportunity to work in one of the most integral organisations in VMware.',
     1, 'Informatique / Télécoms', 'VMware', 'vmware.png', 'Grande entreprise'
 	);
+    
+INSERT INTO Offer (offer_title, offer_city, offer_country, offer_sector,
+	offer_function, offer_publication_date, offer_contract_type, offer_beginning_contract, offer_required_exp, offer_language, offer_contract_duration, offer_description,
+    cpn_id, cpn_field, cpn_name, cpn_logo, cpn_size)
+    VALUES
+    ('Professional Services Intern', 'Lyon', 'France', 
+    'IT Consulting / Software',
+    'IT Project, Data & Product Management', DATE '2020-10-03', 'Internship', DATE '2021-01-01', 'Student / Recent Graduate', 'English-German', 'From 4 to 6 months',
+    'We are investing for the future in VMware s Technical Services Organisation in EMEA. 
+    Successful candidates will work in the Munich office alongside senior PSO managers and team members. 
+    You will be exposed to real life client projects and start to learn the key roles within a client implementation. 
+    This is an excellent opportunity to work in one of the most integral organisations in VMware.',
+    2,'Informatique / Télécoms', 'AOS', 'aos.png', 'Start-up'
+	);
 
 
 
