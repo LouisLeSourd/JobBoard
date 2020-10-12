@@ -31,6 +31,9 @@ export class OffersComponent implements OnInit {
   public offers: Offers[];
   public offersFilters: OffersFilters = {} as OffersFilters;
   public filteredOffers: Offers[];
+  public isOnOffer: boolean = false;
+  public currentOfferId: number;
+  public currentOfferCompanyName: string;
 
   public offerTitlse: OfferTitle[];
   public companySizes: CompanySize[];
@@ -108,7 +111,6 @@ constructor(
   }
 
   apply(offer: Offers): void {
-  console.log(this.userService);
     if (this.userService.isConnect) {
       const dialogRef = this.dialog.open(DialogApplyComponent, {
         width: '60%',
@@ -141,6 +143,12 @@ constructor(
       this.offers = offers;
       this.filteredOffers = offers;
     });
+  }
+
+  goToOffer(offer: Offers): void {
+    this.currentOfferId = offer.offer_id;
+    this.currentOfferCompanyName = offer.cpn_name;
+    this.isOnOffer = true;
   }
 
 }

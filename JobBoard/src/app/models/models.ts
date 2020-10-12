@@ -58,7 +58,8 @@ export interface Offer {
     cpn_field : string,
     cpn_name: string,
     cpn_size: string,
-    cpn_logo: string
+    cpn_logo: string,
+    cpn_email: string
 }
 
 export interface Offers {

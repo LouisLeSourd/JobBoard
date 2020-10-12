@@ -38,6 +38,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import { DialogAddUserComponent } from './dialogs/dialog-add-user/dialog-add-user.component';
 import { DialogAddCompanyComponent } from './dialogs/dialog-add-company/dialog-add-company.component';
 import { DialogAddOfferComponent } from './dialogs/dialog-add-offer/dialog-add-offer.component';
+import { OfferComponent } from './components/offers/offer/offer.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { DialogAddOfferComponent } from './dialogs/dialog-add-offer/dialog-add-o
     DialogApplyComponent,
     DialogAddUserComponent,
     DialogAddCompanyComponent,
-    DialogAddOfferComponent
+    DialogAddOfferComponent,
+    OfferComponent
   ],
     imports: [
         BrowserModule,
