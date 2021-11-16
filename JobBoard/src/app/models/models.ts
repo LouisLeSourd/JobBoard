@@ -20,6 +20,7 @@ export interface Companies {
     cpn_size: string,
     cpn_logo: string
     cpn_name: string,
+    cpn_id: number,
 }
 
 export interface CompaniesFilters {

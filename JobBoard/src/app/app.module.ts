@@ -39,6 +39,7 @@ import { DialogAddUserComponent } from './dialogs/dialog-add-user/dialog-add-use
 import { DialogAddCompanyComponent } from './dialogs/dialog-add-company/dialog-add-company.component';
 import { DialogAddOfferComponent } from './dialogs/dialog-add-offer/dialog-add-offer.component';
 import { OfferComponent } from './components/offers/offer/offer.component';
+import { CompanyComponent } from './components/companies/company/company.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { OfferComponent } from './components/offers/offer/offer.component';
     DialogAddUserComponent,
     DialogAddCompanyComponent,
     DialogAddOfferComponent,
-    OfferComponent
+    OfferComponent,
+    CompanyComponent
   ],
     imports: [
         BrowserModule,

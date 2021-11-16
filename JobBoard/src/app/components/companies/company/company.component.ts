@@ -1,22 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import {Page} from "../../../models/enum";
 import {
-  Companies,
-  CompaniesFilters,
-  CompanyField,
-  CompanySize, Information,
-  Offer, OfferContractDuration, OfferContractType, OfferFunction, OfferRequiredExp,
+  Company,
+  Information,
   Offers,
-  OffersFilters,
   OfferTitle, UpdateUserProfile, User
 } from 'src/app/models/models';
-import {CompaniesDataService} from "../../../services/companies.data.service";
+import {CompanyDataService} from "../../../services/company.data.service";
+import {OffersDataService} from "../../../services/offers.data.service";
 import {MatIconRegistry} from "@angular/material/icon";
 import {DomSanitizer} from "@angular/platform-browser";
-import {OffersDataService} from "../../../services/offers.data.service";
-import { forkJoin } from 'rxjs';
-import {UserService} from "../../../services/user.service";
-import {DialogUpdateProfileComponent} from "../../../dialogs/dialog-update-profile/dialog-update-profile.component";
-import {Router} from "@angular/router";
+import {UserService} from "../../../services/user.service";import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogApplyComponent} from "../../../dialogs/dialog-apply/dialog-apply.component";
 import {InfosDataService} from "../../../services/infos.data.service";
@@ -27,22 +21,21 @@ import {InfosDataService} from "../../../services/infos.data.service";
   styleUrls: ['./company.component.scss']
 })
 export class CompanyComponent implements OnInit {
+  @Input() companyId: number;
 
+  public company: Company = {} as Company;
   public offers: Offers[];
-  public isOnOffer: boolean = false;
   public currentOfferId: number;
-  public currentOfferCompanyName: string;
-
+  public filteredOffers: Offers[];
   public offerTitlse: OfferTitle[];
-  public companySizes: CompanySize[];
-  public companyFields: CompanyField[];
-  public offerFunctions: OfferFunction[];
-  public offerRequiredExps: OfferRequiredExp[];
-  public offerContractTypes: OfferContractType[];
-  public offerContractDurations: OfferContractDuration[];
+  public isOnOffer: boolean = false;
+  public currentOfferCompanyName: string;
+  public currentPage: Page = Page.COMPANY;
+  public page = Page;
 
 constructor(
       private offersDataService: OffersDataService,
+      private companyDataService: CompanyDataService,
       private infosDataService: InfosDataService,
       private userService: UserService,
       private router: Router,
@@ -53,7 +46,8 @@ constructor(
   }
 
   ngOnInit(): void {
-    this.loadOffers();
+    console.log("init company")
+    this.loadCompany();
   }
 
   matIconRegistry(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer): void {
@@ -100,9 +94,21 @@ constructor(
     }
   }
 
+  displayBorderBottom(page: Page): boolean {
+    return this.currentPage === page;
+  }
+
+  loadCompany(): void {
+    this.companyDataService.getCompany$(this.companyId).subscribe((company: Company[]) => {
+      this.company = company[0];
+      console.log(this.company);
+    });
+  }
+
   loadOffers(): void {
     this.offersDataService.getOffers$().subscribe((offers: Offers[]) => {
       this.offers = offers;
+      this.filteredOffers = offers;
     });
   }
 
@@ -111,5 +117,5 @@ constructor(
     this.currentOfferCompanyName = offer.cpn_name;
     this.isOnOffer = true;
   }
-
+  
 }

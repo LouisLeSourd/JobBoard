@@ -1,87 +1,66 @@
 <div class="main-content">
-    <section *ngIf="isOnOffer">
-        <app-offer [offerId]="currentOfferId"
-            [companyName]="currentOfferCompanyName">
-        </app-offer>
-    </section>
-    <div class="width90 margin-auto margin-top-bottom3">
-        <section *ngIf="!isOnOffer">
-            <section class="card-section">
-            <mat-card class="margin-padding-0 border-radius0 shadow">
-                <mat-card-content class="width95 margin-auto padding-top-bottom15">
-                    <section class="flex flex-direction-column">
-                        <section class="flex space-between">
-                            <mat-form-field class="width30" appearance="outline">
-                                <mat-icon svgIcon="search" aria-hidden="false" matPrefix class="margin-right20"></mat-icon>
-                                <input matInput [(ngModel)]="offersFilters.offer_title" (ngModelChange)="getOffersWithFilters()" type="search" placeholder="Search...">
-                            </mat-form-field>
-                            <mat-form-field class="width30" appearance="outline">
-                                <mat-select [(ngModel)]="offersFilters.offer_contract_type" (ngModelChange)="getOffersWithFilters()" placeholder="Contrat">
-                                    <mat-option *ngFor="let offerContractType of offerContractTypes" [value]="offerContractType.offer_contract_type">
-                                        {{offerContractType.offer_contract_type}}</mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                            <mat-form-field class="width30" appearance="outline">
-                                <mat-select [(ngModel)]="offersFilters.offer_function" (ngModelChange)="getOffersWithFilters()" placeholder="Fonction">
-                                    <mat-option *ngFor="let offerFunction of offerFunctions" [value]="offerFunction.offer_function">
-                                        {{offerFunction.offer_function}}</mat-option>
-                                </mat-select>
-                            </mat-form-field>
+    <div class="width65 margin-auto margin-top-bottom3" *ngIf="company">
+        <section class="tiles-section margin-top5">
+            <mat-card class="height60 shadow">
+                <mat-card-content class="height-calc">
+                    <section class="flex align-item-center flex-direction-row margin-bottom32">
+                        <mat-card class="width20 height100 flex align-self-baseline shadow margin-left20 pointer">
+                            <img *ngIf="offer.cpn_logo" width="100%" height="100%" [src]="'assets/icons/logos/' + offer.cpn_logo" alt>
+                        </mat-card>
+                        <section class="margin-left40 width65">
+                            <p class="bold font30 line-height30">{{offer.offer_title}}</p>
+                            <p>{{offer.cpn_name}}</p>
+                            <p class="grey">{{offer.offer_contract_type}} | {{offer.offer_city}} ({{offer.offer_country}})</p>
+                            <button mat-button class="bg-light-green white" (click)="apply(offer)">Postuler</button>
                         </section>
-                        <section class="flex space-between">
-                            <mat-form-field class="width20" appearance="outline">
-                                <mat-select [(ngModel)]="offersFilters.cpn_field" (ngModelChange)="getOffersWithFilters()" placeholder="Secteur d'entreprise">
-                                    <mat-option *ngFor="let companyField of companyFields" [value]="companyField.cpn_field">
-                                        {{companyField.cpn_field}}</mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                            <mat-form-field class="width20" appearance="outline">
-                                <mat-select [(ngModel)]="offersFilters.cpn_size" (ngModelChange)="getOffersWithFilters()" placeholder="Taille d'entreprise">
-                                    <mat-option *ngFor="let companySize of companySizes" [value]="companySize.cpn_size">
-                                        {{companySize.cpn_size}}</mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                            <mat-form-field class="width20" appearance="outline">
-                                <mat-select [(ngModel)]="offersFilters.offer_contract_duration" (ngModelChange)="getOffersWithFilters()" placeholder="Durée">
-                                    <mat-option *ngFor="let offerContractDuration of offerContractDurations" [value]="offerContractDuration.offer_contract_duration">
-                                        {{offerContractDuration.offer_contract_duration}}</mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                            <mat-form-field class="width20" appearance="outline">
-                                <mat-select [(ngModel)]="offersFilters.offer_required_exp" (ngModelChange)="getOffersWithFilters()" placeholder="Expérience">
-                                    <mat-option *ngFor="let offerRequiredExp of offerRequiredExps" [value]="offerRequiredExp.offer_required_exp">
-                                        {{offerRequiredExp.offer_required_exp}}</mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                            <section class="flex align-item-center">
-                                <a><mat-icon (click)="deleteOffersFilters()" svgIcon="delete" aria-hidden="false"></mat-icon></a>
-                            </section>
+                    </section>
+                    <div class="separation-line"></div>
+                    <section class="width90 margin-auto flex flex-direction-row">
+                        <section class="width75 margin-right5p">
+                            <p class="bold">Entreprise : {{offer.cpn_name}}</p>
+                            <br><br>
+                            <p class="bold">Offre : {{offer.offer_title}}</p>
+                            <p class="text-align-justify">{{offer.offer_description}}</p>
+                            <br><br>
+                        </section>
+                        <section class="width21">
+                            <p class="bold">Expérience</p>
+                            <p>{{offer.offer_required_exp}}</p>
+                            <br>
+                            <p class="bold">Fonction</p>
+                            <p>{{offer.offer_function}}</p>
+                            <br>
+                            <p class="bold">Type d'entreprise</p>
+                            <p>{{offer.cpn_size}}</p>
+                            <br>
+                            <p class="bold">Date limite de candidature</p>
+                            <p>Aucune date n'a été précisée pour ce poste.</p>
                         </section>
                     </section>
                 </mat-card-content>
+                <div class="separation-line"></div>
             </mat-card>
         </section>
-            <section class="tiles-section margin-top5">
-                <mat-grid-list cols="1" rowHeight="200px">
-                    <mat-grid-tile *ngFor="let offer of filteredOffers">
-                        <mat-card class="width90 height60 shadow" (click)="goToOffer(offer)">
-                            <mat-card-content class="height-calc flex align-item-center flex-direction-row">
-                                <mat-card class="width10 height100 flex align-self-baseline shadow margin-left20 pointer">
-                                    <img width="100%" height="100%" [src]="buildURL(offer.cpn_logo)" alt>
-                                </mat-card>
-                                <section class="margin-left40 margin-top5 width65 pointer">
-                                    <p class="bold">{{offer.offer_title}}</p>
-                                    <p>{{offer.cpn_name}}</p>
-                                    <p>{{offer.offer_contract_type}} | {{offer.offer_city}} ({{offer.offer_country}})</p>
-                                </section>
-                                <section class="margin-left40 margin-top5">
-                                    <button mat-button class="bg-light-green white" (click)="apply(offer)">Postuler</button>
-                                </section>
-                            </mat-card-content>
-                        </mat-card>
-                    </mat-grid-tile>
-                </mat-grid-list>
-            </section>
-        </section>
     </div>
+</div>
+<div class="width90 margin-auto margin-top-bottom3">
+        <section class="tiles-section margin-top5">
+                <mat-grid-tile *ngFor="let offer of filteredOffers">
+                    <mat-card class="width90 height60 shadow" (click)="goToOffer(offer)">
+                        <mat-card-content class="height-calc flex align-item-center flex-direction-row">
+                            <mat-card class="width10 height100 flex align-self-baseline shadow margin-left20 pointer">
+                                <img width="100%" height="100%" [src]="buildURL(offer.cpn_logo)" alt>
+                            </mat-card>
+                            <section class="margin-left40 margin-top5 width65 pointer">
+                                <p class="bold">{{offer.offer_title}}</p>
+                                <p>{{offer.cpn_name}}</p>
+                                <p>{{offer.offer_contract_type}} | {{offer.offer_city}} ({{offer.offer_country}})</p>
+                            </section>
+                            <section class="margin-left40 margin-top5">
+                                <button mat-button class="bg-light-green white" (click)="apply(offer)">Postuler</button>
+                            </section>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+        </section>
 </div>

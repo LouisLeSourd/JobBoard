@@ -1,7 +1,10 @@
 <div class="main-content">
-
-        <div class="width90 margin-auto margin-top-bottom3">
-
+    <section *ngIf="isOnCompany">
+        <app-company [companyId]="currentCompanyId">
+        </app-company>
+    </section>
+    <div class="width90 margin-auto margin-top-bottom3">
+        <section *ngIf="!isOnCompany">
             <section class="card-section">
                 <mat-card class="margin-padding-0 border-radius0 shadow">
                     <mat-card-content class="width95 margin-auto padding-top-bottom15">
@@ -31,9 +34,8 @@
                     </mat-card-content>
                 </mat-card>
             </section>
-
             <section class="tiles-section margin-top5">
-
+                
                 <mat-grid-list gutterSize="10" cols="3">
                     <mat-grid-tile *ngFor="let company of filteredCompanies">
                         <mat-card class="width80 height80 shadow">
@@ -49,16 +51,15 @@
                             </mat-card-content>
                             <mat-card-footer class="bg-grey padding-top-bottom8 padding-side20 border-bottom-radius4">
                                 <a (click)="goToCompany(company)"
-                                    class="flex-align-center padding-side20 hover-green">
-                                    <span>Voir nos offres</span>
-                                </a>
-                            </mat-card-footer>
-                        </mat-card>
-                    </mat-grid-tile>
-                </mat-grid-list>
-
+                                class="flex-align-center padding-side20 hover-green">
+                                <span>Voir nos offres</span>
+                            </a>
+                        </mat-card-footer>
+                    </mat-card>
+                </mat-grid-tile>
+            </mat-grid-list>
             </section>
-
-        </div>
+        </section>  
+    </div>
 
 </div>

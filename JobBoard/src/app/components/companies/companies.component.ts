@@ -8,7 +8,7 @@ import {CompaniesDataService} from "../../services/companies.data.service";
 import {Companies, CompaniesFilters, Company, CompanyField, CompanySize} from 'src/app/models/models';
 
 @Component({
-  selector: 'app-company',
+  selector: 'app-companies',
   templateUrl: './companies.component.html',
   styleUrls: ['./companies.component.scss']
 })
@@ -17,8 +17,10 @@ export class CompaniesComponent implements OnInit {
   public companiesFields: CompanyField[];
   public companiesSizes: CompanySize[];
   public companies: Companies[];
+  public isOnCompany: boolean = false;
   public filteredCompanies: Companies[];
   public companiesFilters: CompaniesFilters = {} as CompaniesFilters;
+  public currentCompanyName: string;
   public currentCompanyId: number;
   public currentPage: Page = Page.COMPANIES;
   public page = Page;
@@ -34,11 +36,6 @@ export class CompaniesComponent implements OnInit {
   ngOnInit(): void {
     this.loadCompanySettings();
     this.loadCompanies();
-  }
-
-  goToCompany(company: Company): void {
-    this.currentCompanyId = company.cpn_id;
-    this.router.navigate((['company/id:' + this.currentCompanyId + '/offers']));
   }
 
   displayBorderBottom(page: Page): boolean {
@@ -83,6 +80,12 @@ export class CompaniesComponent implements OnInit {
     this.companiesDataService.getCompanySizes$().subscribe(sizes => {
       this.companiesSizes = sizes;
     });
+  }
+
+  goToCompany(company: Companies): void {
+    this.currentCompanyId = company.cpn_id;
+    this.isOnCompany = true;
+    console.log(this.isOnCompany)
   }
 
   loadCompanies(): void {

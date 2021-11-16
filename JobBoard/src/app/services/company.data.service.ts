@@ -11,8 +11,8 @@ export class CompanyDataService {
   }
 
   getCompany$(
-    id: number
+    companyId: number
 ): Observable<any> {
-    return this.http.get('http://localhost:3000/company/id=' + id + '/offers');
+    return this.http.get('http://localhost:3000/company/id=' + companyId + '/offers');
   }
 }

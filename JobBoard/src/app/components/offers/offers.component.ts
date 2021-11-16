@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  Companies,
-  CompaniesFilters,
   CompanyField,
   CompanySize, Information,
-  Offer, OfferContractDuration, OfferContractType, OfferFunction, OfferRequiredExp,
+  OfferContractDuration, OfferContractType, OfferFunction, OfferRequiredExp,
   Offers,
   OffersFilters,
   OfferTitle, UpdateUserProfile, User
@@ -15,7 +13,6 @@ import {DomSanitizer} from "@angular/platform-browser";
 import {OffersDataService} from "../../services/offers.data.service";
 import { forkJoin } from 'rxjs';
 import {UserService} from "../../services/user.service";
-import {DialogUpdateProfileComponent} from "../../dialogs/dialog-update-profile/dialog-update-profile.component";
 import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogApplyComponent} from "../../dialogs/dialog-apply/dialog-apply.component";
