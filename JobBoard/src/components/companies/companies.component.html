@@ -1,0 +1,62 @@
+<div class="main-content">
+
+        <div class="width90 margin-auto margin-top-bottom3">
+
+            <section class="card-section">
+                <mat-card class="margin-padding-0 border-radius0 shadow">
+                    <mat-card-content class="width95 margin-auto padding-top-bottom15">
+
+                        <section class="flex space-between">
+                            <mat-form-field class="width30" appearance="outline">
+                                <mat-icon svgIcon="search" aria-hidden="false" matPrefix class="margin-right20"></mat-icon>
+                                <input matInput [(ngModel)]="companiesFilters.cpn_name"  (ngModelChange)="getCompaniesWithFilters()"  type="search" placeholder="Search...">
+                            </mat-form-field>
+                            <mat-form-field class="width30" appearance="outline">
+                                <mat-select [(ngModel)]="companiesFilters.cpn_field" (ngModelChange)="getCompaniesWithFilters()" placeholder="Secteur d'entreprise">
+                                    <mat-option *ngFor="let companiesField of companiesFields" [value]="companiesField.cpn_field">
+                                        {{companiesField.cpn_field}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field class="width30" appearance="outline">
+                                <mat-select [(ngModel)]="companiesFilters.cpn_size" (ngModelChange)="getCompaniesWithFilters()" placeholder="Taille d'entreprise">
+                                    <mat-option *ngFor="let companySize of companiesSizes" [value]="companySize.cpn_size">
+                                    {{companySize.cpn_size}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <section class="flex align-item-center">
+                                <a><mat-icon (click)="deleteCompaniesFilters()" svgIcon="delete" aria-hidden="false"></mat-icon></a>
+                            </section>
+                        </section>
+
+                    </mat-card-content>
+                </mat-card>
+            </section>
+
+            <section class="tiles-section margin-top5">
+
+                <mat-grid-list gutterSize="10" cols="3">
+                    <mat-grid-tile *ngFor="let company of filteredCompanies">
+                        <mat-card class="width80 height80 shadow">
+                            <mat-card-content class="height-calc flex align-item-center flex-direction-row">
+                                <mat-card class="width50 height50 shadow margin-left20">
+                                    <img width="100%" height="100%" [src]="buildURL(company.cpn_logo)" alt>
+                                </mat-card>
+                                <section class="margin40">
+                                    <p class="bold">{{company.cpn_name}}</p>
+                                    <p>{{company.cpn_employees_number}} salariés</p>
+                                    <p>{{company.cpn_size}}</p>
+                                </section>
+                            </mat-card-content>
+                            <mat-card-footer class="bg-grey padding-top-bottom8 padding-side20 border-bottom-radius4">
+                                <mat-icon svgIcon="briefcase" aria-hidden="false" matPrefix class="margin-right20"></mat-icon>
+                                <a>Voir nos offres</a>
+                            </mat-card-footer>
+                        </mat-card>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+            </section>
+
+        </div>
+
+</div>

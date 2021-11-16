@@ -1,0 +1,95 @@
+<div class="main-content">
+
+    <section class="width75 margin-auto margin-top-bottom5">
+
+        <mat-card class="margin-padding-0">
+
+            <mat-card-header class="white bg-light-green">
+                <mat-card-title>
+                    <div class="first-div"> Pour vous inscrire, veuillez nous donner quelques informations sur votre profil :</div>
+                </mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+
+                <section class="margin40 flex flex-direction-column">
+                    <p class="align-self-center">
+                        <button mat-button class="bg-light-green white padding-side20" (click)="goTo(page.LOGIN)">J'ai déjà un compte</button>
+                    </p>
+                    <p class="align-self-center">Ou</p>
+                    <p class="align-self-center bold">M'inscrire</p>
+                </section>
+
+                <section class="margin40 flex flex-direction-column">
+
+                    <div class="flex flex-direction-row space-between">
+                        <label class="align-self-center">Prénom *</label>
+                        <mat-form-field class="width50" appearance="outline">
+                            <mat-label>Prénom *</mat-label>
+                            <input matInput [(ngModel)]="newUser.user_name" placeholder="Entrez votre prénom">
+                        </mat-form-field>
+                    </div>
+                    <div class="flex flex-direction-row space-between">
+                        <label class="align-self-center">Nom *</label>
+                        <mat-form-field class="width50" appearance="outline">
+                            <mat-label>Nom *</mat-label>
+                            <input matInput [(ngModel)]="newUser.user_surname" placeholder="Entrez votre nom">
+                        </mat-form-field>
+                    </div>
+                    <div class="flex flex-direction-row space-between">
+                        <label class="align-self-center">Email *</label>
+                        <mat-form-field class="width50" appearance="outline">
+                            <input matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                                   [(ngModel)]="newUser.user_email" placeholder="Ex. pat@example.com">
+                        </mat-form-field>
+                    </div>
+                    <div class="flex flex-direction-row space-between">
+                        <label class="align-self-center">Mot de passe *</label>
+                        <div class="width50">
+                            <mat-form-field class="width100" appearance="outline">
+                                <mat-label>Mot de passe *</mat-label>
+                                <input matInput type="password" [(ngModel)]="newUser.user_password" placeholder="Entrez votre mot de passe">
+                            </mat-form-field>
+                            <p class="pwd-p">Votre mot de passe doit contenir 8 caractères et au moins 2 des éléments suivants: minuscules, majuscules, chiffres ou caractères spéciaux.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-direction-row space-between">
+                        <label class="align-self-center">Confirmation du mot de passe *</label>
+                        <div class="width50">
+                            <mat-form-field class="width100" appearance="outline">
+                                <mat-label>Confirmation du mot de passe *</mat-label>
+                                <input matInput type="password" [(ngModel)]="newUser.pwdConfirm" placeholder="Entrez votre mot de passe">
+                            </mat-form-field>
+                            <p class="pwd-p-confirm" *ngIf="newUser.user_password !== newUser.pwdConfirm">Les mots de passe ne correspondent pas !</p>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class="margin40 flex flex-direction-column">
+                    <mat-checkbox [(ngModel)]="acceptation" class="align-self-center">J'accepte les
+                        <a href="assets/documents/Conditions_d'utilisations.pdf" target="_blank">Conditions d'Utilisation</a>
+                        et la
+                        <a href="assets/documents/Politique_de_confidentialite.pdf" target="_blank">Politique de confidentialité</a>
+                        de JobBoard
+                    </mat-checkbox>
+                </section>
+
+            </mat-card-content>
+
+            <mat-card-actions class="padding-right32 margin0" align="end">
+                <button mat-button class="bg-light-green white padding-side20" [disabled]="disabledSubmit()" (click)="addUser()">S'inscrire</button>
+            </mat-card-actions>
+
+            <mat-card-footer class="card-footer">
+                <div class="separation-line"></div>
+                <p>Les champs suivis d’un astérisque * sont obligatoires.</p>
+                <p>Les informations recueillies font l’objet d’un traitement informatique destinées à JobTBoard, ses partenaires (Ecoles et Université d’une part, recruteurs entreprise de l’autre) et leurs sous-traitants afin de nous permettre de répondre à vos demandes, de gérer votre compte utilisateur et de vous proposer les meilleurs services de recherche de stage ou d’emploi possible.
+                    <br>Conformément à la loi du 6 janvier 1978 dite « Informatique et Libertés » modifiée, vous bénéficiez d'un droit d'accès et de rectification aux informations vous concernant que vous pouvez exercer conformément aux modalités décrites dans notre <a href="assets/documents/Politique_de_confidentialite.pdf" target="_blank">politique de confidentialité</a>, dont nous vous invitons à prendre connaissance. Vous pouvez également, pour des motifs légitimes, vous opposer au traitement des données vous concernant.</p>
+            </mat-card-footer>
+
+        </mat-card>
+
+    </section>
+
+</div>

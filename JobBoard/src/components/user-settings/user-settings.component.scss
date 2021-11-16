@@ -1,0 +1,43 @@
+:host {
+
+  ::ng-deep .mat-form-field-wrapper {
+    padding: 0 !important;
+  }
+
+  .pwd-p {
+    font-size: 10px;
+    line-height: normal;
+  }
+
+  .pwd-p-confirm {
+    font-size: 10px;
+    line-height: normal;
+    color: red;
+  }
+
+  .card-section {
+    .shadow {
+      box-shadow: 0 5px 20px 0 rgba(0,0,0,.15);
+    }
+    .separation-line {
+      border-bottom: 1px solid lightgrey;
+      margin-bottom: 30px;
+    }
+  }
+
+  .footer-section {
+    p {
+      font-size: 18px;
+      line-height: 20px;
+    }
+    .separation-line {
+      border-bottom: 1px solid lightgrey;
+      margin-bottom: 30px;
+    }
+    a {
+      color: #00a34d;
+      text-decoration: underline;
+    }
+  }
+
+}

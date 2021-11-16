@@ -1,0 +1,51 @@
+:host {
+
+  ::ng-deep .mat-form-field-wrapper {
+    padding: 0 !important;
+  }
+
+  ::ng-deep .mat-card-header-text {
+    margin: 0 !important;
+  }
+
+  mat-card-subtitle {
+    text-align: justify;
+    justify-content: center;
+    display: flex;
+  }
+
+  .pwd-p {
+    font-size: 10px;
+    line-height: normal;
+  }
+
+  .border-radius0 {
+    border-radius: 0;
+  }
+
+  .separation-line {
+     border-bottom: 1px solid lightgrey;
+     margin-bottom: 30px;
+   }
+
+  .card-big-section {
+      box-shadow: 0 5px 20px 0 rgba(0,0,0,.15);
+  }
+
+  .card-small-section {
+    box-shadow: 0 5px 20px 0 rgba(0,0,0,.15);
+  }
+
+  ::ng-deep .mat-form-field-appearance-legacy.mat-form-field-disabled .mat-form-field-underline {
+    background-image: none !important;
+  }
+
+  ::ng-deep .mat-form-field-flex {
+    align-items: center !important;
+  }
+
+  ::ng-deep .mat-form-field-infix {
+    border: unset !important;
+  }
+
+}
