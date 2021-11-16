@@ -40,8 +40,8 @@ export class HeaderComponent implements OnInit {
       case Page.HOME_PAGE:
         this.router.navigate(['']);
         break;
-      case Page.COMPANY:
-        this.router.navigate(['/company']);
+      case Page.COMPANIES:
+        this.router.navigate(['/companies']);
         break;
       case Page.OFFER:
         this.router.navigate(['/offers']);

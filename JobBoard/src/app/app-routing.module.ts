@@ -12,7 +12,7 @@ import {DatabaseSettingsComponent} from './components/database-settings/database
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'company', component: CompaniesComponent},
+  {path: 'companies', component: CompaniesComponent},
   {path: 'offers', component: OffersComponent},
   {path: 'login', component: LoginComponent},
   {path: 'sign-in', component: SignInComponent},
