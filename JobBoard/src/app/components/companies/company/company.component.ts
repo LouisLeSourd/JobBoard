@@ -1,13 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {Page} from "../../../models/enum";
 import {
   Company,
   Information,
   Offers,
-  OfferTitle, UpdateUserProfile, User
 } from 'src/app/models/models';
 import {CompanyDataService} from "../../../services/company.data.service";
-import {OffersDataService} from "../../../services/offers.data.service";
 import {MatIconRegistry} from "@angular/material/icon";
 import {DomSanitizer} from "@angular/platform-browser";
 import {UserService} from "../../../services/user.service";import {Router} from "@angular/router";
@@ -22,44 +19,27 @@ import {InfosDataService} from "../../../services/infos.data.service";
 })
 export class CompanyComponent implements OnInit {
   @Input() companyId: number;
-
+  @Input() currentCompanyName: string;
   public company: Company = {} as Company;
+
   public offers: Offers[];
-  public currentOfferId: number;
-  public filteredOffers: Offers[];
-  public offerTitlse: OfferTitle[];
   public isOnOffer: boolean = false;
+  public currentOfferId: number;
   public currentOfferCompanyName: string;
-  public currentPage: Page = Page.COMPANY;
-  public page = Page;
 
 constructor(
-      private offersDataService: OffersDataService,
       private companyDataService: CompanyDataService,
       private infosDataService: InfosDataService,
       private userService: UserService,
       private router: Router,
-      private dialog: MatDialog,
-      iconRegistry: MatIconRegistry,
-      sanitizer: DomSanitizer) {
-    this.matIconRegistry(iconRegistry, sanitizer);
+      private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
     console.log("init company")
     this.loadCompany();
-  }
-
-  matIconRegistry(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer): void {
-    iconRegistry.addSvgIcon(
-        'search',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/search.svg'));
-    iconRegistry.addSvgIcon(
-        'briefcase',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/briefcase.svg'));
-    iconRegistry.addSvgIcon(
-        'delete',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/delete.svg'));
+    console.log("init offers")
+    this.loadOffers();
   }
 
   buildURL(logo: string): string {
@@ -94,10 +74,6 @@ constructor(
     }
   }
 
-  displayBorderBottom(page: Page): boolean {
-    return this.currentPage === page;
-  }
-
   loadCompany(): void {
     this.companyDataService.getCompany$(this.companyId).subscribe((company: Company[]) => {
       this.company = company[0];
@@ -106,9 +82,9 @@ constructor(
   }
 
   loadOffers(): void {
-    this.offersDataService.getOffers$().subscribe((offers: Offers[]) => {
-      this.offers = offers;
-      this.filteredOffers = offers;
+    this.companyDataService.getCompanyOffers$(this.currentCompanyName).subscribe((offres: Offers[]) => {
+      this.offers = offres;
+      console.log(this.offers);
     });
   }
 

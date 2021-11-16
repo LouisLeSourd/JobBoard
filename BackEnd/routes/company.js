@@ -14,9 +14,9 @@ router.get('/id=:id', function(req, res, next) {
 });
 
 // correspond a la route http://localhost:3000/company/id=cpn_id/offers
-router.get('/id=:id/offers', function(req, res, next) {
-    var id = req.params.id;
-    bdd.query("select offer_title, cpn_name, offer_contract_type, offer_city, offer_country, offer_publication_date, cpn_logo from Offer WHERE cpn_id=" + id + ";", (err, result, fields) => {
+router.get('/name=:name/offers', function(req, res, next) {
+    var name = req.params.name;
+    bdd.query("select offer_id, offer_title, offer_city, offer_country, offer_sector, offer_function, offer_publication_date, offer_contract_type, offer_beginning_contract, offer_required_exp, offer_language, offer_contract_duration, offer_description, Company.cpn_field, Offer.cpn_name, Offer.cpn_size, Company.cpn_logo, cpn_description, cpn_email , Company.cpn_id from Offer JOIN Company where Company.cpn_name='" + name + "' and Offer.cpn_name='" + name + "';", (err, result, fields) => {
         if (err) throw err;
         console.log(result);
         res.send(result);

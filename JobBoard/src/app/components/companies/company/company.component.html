@@ -1,55 +1,33 @@
 <div class="main-content">
-    <div class="width65 margin-auto margin-top-bottom3" *ngIf="company">
+    <div class="width65 margin-auto margin-top-bottom3"  *ngIf="company">
         <section class="tiles-section margin-top5">
             <mat-card class="height60 shadow">
                 <mat-card-content class="height-calc">
                     <section class="flex align-item-center flex-direction-row margin-bottom32">
-                        <mat-card class="width20 height100 flex align-self-baseline shadow margin-left20 pointer">
-                            <img *ngIf="offer.cpn_logo" width="100%" height="100%" [src]="'assets/icons/logos/' + offer.cpn_logo" alt>
+                        <mat-card class="width30 height100 flex align-self-baseline shadow margin-left20">
+                            <img width="100%" height="100%" [src]="buildURL(this.company.cpn_logo)" alt>
                         </mat-card>
-                        <section class="margin-left40 width65">
-                            <p class="bold font30 line-height30">{{offer.offer_title}}</p>
-                            <p>{{offer.cpn_name}}</p>
-                            <p class="grey">{{offer.offer_contract_type}} | {{offer.offer_city}} ({{offer.offer_country}})</p>
-                            <button mat-button class="bg-light-green white" (click)="apply(offer)">Postuler</button>
-                        </section>
-                    </section>
-                    <div class="separation-line"></div>
-                    <section class="width90 margin-auto flex flex-direction-row">
-                        <section class="width75 margin-right5p">
-                            <p class="bold">Entreprise : {{offer.cpn_name}}</p>
-                            <br><br>
-                            <p class="bold">Offre : {{offer.offer_title}}</p>
-                            <p class="text-align-justify">{{offer.offer_description}}</p>
-                            <br><br>
-                        </section>
-                        <section class="width21">
-                            <p class="bold">Expérience</p>
-                            <p>{{offer.offer_required_exp}}</p>
-                            <br>
-                            <p class="bold">Fonction</p>
-                            <p>{{offer.offer_function}}</p>
-                            <br>
-                            <p class="bold">Type d'entreprise</p>
-                            <p>{{offer.cpn_size}}</p>
-                            <br>
-                            <p class="bold">Date limite de candidature</p>
-                            <p>Aucune date n'a été précisée pour ce poste.</p>
+                        <section class="margin40">
+                            <p class="bold font30 line-height30">{{company.cpn_name}}</p>
+                            <p>{{company.cpn_employees_number}} employees</p>
+                            <p>{{company.cpn_size}}</p>
+                            <p>Field : {{company.cpn_field}}</p>
+                            <p>Creation year : {{company.cpn_creation_year}}</p>
+                            <p>Representative {{company.cpn_representative}}</p>
+                            <p>Turnover : {{company.cpn_turnover}}</p>
+                            <p>Email : {{company.cpn_email}}</p>
                         </section>
                     </section>
                 </mat-card-content>
-                <div class="separation-line"></div>
             </mat-card>
         </section>
-    </div>
-</div>
-<div class="width90 margin-auto margin-top-bottom3">
         <section class="tiles-section margin-top5">
-                <mat-grid-tile *ngFor="let offer of filteredOffers">
+            <mat-grid-list cols="1" rowHeight="200px">
+                <mat-grid-tile *ngFor="let offer of offers">
                     <mat-card class="width90 height60 shadow" (click)="goToOffer(offer)">
                         <mat-card-content class="height-calc flex align-item-center flex-direction-row">
                             <mat-card class="width10 height100 flex align-self-baseline shadow margin-left20 pointer">
-                                <img width="100%" height="100%" [src]="buildURL(offer.cpn_logo)" alt>
+                                <img width="100%" height="100%" [src]="buildURL(this.company.cpn_logo)" alt>
                             </mat-card>
                             <section class="margin-left40 margin-top5 width65 pointer">
                                 <p class="bold">{{offer.offer_title}}</p>
@@ -62,5 +40,7 @@
                         </mat-card-content>
                     </mat-card>
                 </mat-grid-tile>
+            </mat-grid-list>
         </section>
+    </div>
 </div>

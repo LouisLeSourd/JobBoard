@@ -84,6 +84,7 @@ export class CompaniesComponent implements OnInit {
 
   goToCompany(company: Companies): void {
     this.currentCompanyId = company.cpn_id;
+    this.currentCompanyName = company.cpn_name;
     this.isOnCompany = true;
     console.log(this.isOnCompany)
   }

@@ -13,6 +13,12 @@ export class CompanyDataService {
   getCompany$(
     companyId: number
 ): Observable<any> {
-    return this.http.get('http://localhost:3000/company/id=' + companyId + '/offers');
+    return this.http.get('http://localhost:3000/company/id=' + companyId);
+  }
+
+  getCompanyOffers$(
+    companyName: string
+): Observable<any> {
+    return this.http.get('http://localhost:3000/company/name=' + companyName + "/offers");
   }
 }

@@ -1,6 +1,7 @@
 <div class="main-content">
     <section *ngIf="isOnCompany">
-        <app-company [companyId]="currentCompanyId">
+        <app-company [companyId]="currentCompanyId"
+        [currentCompanyName]="currentCompanyName">
         </app-company>
     </section>
     <div class="width90 margin-auto margin-top-bottom3">

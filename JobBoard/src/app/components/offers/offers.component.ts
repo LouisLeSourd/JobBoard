@@ -32,7 +32,7 @@ export class OffersComponent implements OnInit {
   public currentOfferId: number;
   public currentOfferCompanyName: string;
 
-  public offerTitlse: OfferTitle[];
+  public offerTitles: OfferTitle[];
   public companySizes: CompanySize[];
   public companyFields: CompanyField[];
   public offerFunctions: OfferFunction[];
