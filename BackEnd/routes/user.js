@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var bdd = require('./module/bdd')
 
-// correspond a la route http://localhost:3000/user/id=id
+// correspond a la route http://localhost:3000/user/
 router.get('/', function(req, res, next) {
     var id = req.params.id;
     bdd.query("SELECT * from User;", (err, result, fields) => {
@@ -30,7 +30,7 @@ router.get('/id=:id', function(req, res, next) {
     })
 });
 // correspond a la route http://localhost:3000/user/updateProfile
-router.post('/updateProfile', function(req, res, next) {
+router.put('/updateProfile', function(req, res, next) {
     let request = "UPDATE User SET ";
     request = addUpdateCondition(req.body.updateUserProfile.user_city, 'user_city', request);
     request = addUpdateCondition(req.body.updateUserProfile.user_birth, 'user_birth', request);
