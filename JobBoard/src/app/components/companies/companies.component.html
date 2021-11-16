@@ -48,8 +48,10 @@
                                 </section>
                             </mat-card-content>
                             <mat-card-footer class="bg-grey padding-top-bottom8 padding-side20 border-bottom-radius4">
-                                <mat-icon svgIcon="briefcase" aria-hidden="false" matPrefix class="margin-right20"></mat-icon>
-                                <a>Voir nos offres</a>
+                                <a (click)="goToCompany(company)"
+                                    class="flex-align-center padding-side20 hover-green">
+                                    <span>Voir nos offres</span>
+                                </a>
                             </mat-card-footer>
                         </mat-card>
                     </mat-grid-tile>

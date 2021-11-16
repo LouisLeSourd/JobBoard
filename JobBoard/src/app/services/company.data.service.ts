@@ -10,13 +10,9 @@ export class CompanyDataService {
   constructor(protected http: HttpClient) {
   }
 
-  getCompanyOffers$(): Observable<any> {
-    return this.http.get('http://localhost:3000/company/offers');
-  }
-
   getCompany$(
-    companyId :number
+    id: number
 ): Observable<any> {
-    return this.http.get('http://localhost:3000/company/id=' + companyId);
+    return this.http.get('http://localhost:3000/company/id=' + id + '/offers');
   }
 }

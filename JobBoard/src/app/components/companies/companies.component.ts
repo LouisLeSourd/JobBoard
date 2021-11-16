@@ -19,8 +19,12 @@ export class CompaniesComponent implements OnInit {
   public companies: Companies[];
   public filteredCompanies: Companies[];
   public companiesFilters: CompaniesFilters = {} as CompaniesFilters;
+  public currentCompanyId: number;
+  public currentPage: Page = Page.COMPANIES;
+  public page = Page;
 
   constructor(
+      private router: Router,
       private companiesDataService: CompaniesDataService,
       iconRegistry: MatIconRegistry,
       sanitizer: DomSanitizer) {
@@ -30,6 +34,15 @@ export class CompaniesComponent implements OnInit {
   ngOnInit(): void {
     this.loadCompanySettings();
     this.loadCompanies();
+  }
+
+  goToCompany(company: Company): void {
+    this.currentCompanyId = company.cpn_id;
+    this.router.navigate((['company/id:' + this.currentCompanyId + '/offers']));
+  }
+
+  displayBorderBottom(page: Page): boolean {
+    return this.currentPage === page;
   }
 
   matIconRegistry(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer): void {

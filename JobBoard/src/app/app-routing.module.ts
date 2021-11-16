@@ -5,6 +5,7 @@ import {LoginComponent} from './components/login/login.component';
 import {SignInComponent} from './components/sign-in/sign-in.component';
 import {OffersComponent} from './components/offers/offers.component';
 import {CompaniesComponent} from './components/companies/companies.component';
+import {CompanyComponent} from './components/companies//company/company.component';
 import {HomeComponent} from './components/home/home.component';
 import {UserProfileComponent} from './components/user-profile/user-profile.component';
 import {UserSettingsComponent} from './components/user-settings/user-settings.component';
@@ -12,6 +13,7 @@ import {DatabaseSettingsComponent} from './components/database-settings/database
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'company', component: CompanyComponent},
   {path: 'companies', component: CompaniesComponent},
   {path: 'offers', component: OffersComponent},
   {path: 'login', component: LoginComponent},
